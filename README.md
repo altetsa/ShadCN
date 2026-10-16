@@ -49,7 +49,8 @@ To register this catalog under a namespace (e.g. `@altetsa`) in your project:
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "registries": {
-    "@altetsa": "https://raw.githubusercontent.com/altetsa/ShadCN/main/public/r/{name}.json"
+    "@altetsa": "https://raw.githubusercontent.com/altetsa/ShadCN/main/public/r/{name}.json",
+    "@shadcnblocks": "https://www.shadcnblocks.com/r/{name}"
   }
 }
 ```
