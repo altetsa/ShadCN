@@ -285,7 +285,59 @@ if text_dir.exists():
             item_standalone["registryDependencies"] = reg_deps
         (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
 
+# 5.5. Process components/admin
+admin_dir = REPO_ROOT / "components" / "admin"
+if admin_dir.exists():
+    for f in sorted(admin_dir.rglob("*.tsx")):
+        if f.name.endswith(".test.tsx"):
+            continue
+        raw_name = f.stem
+        name = f"admin-{raw_name}" if not raw_name.startswith("admin-") else raw_name
+        rel_path = f.relative_to(REPO_ROOT).as_posix()
+        content = f.read_text(encoding="utf-8")
+        npm_deps, reg_deps = extract_dependencies(content)
+        reg_deps = [d for d in reg_deps if d != name and d != raw_name]
+
+        item = {
+            "name": name,
+            "type": "registry:ui",
+            "title": f"Admin {format_title(raw_name)}",
+            "description": f"Admin dashboard component: {raw_name} from shadcn-admin.",
+            "files": [
+                {
+                    "path": rel_path,
+                    "type": "registry:ui"
+                }
+            ]
+        }
+        if npm_deps:
+            item["dependencies"] = npm_deps
+        if reg_deps:
+            item["registryDependencies"] = reg_deps
+        items.append(item)
+
+        item_standalone = {
+            "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+            "name": name,
+            "title": item["title"],
+            "description": item["description"],
+            "files": [
+                {
+                    "path": rel_path,
+                    "content": content,
+                    "type": "registry:ui"
+                }
+            ],
+            "type": "registry:ui"
+        }
+        if npm_deps:
+            item_standalone["dependencies"] = npm_deps
+        if reg_deps:
+            item_standalone["registryDependencies"] = reg_deps
+        (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
+
 # 6. Process blocks (both flat and subdirectories)
+
 blocks_dir = REPO_ROOT / "blocks"
 if blocks_dir.exists():
     for f in sorted(blocks_dir.rglob("*.tsx")):

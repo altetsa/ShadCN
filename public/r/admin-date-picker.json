@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-date-picker",
+  "title": "Admin Date Picker",
+  "description": "Admin dashboard component: date-picker from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/date-picker.tsx",
+      "content": "import { format } from 'date-fns'\nimport { Calendar as CalendarIcon } from 'lucide-react'\nimport { Button } from '@/components/ui/button'\nimport { Calendar } from '@/components/ui/calendar'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\ntype DatePickerProps = {\n  selected: Date | undefined\n  onSelect: (date: Date | undefined) => void\n  placeholder?: string\n}\n\nexport function DatePicker({\n  selected,\n  onSelect,\n  placeholder = 'Pick a date',\n}: DatePickerProps) {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button\n          variant='outline'\n          data-empty={!selected}\n          className='w-60 justify-start text-start font-normal data-[empty=true]:text-muted-foreground'\n        >\n          {selected ? (\n            format(selected, 'MMM d, yyyy')\n          ) : (\n            <span>{placeholder}</span>\n          )}\n          <CalendarIcon className='ms-auto h-4 w-4 opacity-50' />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className='w-auto p-0'>\n        <Calendar\n          mode='single'\n          captionLayout='dropdown'\n          selected={selected}\n          onSelect={onSelect}\n          disabled={(date: Date) =>\n            date > new Date() || date < new Date('1900-01-01')\n          }\n        />\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "date-fns",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "popover"
+  ]
+}

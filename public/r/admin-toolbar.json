@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-toolbar",
+  "title": "Admin Toolbar",
+  "description": "Admin dashboard component: toolbar from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/data-table/toolbar.tsx",
+      "content": "import { Cross2Icon } from '@radix-ui/react-icons'\nimport { type Table } from '@tanstack/react-table'\nimport { Button } from '@/components/ui/button'\nimport { Input } from '@/components/ui/input'\nimport { DataTableFacetedFilter } from './faceted-filter'\nimport { DataTableViewOptions } from './view-options'\n\ntype DataTableToolbarProps<TData> = {\n  table: Table<TData>\n  searchPlaceholder?: string\n  searchKey?: string\n  filters?: {\n    columnId: string\n    title: string\n    options: {\n      label: string\n      value: string\n      icon?: React.ComponentType<{ className?: string }>\n    }[]\n  }[]\n}\n\nexport function DataTableToolbar<TData>({\n  table,\n  searchPlaceholder = 'Filter...',\n  searchKey,\n  filters = [],\n}: DataTableToolbarProps<TData>) {\n  const isFiltered =\n    table.getState().columnFilters.length > 0 || table.getState().globalFilter\n\n  return (\n    <div className='flex items-center justify-between'>\n      <div className='flex flex-1 flex-col-reverse items-start gap-y-2 sm:flex-row sm:items-center sm:space-x-2'>\n        {searchKey ? (\n          <Input\n            placeholder={searchPlaceholder}\n            value={\n              (table.getColumn(searchKey)?.getFilterValue() as string) ?? ''\n            }\n            onChange={(event) =>\n              table.getColumn(searchKey)?.setFilterValue(event.target.value)\n            }\n            className='h-8 w-37.5 lg:w-62.5'\n          />\n        ) : (\n          <Input\n            placeholder={searchPlaceholder}\n            value={table.getState().globalFilter ?? ''}\n            onChange={(event) => table.setGlobalFilter(event.target.value)}\n            className='h-8 w-37.5 lg:w-62.5'\n          />\n        )}\n        <div className='flex gap-x-2'>\n          {filters.map((filter) => {\n            const column = table.getColumn(filter.columnId)\n            if (!column) return null\n            return (\n              <DataTableFacetedFilter\n                key={filter.columnId}\n                column={column}\n                title={filter.title}\n                options={filter.options}\n              />\n            )\n          })}\n        </div>\n        {isFiltered && (\n          <Button\n            variant='ghost'\n            onClick={() => {\n              table.resetColumnFilters()\n              table.setGlobalFilter('')\n            }}\n            className='h-8 px-2 lg:px-3'\n          >\n            Reset\n            <Cross2Icon className='ms-2 h-4 w-4' />\n          </Button>\n        )}\n      </div>\n      <DataTableViewOptions table={table} />\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "input"
+  ]
+}

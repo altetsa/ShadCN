@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-navigation-progress",
+  "title": "Admin Navigation Progress",
+  "description": "Admin dashboard component: navigation-progress from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/navigation-progress.tsx",
+      "content": "import { useEffect, useRef } from 'react'\nimport { useRouterState } from '@tanstack/react-router'\nimport LoadingBar, { type LoadingBarRef } from 'react-top-loading-bar'\n\nexport function NavigationProgress() {\n  const ref = useRef<LoadingBarRef>(null)\n  const state = useRouterState()\n\n  useEffect(() => {\n    if (state.status === 'pending') {\n      ref.current?.continuousStart()\n    } else {\n      ref.current?.complete()\n    }\n  }, [state.status])\n\n  return (\n    <LoadingBar\n      color='var(--muted-foreground)'\n      ref={ref}\n      shadow={true}\n      height={2}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-view-options",
+  "title": "Admin View Options",
+  "description": "Admin dashboard component: view-options from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/data-table/view-options.tsx",
+      "content": "import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'\nimport { MixerHorizontalIcon } from '@radix-ui/react-icons'\nimport { type Table } from '@tanstack/react-table'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuCheckboxItem,\n  DropdownMenuContent,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n} from '@/components/ui/dropdown-menu'\n\ntype DataTableViewOptionsProps<TData> = {\n  table: Table<TData>\n}\n\nexport function DataTableViewOptions<TData>({\n  table,\n}: DataTableViewOptionsProps<TData>) {\n  return (\n    <DropdownMenu modal={false}>\n      <DropdownMenuTrigger asChild>\n        <Button\n          variant='outline'\n          size='sm'\n          className='ms-auto hidden h-8 lg:flex'\n        >\n          <MixerHorizontalIcon className='size-4' />\n          View\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align='end' className='w-37.5'>\n        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        {table\n          .getAllColumns()\n          .filter(\n            (column) =>\n              typeof column.accessorFn !== 'undefined' && column.getCanHide()\n          )\n          .map((column) => {\n            return (\n              <DropdownMenuCheckboxItem\n                key={column.id}\n                className='capitalize'\n                checked={column.getIsVisible()}\n                onCheckedChange={(value) => column.toggleVisibility(!!value)}\n              >\n                {column.id}\n              </DropdownMenuCheckboxItem>\n            )\n          })}\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-dropdown-menu",
+    "@radix-ui/react-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu"
+  ]
+}

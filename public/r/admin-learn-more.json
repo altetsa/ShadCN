@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-learn-more",
+  "title": "Admin Learn More",
+  "description": "Admin dashboard component: learn-more from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/learn-more.tsx",
+      "content": "import { type Root, type Content, type Trigger } from '@radix-ui/react-popover'\nimport { CircleQuestionMark } from 'lucide-react'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\ntype LearnMoreProps = React.ComponentProps<typeof Root> & {\n  contentProps?: React.ComponentProps<typeof Content>\n  triggerProps?: React.ComponentProps<typeof Trigger>\n}\n\nexport function LearnMore({\n  children,\n  contentProps,\n  triggerProps,\n  ...props\n}: LearnMoreProps) {\n  return (\n    <Popover {...props}>\n      <PopoverTrigger\n        asChild\n        {...triggerProps}\n        className={cn('size-5 rounded-full', triggerProps?.className)}\n      >\n        <Button variant='outline' size='icon'>\n          <span className='sr-only'>Learn more</span>\n          <CircleQuestionMark className='size-4 [&>circle]:hidden' />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent\n        side='top'\n        align='start'\n        {...contentProps}\n        className={cn('text-sm text-muted-foreground', contentProps?.className)}\n      >\n        {children}\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-popover",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "popover",
+    "utils"
+  ]
+}

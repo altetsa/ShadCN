@@ -4,9 +4,10 @@
 [![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-registry-black?logo=shadcnui)](https://ui.shadcn.com/docs/registry)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev)
-[![Total Items](https://img.shields.io/badge/Registry_Items-110-emerald)](#-complete-registry-catalog)
+[![Total Items](https://img.shields.io/badge/Registry_Items-214-emerald)](#-complete-registry-catalog)
+[![Admin Template](https://img.shields.io/badge/Admin_Dashboard-shadcn--admin-blue)](shadcn-admin/)
 
-An enterprise-grade, comprehensive custom registry and knowledge base for **shadcn/ui**, **Tailwind CSS v4**, and **React 19 / 18**. Contains **50+ core UI components**, **55+ production marketing & application blocks**, custom React hooks, developer conventions, and complete architectural documentation.
+An enterprise-grade, comprehensive custom registry, admin dashboard suite, and knowledge base for **shadcn/ui**, **Tailwind CSS v4**, and **React 19 / 18**. Contains **50+ core UI components**, **55+ production marketing blocks**, **20+ admin dashboard components**, the complete **shadcn-admin** template, custom React hooks, developer conventions, and complete architectural documentation.
 
 ---
 
@@ -20,6 +21,13 @@ npx shadcn@latest add @altetsa/button
 npx shadcn@latest add @altetsa/dialog
 npx shadcn@latest add @altetsa/sidebar
 npx shadcn@latest add @altetsa/table
+
+# Add Admin Dashboard Components (from shadcn-admin)
+npx shadcn@latest add @altetsa/admin-confirm-dialog
+npx shadcn@latest add @altetsa/admin-password-input
+npx shadcn@latest add @altetsa/admin-date-picker
+npx shadcn@latest add @altetsa/admin-profile-dropdown
+npx shadcn@latest add @altetsa/admin-theme-switch
 
 # Add Marketing & Application Blocks
 npx shadcn@latest add @altetsa/hero1
@@ -35,6 +43,22 @@ npx shadcn@latest add @altetsa/utils
 # Add AI Coding Agent Rules (~/AGENTS.md)
 npx shadcn@latest add @altetsa/agent-rules
 ```
+
+---
+
+## 🖥️ Integrated `shadcn-admin` Dashboard Suite
+
+This repository now embeds the complete production-grade [shadcn-admin](shadcn-admin/) suite (based on satnaing/shadcn-admin):
+- **Data Table**: TanStack Table with server/URL state, bulk actions, column visibility, and faceted filters.
+- **Features**: Authentication (Sign In, Sign Up, OTP, Forgot Password), Dashboard Overview & Analytics, Tasks Board, Users Management, Chats, Settings, and Error pages (401, 403, 404, 500, 503).
+- **Navigation & Layout**: Collapsible responsive sidebar, dynamic header, breadcrumbs, search dialog, and theme switcher.
+- **Standalone Development**:
+  ```bash
+  cd shadcn-admin
+  pnpm install
+  pnpm dev
+  ```
+
 
 ---
 

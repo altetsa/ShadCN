@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-theme-switch",
+  "title": "Admin Theme Switch",
+  "description": "Admin dashboard component: theme-switch from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/theme-switch.tsx",
+      "content": "import { useEffect } from 'react'\nimport { Check, Moon, Sun } from 'lucide-react'\nimport { cn } from '@/lib/utils'\nimport { useTheme } from '@/context/theme-provider'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\nexport function ThemeSwitch() {\n  const { theme, setTheme } = useTheme()\n\n  /* Update theme-color meta tag\n   * when theme is updated */\n  useEffect(() => {\n    const themeColor = theme === 'dark' ? '#020817' : '#fff'\n    const metaThemeColor = document.querySelector(\"meta[name='theme-color']\")\n    if (metaThemeColor) metaThemeColor.setAttribute('content', themeColor)\n  }, [theme])\n\n  return (\n    <DropdownMenu modal={false}>\n      <DropdownMenuTrigger asChild>\n        <Button variant='ghost' size='icon' className='scale-95 rounded-full'>\n          <Sun className='size-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90' />\n          <Moon className='absolute size-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0' />\n          <span className='sr-only'>Toggle theme</span>\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align='end'>\n        <DropdownMenuItem onClick={() => setTheme('light')}>\n          Light{' '}\n          <Check\n            size={14}\n            className={cn('ms-auto', theme !== 'light' && 'hidden')}\n          />\n        </DropdownMenuItem>\n        <DropdownMenuItem onClick={() => setTheme('dark')}>\n          Dark\n          <Check\n            size={14}\n            className={cn('ms-auto', theme !== 'dark' && 'hidden')}\n          />\n        </DropdownMenuItem>\n        <DropdownMenuItem onClick={() => setTheme('system')}>\n          System\n          <Check\n            size={14}\n            className={cn('ms-auto', theme !== 'system' && 'hidden')}\n          />\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu",
+    "utils"
+  ]
+}

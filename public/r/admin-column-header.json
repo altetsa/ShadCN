@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-column-header",
+  "title": "Admin Column Header",
+  "description": "Admin dashboard component: column-header from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/data-table/column-header.tsx",
+      "content": "import {\n  ArrowDownIcon,\n  ArrowUpIcon,\n  CaretSortIcon,\n  EyeNoneIcon,\n} from '@radix-ui/react-icons'\nimport { type Column } from '@tanstack/react-table'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\ntype DataTableColumnHeaderProps<TData, TValue> =\n  React.HTMLAttributes<HTMLDivElement> & {\n    column: Column<TData, TValue>\n    title: string\n  }\n\nexport function DataTableColumnHeader<TData, TValue>({\n  column,\n  title,\n  className,\n}: DataTableColumnHeaderProps<TData, TValue>) {\n  if (!column.getCanSort()) {\n    return <div className={cn(className)}>{title}</div>\n  }\n\n  return (\n    <div className={cn('flex items-center space-x-2', className)}>\n      <DropdownMenu>\n        <DropdownMenuTrigger asChild>\n          <Button\n            variant='ghost'\n            size='sm'\n            className='h-8 data-[state=open]:bg-accent'\n          >\n            <span>{title}</span>\n            {column.getIsSorted() === 'desc' ? (\n              <ArrowDownIcon className='ms-2 h-4 w-4' />\n            ) : column.getIsSorted() === 'asc' ? (\n              <ArrowUpIcon className='ms-2 h-4 w-4' />\n            ) : (\n              <CaretSortIcon className='ms-2 h-4 w-4' />\n            )}\n          </Button>\n        </DropdownMenuTrigger>\n        <DropdownMenuContent align='start'>\n          <DropdownMenuItem onClick={() => column.toggleSorting(false)}>\n            <ArrowUpIcon className='size-3.5 text-muted-foreground/70' />\n            Asc\n          </DropdownMenuItem>\n          <DropdownMenuItem onClick={() => column.toggleSorting(true)}>\n            <ArrowDownIcon className='size-3.5 text-muted-foreground/70' />\n            Desc\n          </DropdownMenuItem>\n          {column.getCanHide() && (\n            <>\n              <DropdownMenuSeparator />\n              <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>\n                <EyeNoneIcon className='size-3.5 text-muted-foreground/70' />\n                Hide\n              </DropdownMenuItem>\n            </>\n          )}\n        </DropdownMenuContent>\n      </DropdownMenu>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-icons"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu",
+    "utils"
+  ]
+}

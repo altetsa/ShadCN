@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-authenticated-layout",
+  "title": "Admin Authenticated Layout",
+  "description": "Admin dashboard component: authenticated-layout from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/layout/authenticated-layout.tsx",
+      "content": "import { Outlet } from '@tanstack/react-router'\nimport { getCookie } from '@/lib/cookies'\nimport { cn } from '@/lib/utils'\nimport { LayoutProvider } from '@/context/layout-provider'\nimport { SearchProvider } from '@/context/search-provider'\nimport { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'\nimport { AppSidebar } from '@/components/layout/app-sidebar'\nimport { SkipToMain } from '@/components/skip-to-main'\n\ntype AuthenticatedLayoutProps = {\n  children?: React.ReactNode\n}\n\nexport function AuthenticatedLayout({ children }: AuthenticatedLayoutProps) {\n  const defaultOpen = getCookie('sidebar_state') !== 'false'\n  return (\n    <SearchProvider>\n      <LayoutProvider>\n        <SidebarProvider defaultOpen={defaultOpen}>\n          <SkipToMain />\n          <AppSidebar />\n          <SidebarInset\n            className={cn(\n              // Set content container, so we can use container queries\n              '@container/content',\n\n              // If layout is fixed, set the height\n              // to 100svh to prevent overflow\n              'has-data-[layout=fixed]:h-svh',\n\n              // If layout is fixed and sidebar is inset,\n              // set the height to 100svh - spacing (total margins) to prevent overflow\n              'peer-data-[variant=inset]:has-data-[layout=fixed]:h-[calc(100svh-(var(--spacing)*4))]'\n            )}\n          >\n            {children ?? <Outlet />}\n          </SidebarInset>\n        </SidebarProvider>\n      </LayoutProvider>\n    </SearchProvider>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "sidebar",
+    "utils"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-profile-dropdown",
+  "title": "Admin Profile Dropdown",
+  "description": "Admin dashboard component: profile-dropdown from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/profile-dropdown.tsx",
+      "content": "import { Link } from '@tanstack/react-router'\nimport useDialogState from '@/hooks/use-dialog-state'\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport { SignOutDialog } from '@/components/sign-out-dialog'\n\nexport function ProfileDropdown() {\n  const [open, setOpen] = useDialogState()\n\n  return (\n    <>\n      <DropdownMenu modal={false}>\n        <DropdownMenuTrigger asChild>\n          <Button variant='ghost' className='relative h-8 w-8 rounded-full'>\n            <Avatar className='h-8 w-8'>\n              <AvatarImage src='/avatars/01.png' alt='@shadcn' />\n              <AvatarFallback>SN</AvatarFallback>\n            </Avatar>\n          </Button>\n        </DropdownMenuTrigger>\n        <DropdownMenuContent className='w-56' align='end' forceMount>\n          <DropdownMenuLabel className='font-normal'>\n            <div className='flex flex-col gap-1.5'>\n              <p className='text-sm leading-none font-medium'>satnaing</p>\n              <p className='text-xs leading-none text-muted-foreground'>\n                satnaingdev@gmail.com\n              </p>\n            </div>\n          </DropdownMenuLabel>\n          <DropdownMenuSeparator />\n          <DropdownMenuGroup>\n            <DropdownMenuItem asChild>\n              <Link to='/settings'>\n                Profile\n                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>\n              </Link>\n            </DropdownMenuItem>\n            <DropdownMenuItem asChild>\n              <Link to='/settings'>\n                Billing\n                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>\n              </Link>\n            </DropdownMenuItem>\n            <DropdownMenuItem asChild>\n              <Link to='/settings'>\n                Settings\n                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>\n              </Link>\n            </DropdownMenuItem>\n            <DropdownMenuItem>New Team</DropdownMenuItem>\n          </DropdownMenuGroup>\n          <DropdownMenuSeparator />\n          <DropdownMenuItem variant='destructive' onClick={() => setOpen(true)}>\n            Sign out\n            <DropdownMenuShortcut className='text-current'>\n              ⇧⌘Q\n            </DropdownMenuShortcut>\n          </DropdownMenuItem>\n        </DropdownMenuContent>\n      </DropdownMenu>\n\n      <SignOutDialog open={!!open} onOpenChange={setOpen} />\n    </>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "dropdown-menu",
+    "use-dialog-state"
+  ]
+}

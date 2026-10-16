@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-search",
+  "title": "Admin Search",
+  "description": "Admin dashboard component: search from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/search.tsx",
+      "content": "import { SearchIcon } from 'lucide-react'\nimport { cn } from '@/lib/utils'\nimport { useSearch } from '@/context/search-provider'\nimport { Button } from './ui/button'\n\nexport function Search({\n  className = '',\n  placeholder = 'Search',\n  ...props\n}: React.ComponentProps<'button'> & { placeholder?: string }) {\n  const { setOpen } = useSearch()\n  return (\n    <Button\n      {...props}\n      variant='outline'\n      className={cn(\n        'group relative h-8 w-full flex-1 justify-start rounded-md bg-muted/25 text-sm font-normal text-muted-foreground shadow-none hover:bg-accent sm:w-40 sm:pe-12 md:flex-none lg:w-52 xl:w-64',\n        className\n      )}\n      aria-keyshortcuts='Meta+K Control+K'\n      onClick={() => setOpen(true)}\n    >\n      <SearchIcon\n        aria-hidden='true'\n        className='absolute inset-s-1.5 top-1/2 -translate-y-1/2'\n        size={16}\n      />\n      <span className='ms-4'>{placeholder}</span>\n      <kbd className='pointer-events-none absolute inset-e-[0.3rem] top-[0.3rem] hidden h-5 items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 select-none group-hover:bg-accent sm:flex'>\n        <span className='text-xs'>⌘</span>K\n      </kbd>\n    </Button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

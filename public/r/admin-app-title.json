@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-app-title",
+  "title": "Admin App Title",
+  "description": "Admin dashboard component: app-title from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/layout/app-title.tsx",
+      "content": "import { Link } from '@tanstack/react-router'\nimport { Menu, X } from 'lucide-react'\nimport { cn } from '@/lib/utils'\nimport {\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  useSidebar,\n} from '@/components/ui/sidebar'\nimport { Button } from '../ui/button'\n\nexport function AppTitle() {\n  const { setOpenMobile } = useSidebar()\n  return (\n    <SidebarMenu>\n      <SidebarMenuItem>\n        <SidebarMenuButton\n          size='lg'\n          className='gap-0 py-0 hover:bg-transparent active:bg-transparent'\n          asChild\n        >\n          <div>\n            <Link\n              to='/'\n              onClick={() => setOpenMobile(false)}\n              className='grid flex-1 text-start text-sm leading-tight'\n            >\n              <span className='truncate font-bold'>Shadcn-Admin</span>\n              <span className='truncate text-xs'>Vite + ShadcnUI</span>\n            </Link>\n            <ToggleSidebar />\n          </div>\n        </SidebarMenuButton>\n      </SidebarMenuItem>\n    </SidebarMenu>\n  )\n}\n\nfunction ToggleSidebar({\n  className,\n  onClick,\n  ...props\n}: React.ComponentProps<typeof Button>) {\n  const { toggleSidebar } = useSidebar()\n\n  return (\n    <Button\n      data-sidebar='trigger'\n      data-slot='sidebar-trigger'\n      variant='ghost'\n      size='icon'\n      className={cn('aspect-square size-8 max-md:scale-125', className)}\n      onClick={(event) => {\n        onClick?.(event)\n        toggleSidebar()\n      }}\n      {...props}\n    >\n      <X className='md:hidden' />\n      <Menu className='max-md:hidden' />\n      <span className='sr-only'>Toggle Sidebar</span>\n    </Button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "sidebar",
+    "utils"
+  ]
+}

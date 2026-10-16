@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-app-sidebar",
+  "title": "Admin App Sidebar",
+  "description": "Admin dashboard component: app-sidebar from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/layout/app-sidebar.tsx",
+      "content": "import { useLayout } from '@/context/layout-provider'\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarFooter,\n  SidebarHeader,\n  SidebarRail,\n} from '@/components/ui/sidebar'\n// import { AppTitle } from './app-title'\nimport { sidebarData } from './data/sidebar-data'\nimport { NavGroup } from './nav-group'\nimport { NavUser } from './nav-user'\nimport { TeamSwitcher } from './team-switcher'\n\nexport function AppSidebar() {\n  const { collapsible, variant } = useLayout()\n  return (\n    <Sidebar collapsible={collapsible} variant={variant}>\n      <SidebarHeader>\n        <TeamSwitcher teams={sidebarData.teams} />\n\n        {/* Replace <TeamSwitch /> with the following <AppTitle />\n         /* if you want to use the normal app title instead of TeamSwitch dropdown */}\n        {/* <AppTitle /> */}\n      </SidebarHeader>\n      <SidebarContent>\n        {sidebarData.navGroups.map((props) => (\n          <NavGroup key={props.title} {...props} />\n        ))}\n      </SidebarContent>\n      <SidebarFooter>\n        <NavUser user={sidebarData.user} />\n      </SidebarFooter>\n      <SidebarRail />\n    </Sidebar>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "sidebar"
+  ]
+}

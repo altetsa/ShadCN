@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-sign-out-dialog",
+  "title": "Admin Sign Out Dialog",
+  "description": "Admin dashboard component: sign-out-dialog from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/sign-out-dialog.tsx",
+      "content": "import { useNavigate, useLocation } from '@tanstack/react-router'\nimport { useAuthStore } from '@/stores/auth-store'\nimport { ConfirmDialog } from '@/components/confirm-dialog'\n\ninterface SignOutDialogProps {\n  open: boolean\n  onOpenChange: (open: boolean) => void\n}\n\nexport function SignOutDialog({ open, onOpenChange }: SignOutDialogProps) {\n  const navigate = useNavigate()\n  const location = useLocation()\n  const { auth } = useAuthStore()\n\n  const handleSignOut = () => {\n    auth.reset()\n    // Preserve current location for redirect after sign-in\n    const currentPath = location.href\n    navigate({\n      to: '/sign-in',\n      search: { redirect: currentPath },\n      replace: true,\n    })\n  }\n\n  return (\n    <ConfirmDialog\n      open={open}\n      onOpenChange={onOpenChange}\n      title='Sign out'\n      desc='Are you sure you want to sign out? You will need to sign in again to access your account.'\n      confirmText='Sign out'\n      destructive\n      handleConfirm={handleSignOut}\n      className='sm:max-w-sm'\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

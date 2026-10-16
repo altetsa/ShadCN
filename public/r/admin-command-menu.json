@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-command-menu",
+  "title": "Admin Command Menu",
+  "description": "Admin dashboard component: command-menu from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/command-menu.tsx",
+      "content": "import React from 'react'\nimport { useNavigate } from '@tanstack/react-router'\nimport { ArrowRight, ChevronRight, Laptop, Moon, Sun } from 'lucide-react'\nimport { useSearch } from '@/context/search-provider'\nimport { useTheme } from '@/context/theme-provider'\nimport {\n  CommandDialog,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n} from '@/components/ui/command'\nimport { sidebarData } from './layout/data/sidebar-data'\nimport { ScrollArea } from './ui/scroll-area'\n\nexport function CommandMenu() {\n  const navigate = useNavigate()\n  const { setTheme } = useTheme()\n  const { open, setOpen } = useSearch()\n\n  const runCommand = React.useCallback(\n    (command: () => unknown) => {\n      setOpen(false)\n      command()\n    },\n    [setOpen]\n  )\n\n  return (\n    <CommandDialog modal open={open} onOpenChange={setOpen}>\n      <CommandInput placeholder='Type a command or search...' />\n      <CommandList>\n        <ScrollArea type='hover' className='h-72 pe-1'>\n          <CommandEmpty>No results found.</CommandEmpty>\n          {sidebarData.navGroups.map((group) => (\n            <CommandGroup key={group.title} heading={group.title}>\n              {group.items.map((navItem, i) => {\n                if (navItem.url)\n                  return (\n                    <CommandItem\n                      key={`${navItem.url}-${i}`}\n                      value={navItem.title}\n                      onSelect={() => {\n                        runCommand(() => navigate({ to: navItem.url }))\n                      }}\n                    >\n                      <div className='flex size-4 items-center justify-center'>\n                        <ArrowRight className='size-2 text-muted-foreground/80' />\n                      </div>\n                      {navItem.title}\n                    </CommandItem>\n                  )\n\n                return navItem.items?.map((subItem, i) => (\n                  <CommandItem\n                    key={`${navItem.title}-${subItem.url}-${i}`}\n                    value={`${navItem.title}-${subItem.url}`}\n                    onSelect={() => {\n                      runCommand(() => navigate({ to: subItem.url }))\n                    }}\n                  >\n                    <div className='flex size-4 items-center justify-center'>\n                      <ArrowRight className='size-2 text-muted-foreground/80' />\n                    </div>\n                    {navItem.title} <ChevronRight /> {subItem.title}\n                  </CommandItem>\n                ))\n              })}\n            </CommandGroup>\n          ))}\n          <CommandSeparator />\n          <CommandGroup heading='Theme'>\n            <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>\n              <Sun /> <span>Light</span>\n            </CommandItem>\n            <CommandItem onSelect={() => runCommand(() => setTheme('dark'))}>\n              <Moon className='scale-90' />\n              <span>Dark</span>\n            </CommandItem>\n            <CommandItem onSelect={() => runCommand(() => setTheme('system'))}>\n              <Laptop />\n              <span>System</span>\n            </CommandItem>\n          </CommandGroup>\n        </ScrollArea>\n      </CommandList>\n    </CommandDialog>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "command"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-long-text",
+  "title": "Admin Long Text",
+  "description": "Admin dashboard component: long-text from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/long-text.tsx",
+      "content": "import { useRef, useState } from 'react'\nimport { cn } from '@/lib/utils'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\ntype LongTextProps = {\n  children: React.ReactNode\n  className?: string\n  contentClassName?: string\n}\n\nexport function LongText({\n  children,\n  className = '',\n  contentClassName = '',\n}: LongTextProps) {\n  const ref = useRef<HTMLDivElement>(null)\n  const [isOverflown, setIsOverflown] = useState(false)\n\n  // Use ref callback to check overflow when element is mounted\n  const refCallback = (node: HTMLDivElement | null) => {\n    ref.current = node\n    if (node && checkOverflow(node)) {\n      queueMicrotask(() => setIsOverflown(true))\n    }\n  }\n\n  if (!isOverflown)\n    return (\n      <div ref={refCallback} className={cn('truncate', className)}>\n        {children}\n      </div>\n    )\n\n  return (\n    <>\n      <div className='hidden sm:block'>\n        <TooltipProvider delayDuration={0}>\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <div ref={refCallback} className={cn('truncate', className)}>\n                {children}\n              </div>\n            </TooltipTrigger>\n            <TooltipContent>\n              <p className={contentClassName}>{children}</p>\n            </TooltipContent>\n          </Tooltip>\n        </TooltipProvider>\n      </div>\n      <div className='sm:hidden'>\n        <Popover>\n          <PopoverTrigger asChild>\n            <div ref={refCallback} className={cn('truncate', className)}>\n              {children}\n            </div>\n          </PopoverTrigger>\n          <PopoverContent className={cn('w-fit', contentClassName)}>\n            <p>{children}</p>\n          </PopoverContent>\n        </Popover>\n      </div>\n    </>\n  )\n}\n\nconst checkOverflow = (textContainer: HTMLDivElement | null) => {\n  if (textContainer) {\n    return (\n      textContainer.offsetHeight < textContainer.scrollHeight ||\n      textContainer.offsetWidth < textContainer.scrollWidth\n    )\n  }\n  return false\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "popover",
+    "tooltip",
+    "utils"
+  ]
+}

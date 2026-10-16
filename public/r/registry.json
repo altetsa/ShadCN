@@ -2058,6 +2058,551 @@
       ]
     },
     {
+      "name": "admin-coming-soon",
+      "type": "registry:ui",
+      "title": "Admin Coming Soon",
+      "description": "Admin dashboard component: coming-soon from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/coming-soon.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "admin-command-menu",
+      "type": "registry:ui",
+      "title": "Admin Command Menu",
+      "description": "Admin dashboard component: command-menu from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/command-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "command"
+      ]
+    },
+    {
+      "name": "admin-config-drawer",
+      "type": "registry:ui",
+      "title": "Admin Config Drawer",
+      "description": "Admin dashboard component: config-drawer from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/config-drawer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "sheet",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-confirm-dialog",
+      "type": "registry:ui",
+      "title": "Admin Confirm Dialog",
+      "description": "Admin dashboard component: confirm-dialog from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/confirm-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "alert-dialog",
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-bulk-actions",
+      "type": "registry:ui",
+      "title": "Admin Bulk Actions",
+      "description": "Admin dashboard component: bulk-actions from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/data-table/bulk-actions.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "separator",
+        "tooltip",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-column-header",
+      "type": "registry:ui",
+      "title": "Admin Column Header",
+      "description": "Admin dashboard component: column-header from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/data-table/column-header.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-faceted-filter",
+      "type": "registry:ui",
+      "title": "Admin Faceted Filter",
+      "description": "Admin dashboard component: faceted-filter from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/data-table/faceted-filter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "command",
+        "popover",
+        "separator",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-pagination",
+      "type": "registry:ui",
+      "title": "Admin Pagination",
+      "description": "Admin dashboard component: pagination from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/data-table/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "registryDependencies": [
+        "button",
+        "select",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-toolbar",
+      "type": "registry:ui",
+      "title": "Admin Toolbar",
+      "description": "Admin dashboard component: toolbar from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/data-table/toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ]
+    },
+    {
+      "name": "admin-view-options",
+      "type": "registry:ui",
+      "title": "Admin View Options",
+      "description": "Admin dashboard component: view-options from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/data-table/view-options.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-icons"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "name": "admin-date-picker",
+      "type": "registry:ui",
+      "title": "Admin Date Picker",
+      "description": "Admin dashboard component: date-picker from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "popover"
+      ]
+    },
+    {
+      "name": "admin-app-sidebar",
+      "type": "registry:ui",
+      "title": "Admin App Sidebar",
+      "description": "Admin dashboard component: app-sidebar from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/app-sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "sidebar"
+      ]
+    },
+    {
+      "name": "admin-app-title",
+      "type": "registry:ui",
+      "title": "Admin App Title",
+      "description": "Admin dashboard component: app-title from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/app-title.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-authenticated-layout",
+      "type": "registry:ui",
+      "title": "Admin Authenticated Layout",
+      "description": "Admin dashboard component: authenticated-layout from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/authenticated-layout.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-header",
+      "type": "registry:ui",
+      "title": "Admin Header",
+      "description": "Admin dashboard component: header from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/header.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "separator",
+        "sidebar",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-main",
+      "type": "registry:ui",
+      "title": "Admin Main",
+      "description": "Admin dashboard component: main from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/main.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-nav-group",
+      "type": "registry:ui",
+      "title": "Admin Nav Group",
+      "description": "Admin dashboard component: nav-group from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/nav-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "sidebar"
+      ]
+    },
+    {
+      "name": "admin-nav-user",
+      "type": "registry:ui",
+      "title": "Admin Nav User",
+      "description": "Admin dashboard component: nav-user from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/nav-user.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "dropdown-menu",
+        "sidebar",
+        "use-dialog-state"
+      ]
+    },
+    {
+      "name": "admin-team-switcher",
+      "type": "registry:ui",
+      "title": "Admin Team Switcher",
+      "description": "Admin dashboard component: team-switcher from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/team-switcher.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dropdown-menu",
+        "sidebar"
+      ]
+    },
+    {
+      "name": "admin-top-nav",
+      "type": "registry:ui",
+      "title": "Admin Top Nav",
+      "description": "Admin dashboard component: top-nav from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/layout/top-nav.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-learn-more",
+      "type": "registry:ui",
+      "title": "Admin Learn More",
+      "description": "Admin dashboard component: learn-more from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/learn-more.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "popover",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-long-text",
+      "type": "registry:ui",
+      "title": "Admin Long Text",
+      "description": "Admin dashboard component: long-text from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/long-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "popover",
+        "tooltip",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-navigation-progress",
+      "type": "registry:ui",
+      "title": "Admin Navigation Progress",
+      "description": "Admin dashboard component: navigation-progress from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/navigation-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "admin-password-input",
+      "type": "registry:ui",
+      "title": "Admin Password Input",
+      "description": "Admin dashboard component: password-input from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-profile-dropdown",
+      "type": "registry:ui",
+      "title": "Admin Profile Dropdown",
+      "description": "Admin dashboard component: profile-dropdown from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/profile-dropdown.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dropdown-menu",
+        "use-dialog-state"
+      ]
+    },
+    {
+      "name": "admin-search",
+      "type": "registry:ui",
+      "title": "Admin Search",
+      "description": "Admin dashboard component: search from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/search.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-select-dropdown",
+      "type": "registry:ui",
+      "title": "Admin Select Dropdown",
+      "description": "Admin dashboard component: select-dropdown from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/select-dropdown.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "form",
+        "select",
+        "utils"
+      ]
+    },
+    {
+      "name": "admin-sign-out-dialog",
+      "type": "registry:ui",
+      "title": "Admin Sign Out Dialog",
+      "description": "Admin dashboard component: sign-out-dialog from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/sign-out-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "admin-skip-to-main",
+      "type": "registry:ui",
+      "title": "Admin Skip To Main",
+      "description": "Admin dashboard component: skip-to-main from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/skip-to-main.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "admin-theme-switch",
+      "type": "registry:ui",
+      "title": "Admin Theme Switch",
+      "description": "Admin dashboard component: theme-switch from shadcn-admin.",
+      "files": [
+        {
+          "path": "components/admin/theme-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "utils"
+      ]
+    },
+    {
       "name": "about3",
       "type": "registry:block",
       "title": "About3",

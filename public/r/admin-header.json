@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-header",
+  "title": "Admin Header",
+  "description": "Admin dashboard component: header from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/layout/header.tsx",
+      "content": "import { useEffect, useState } from 'react'\nimport { cn } from '@/lib/utils'\nimport { Separator } from '@/components/ui/separator'\nimport { SidebarTrigger } from '@/components/ui/sidebar'\n\ntype HeaderProps = React.HTMLAttributes<HTMLElement> & {\n  fixed?: boolean\n  ref?: React.Ref<HTMLElement>\n}\n\nexport function Header({ className, fixed, children, ...props }: HeaderProps) {\n  const [offset, setOffset] = useState(0)\n\n  useEffect(() => {\n    const onScroll = () => {\n      setOffset(document.body.scrollTop || document.documentElement.scrollTop)\n    }\n\n    // Add scroll listener to the body\n    document.addEventListener('scroll', onScroll, { passive: true })\n\n    // Clean up the event listener on unmount\n    return () => document.removeEventListener('scroll', onScroll)\n  }, [])\n\n  return (\n    <header\n      className={cn(\n        'z-50 h-16',\n        fixed && 'header-fixed peer/header sticky top-0 w-[inherit]',\n        offset > 10 && fixed ? 'shadow' : 'shadow-none',\n        className\n      )}\n      {...props}\n    >\n      <div\n        className={cn(\n          'relative flex h-full items-center gap-3 p-4 sm:gap-4',\n          offset > 10 &&\n            fixed &&\n            'after:absolute after:inset-0 after:-z-10 after:bg-background/20 after:backdrop-blur-lg'\n        )}\n      >\n        <SidebarTrigger variant='outline' className='max-md:scale-125' />\n        <Separator orientation='vertical' className='h-6' />\n        {children}\n      </div>\n    </header>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "separator",
+    "sidebar",
+    "utils"
+  ]
+}

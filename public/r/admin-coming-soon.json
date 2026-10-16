@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-coming-soon",
+  "title": "Admin Coming Soon",
+  "description": "Admin dashboard component: coming-soon from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/coming-soon.tsx",
+      "content": "import { Telescope } from 'lucide-react'\n\nexport function ComingSoon() {\n  return (\n    <div className='h-svh'>\n      <div className='m-auto flex h-full w-full flex-col items-center justify-center gap-2'>\n        <Telescope size={72} />\n        <h1 className='text-4xl leading-tight font-bold'>Coming Soon!</h1>\n        <p className='text-center text-muted-foreground'>\n          This page has not been created yet. <br />\n          Stay tuned though!\n        </p>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ]
+}

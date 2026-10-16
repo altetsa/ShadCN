@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-confirm-dialog",
+  "title": "Admin Confirm Dialog",
+  "description": "Admin dashboard component: confirm-dialog from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/confirm-dialog.tsx",
+      "content": "import { cn } from '@/lib/utils'\nimport {\n  AlertDialog,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n} from '@/components/ui/alert-dialog'\nimport { Button } from '@/components/ui/button'\n\ntype ConfirmDialogProps = {\n  open: boolean\n  onOpenChange: (open: boolean) => void\n  title: React.ReactNode\n  disabled?: boolean\n  desc: React.JSX.Element | string\n  cancelBtnText?: string\n  confirmText?: React.ReactNode\n  destructive?: boolean\n  isLoading?: boolean\n  className?: string\n  children?: React.ReactNode\n} & (\n  | { form: string; handleConfirm?: undefined }\n  | { form?: undefined; handleConfirm: () => void }\n)\n\nexport function ConfirmDialog(props: ConfirmDialogProps) {\n  const {\n    title,\n    desc,\n    children,\n    className,\n    confirmText,\n    cancelBtnText,\n    destructive,\n    isLoading,\n    disabled = false,\n    form,\n    handleConfirm,\n    ...actions\n  } = props\n  return (\n    <AlertDialog {...actions}>\n      <AlertDialogContent className={cn(className && className)}>\n        <AlertDialogHeader className='text-start'>\n          <AlertDialogTitle>{title}</AlertDialogTitle>\n          <AlertDialogDescription asChild>\n            <div>{desc}</div>\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        {children}\n        <AlertDialogFooter>\n          <AlertDialogCancel disabled={isLoading}>\n            {cancelBtnText ?? 'Cancel'}\n          </AlertDialogCancel>\n          <Button\n            type={form ? 'submit' : 'button'}\n            form={form}\n            onClick={handleConfirm}\n            variant={destructive ? 'destructive' : 'default'}\n            disabled={disabled || isLoading}\n          >\n            {confirmText ?? 'Continue'}\n          </Button>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "alert-dialog",
+    "button",
+    "utils"
+  ]
+}

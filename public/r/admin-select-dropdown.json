@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-select-dropdown",
+  "title": "Admin Select Dropdown",
+  "description": "Admin dashboard component: select-dropdown from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/select-dropdown.tsx",
+      "content": "import { Loader } from 'lucide-react'\nimport { cn } from '@/lib/utils'\nimport { FormControl } from '@/components/ui/form'\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\ntype SelectDropdownProps = {\n  onValueChange?: (value: string) => void\n  defaultValue: string | undefined\n  placeholder?: string\n  isPending?: boolean\n  items: { label: string; value: string }[] | undefined\n  disabled?: boolean\n  className?: string\n  isControlled?: boolean\n}\n\nexport function SelectDropdown({\n  defaultValue,\n  onValueChange,\n  isPending,\n  items,\n  placeholder,\n  disabled,\n  className = '',\n  isControlled = false,\n}: SelectDropdownProps) {\n  const defaultState = isControlled\n    ? { value: defaultValue, onValueChange }\n    : { defaultValue, onValueChange }\n  return (\n    <Select {...defaultState}>\n      <FormControl>\n        <SelectTrigger disabled={disabled} className={cn(className)}>\n          <SelectValue placeholder={placeholder ?? 'Select'} />\n        </SelectTrigger>\n      </FormControl>\n      <SelectContent>\n        {isPending ? (\n          <SelectItem disabled value='loading' className='h-14'>\n            <div className='flex items-center justify-center gap-2'>\n              <Loader className='h-5 w-5 animate-spin' />\n              {'  '}\n              Loading...\n            </div>\n          </SelectItem>\n        ) : (\n          items?.map(({ label, value }) => (\n            <SelectItem key={value} value={value}>\n              {label}\n            </SelectItem>\n          ))\n        )}\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "form",
+    "select",
+    "utils"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-main",
+  "title": "Admin Main",
+  "description": "Admin dashboard component: main from shadcn-admin.",
+  "files": [
+    {
+      "path": "components/admin/layout/main.tsx",
+      "content": "import { cn } from '@/lib/utils'\n\ntype MainProps = React.HTMLAttributes<HTMLElement> & {\n  fixed?: boolean\n  fluid?: boolean\n  ref?: React.Ref<HTMLElement>\n}\n\nexport function Main({ fixed, className, fluid, ...props }: MainProps) {\n  return (\n    <main\n      data-layout={fixed ? 'fixed' : 'auto'}\n      className={cn(\n        'px-4 py-6',\n\n        // If layout is fixed, make the main container flex and grow\n        fixed && 'flex grow flex-col overflow-hidden',\n\n        // If layout is not fluid, set the max-width\n        !fluid &&\n          '@7xl/content:mx-auto @7xl/content:w-full @7xl/content:max-w-7xl',\n        className\n      )}\n      {...props}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}
