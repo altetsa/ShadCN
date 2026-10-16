@@ -1,0 +1,94 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "altetsa",
+  "homepage": "https://github.com/altetsa/ShadCN",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility function for conditionally joining Tailwind CSS class names.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Customizable button component with multiple variants and sizes.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "useMediaQuery",
+      "description": "React hook for responsive media query matching.",
+      "files": [
+        {
+          "path": "hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-copy-to-clipboard",
+      "type": "registry:hook",
+      "title": "useCopyToClipboard",
+      "description": "React hook for copying text to the clipboard with auto-resetting status.",
+      "files": [
+        {
+          "path": "hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "hero-section",
+      "type": "registry:block",
+      "title": "Hero Section",
+      "description": "Landing page hero section with headline, subtitle, and primary/secondary CTA buttons.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "blocks/hero-section.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "agent-rules",
+      "type": "registry:file",
+      "title": "Agent Rules",
+      "description": "Engineering standards and coding guidelines for AI coding agents.",
+      "files": [
+        {
+          "path": "rules/AGENTS.md",
+          "type": "registry:file",
+          "target": "~/AGENTS.md"
+        }
+      ]
+    }
+  ]
+}

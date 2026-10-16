@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "agent-rules",
+  "title": "Agent Rules",
+  "description": "Engineering standards and coding guidelines for AI coding agents.",
+  "files": [
+    {
+      "path": "rules/AGENTS.md",
+      "content": "# Engineering & UI Conventions\n\n## Code Quality & Stack Guidelines\n- Use React 19 / 18 with modern TypeScript and Tailwind CSS v4 / v3.\n- All components must provide clean accessibility (ARIA compliance, keyboard navigation).\n- Use `cn()` helper from `@/lib/utils` for composing dynamic CSS classes.\n- Prefer Radix UI primitives (`@radix-ui/*`) for headless logic and accessibility.\n- Keep components modular, composable, and tree-shakeable.\n",
+      "type": "registry:file",
+      "target": "~/AGENTS.md"
+    }
+  ],
+  "type": "registry:file"
+}

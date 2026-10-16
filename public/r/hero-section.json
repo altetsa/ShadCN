@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-section",
+  "title": "Hero Section",
+  "description": "Landing page hero section with headline, subtitle, and primary/secondary CTA buttons.",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "blocks/hero-section.tsx",
+      "content": "import * as React from \"react\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface HeroSectionProps {\n  title?: string\n  subtitle?: string\n  ctaText?: string\n  ctaHref?: string\n  secondaryCtaText?: string\n  secondaryCtaHref?: string\n}\n\nexport function HeroSection({\n  title = \"Build your component library with speed and clarity\",\n  subtitle = \"Crafted with Tailwind CSS, Radix UI, and full shadcn registry compatibility. Fully customizable and production-ready.\",\n  ctaText = \"Get Started\",\n  ctaHref = \"#get-started\",\n  secondaryCtaText = \"GitHub\",\n  secondaryCtaHref = \"https://github.com/altetsa/ShadCN\",\n}: HeroSectionProps) {\n  return (\n    <section className=\"relative overflow-hidden py-24 md:py-32 bg-background text-foreground\">\n      <div className=\"container mx-auto px-4 text-center max-w-4xl\">\n        <h1 className=\"text-4xl md:text-6xl font-extrabold tracking-tight mb-6\">\n          {title}\n        </h1>\n        <p className=\"text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto\">\n          {subtitle}\n        </p>\n        <div className=\"flex flex-wrap justify-center gap-4\">\n          <Button asChild size=\"lg\">\n            <a href={ctaHref}>{ctaText}</a>\n          </Button>\n          <Button asChild variant=\"outline\" size=\"lg\">\n            <a href={secondaryCtaHref} target=\"_blank\" rel=\"noopener noreferrer\">\n              {secondaryCtaText}\n            </a>\n          </Button>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}
