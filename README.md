@@ -11,7 +11,14 @@ An enterprise-grade, comprehensive custom registry, admin dashboard suite, and k
 
 ---
 
+## 🏛️ System Architecture
+
+![ShadCN Enterprise Architecture](assets/shadcn-architecture.svg)
+
+---
+
 ## 🚀 Quick Start
+
 
 Install any component or block directly using the official [shadcn CLI](https://ui.shadcn.com/docs/cli) without manual setup:
 
