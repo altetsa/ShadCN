@@ -4,10 +4,10 @@
 [![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-registry-black?logo=shadcnui)](https://ui.shadcn.com/docs/registry)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev)
-[![Total Items](https://img.shields.io/badge/Registry_Items-214-emerald)](#-complete-registry-catalog)
+[![Total Items](https://img.shields.io/badge/Registry_Items-217-emerald)](#-complete-registry-catalog)
 [![Admin Template](https://img.shields.io/badge/Admin_Dashboard-shadcn--admin-blue)](shadcn-admin/)
 
-An enterprise-grade, comprehensive custom registry, admin dashboard suite, and knowledge base for **shadcn/ui**, **Tailwind CSS v4**, and **React 19 / 18**. Contains **50+ core UI components**, **55+ production marketing blocks**, **20+ admin dashboard components**, the complete **shadcn-admin** template, custom React hooks, developer conventions, and complete architectural documentation.
+An enterprise-grade, comprehensive custom registry, admin dashboard suite, and knowledge base for **shadcn/ui**, **Tailwind CSS v4**, and **React 19 / 18**. Contains **50+ core UI components**, **55+ production marketing blocks**, **20+ admin dashboard components**, **Aceternity UI & Kibo UI components**, the complete **shadcn-admin** template, custom React hooks, developer conventions, and complete architectural documentation.
 
 ---
 
@@ -21,6 +21,11 @@ npx shadcn@latest add @altetsa/button
 npx shadcn@latest add @altetsa/dialog
 npx shadcn@latest add @altetsa/sidebar
 npx shadcn@latest add @altetsa/table
+
+# Add Effect & Visual Components (Aceternity & Kibo UI)
+npx shadcn@latest add @altetsa/aceternity-background-lines
+npx shadcn@latest add @altetsa/kibo-code-block
+
 
 # Add Admin Dashboard Components (from shadcn-admin)
 npx shadcn@latest add @altetsa/admin-confirm-dialog

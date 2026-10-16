@@ -2603,6 +2603,54 @@
       ]
     },
     {
+      "name": "aceternity-background-lines",
+      "type": "registry:ui",
+      "title": "Aceternity Background Lines",
+      "description": "Aceternity UI effect component: background-lines.",
+      "files": [
+        {
+          "path": "components/aceternity/background-lines.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "kibo-code-block",
+      "type": "registry:ui",
+      "title": "Kibo Kibo Code Block",
+      "description": "Kibo UI component: kibo-code-block.",
+      "files": [
+        {
+          "path": "components/kibo-ui/code-block/index.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-use-controllable-state",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "select",
+        "utils"
+      ]
+    },
+    {
+      "name": "kibo-server",
+      "type": "registry:ui",
+      "title": "Kibo Kibo Server",
+      "description": "Kibo UI component: kibo-server.",
+      "files": [
+        {
+          "path": "components/kibo-ui/code-block/server.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "about3",
       "type": "registry:block",
       "title": "About3",

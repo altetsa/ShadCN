@@ -336,7 +336,106 @@ if admin_dir.exists():
             item_standalone["registryDependencies"] = reg_deps
         (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
 
+# 5.6. Process components/aceternity
+aceternity_dir = REPO_ROOT / "components" / "aceternity"
+if aceternity_dir.exists():
+    for f in sorted(aceternity_dir.rglob("*.tsx")):
+        name = f"aceternity-{f.stem}"
+        raw_name = f.stem
+        rel_path = f.relative_to(REPO_ROOT).as_posix()
+        content = f.read_text(encoding="utf-8")
+        npm_deps, reg_deps = extract_dependencies(content)
+        reg_deps = [d for d in reg_deps if d != name and d != raw_name]
+
+        item = {
+            "name": name,
+            "type": "registry:ui",
+            "title": f"Aceternity {format_title(raw_name)}",
+            "description": f"Aceternity UI effect component: {raw_name}.",
+            "files": [
+                {
+                    "path": rel_path,
+                    "type": "registry:ui"
+                }
+            ]
+        }
+        if npm_deps:
+            item["dependencies"] = npm_deps
+        if reg_deps:
+            item["registryDependencies"] = reg_deps
+        items.append(item)
+
+        item_standalone = {
+            "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+            "name": name,
+            "title": item["title"],
+            "description": item["description"],
+            "files": [
+                {
+                    "path": rel_path,
+                    "content": content,
+                    "type": "registry:ui"
+                }
+            ],
+            "type": "registry:ui"
+        }
+        if npm_deps:
+            item_standalone["dependencies"] = npm_deps
+        if reg_deps:
+            item_standalone["registryDependencies"] = reg_deps
+        (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
+
+# 5.7. Process components/kibo-ui
+kibo_dir = REPO_ROOT / "components" / "kibo-ui"
+if kibo_dir.exists():
+    for f in sorted(kibo_dir.rglob("*.tsx")):
+        name = f"kibo-{f.parent.name}" if f.name == "index.tsx" else f"kibo-{f.stem}"
+        raw_name = f.stem
+        rel_path = f.relative_to(REPO_ROOT).as_posix()
+        content = f.read_text(encoding="utf-8")
+        npm_deps, reg_deps = extract_dependencies(content)
+        reg_deps = [d for d in reg_deps if d != name and d != raw_name]
+
+        item = {
+            "name": name,
+            "type": "registry:ui",
+            "title": f"Kibo {format_title(name)}",
+            "description": f"Kibo UI component: {name}.",
+            "files": [
+                {
+                    "path": rel_path,
+                    "type": "registry:ui"
+                }
+            ]
+        }
+        if npm_deps:
+            item["dependencies"] = npm_deps
+        if reg_deps:
+            item["registryDependencies"] = reg_deps
+        items.append(item)
+
+        item_standalone = {
+            "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+            "name": name,
+            "title": item["title"],
+            "description": item["description"],
+            "files": [
+                {
+                    "path": rel_path,
+                    "content": content,
+                    "type": "registry:ui"
+                }
+            ],
+            "type": "registry:ui"
+        }
+        if npm_deps:
+            item_standalone["dependencies"] = npm_deps
+        if reg_deps:
+            item_standalone["registryDependencies"] = reg_deps
+        (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
+
 # 6. Process blocks (both flat and subdirectories)
+
 
 blocks_dir = REPO_ROOT / "blocks"
 if blocks_dir.exists():
