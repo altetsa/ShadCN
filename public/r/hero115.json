@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero115",
+  "title": "Hero115",
+  "description": "Pre-built hero115 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/hero115.tsx",
+      "content": "import { Wifi, Zap } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\n\ninterface Hero115Props {\n  icon?: React.ReactNode;\n  heading: string;\n  description: string;\n  button: {\n    text: string;\n    icon?: React.ReactNode;\n    url: string;\n  };\n  trustText?: string;\n  imageSrc?: string;\n  imageAlt?: string;\n}\n\nconst Hero115 = ({\n  icon = <Wifi className=\"size-6\" />,\n  heading = \"Blocks built with Shadcn & Tailwind\",\n  description = \"Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.\",\n  button = {\n    text: \"Discover Features\",\n    icon: <Zap className=\"ml-2 size-4\" />,\n    url: \"https://www.shadcnblocks.com\",\n  },\n  trustText = \"Trusted by 25.000+ Businesses Worldwide\",\n  imageSrc = \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg\",\n  imageAlt = \"placeholder\",\n}: Hero115Props) => {\n  return (\n    <section className=\"overflow-hidden py-32\">\n      <div className=\"container\">\n        <div className=\"flex flex-col gap-5\">\n          <div className=\"relative flex flex-col gap-5\">\n            <div\n              style={{\n                transform: \"translate(-50%, -50%)\",\n              }}\n              className=\"absolute left-1/2 top-1/2 -z-10 mx-auto size-[800px] rounded-full border p-16 [mask-image:linear-gradient(to_top,transparent,transparent,white,white,white,transparent,transparent)] md:size-[1300px] md:p-32\"\n            >\n              <div className=\"size-full rounded-full border p-16 md:p-32\">\n                <div className=\"size-full rounded-full border\"></div>\n              </div>\n            </div>\n            <span className=\"mx-auto flex size-16 items-center justify-center rounded-full border md:size-20\">\n              {icon}\n            </span>\n            <h2 className=\"mx-auto max-w-5xl text-balance text-center text-3xl font-medium md:text-6xl\">\n              {heading}\n            </h2>\n            <p className=\"text-muted-foreground mx-auto max-w-3xl text-center md:text-lg\">\n              {description}\n            </p>\n            <div className=\"flex flex-col items-center justify-center gap-3 pb-12 pt-3\">\n              <Button size=\"lg\" asChild>\n                <a href={button.url}>\n                  {button.text} {button.icon}\n                </a>\n              </Button>\n              {trustText && (\n                <div className=\"text-muted-foreground text-xs\">{trustText}</div>\n              )}\n            </div>\n          </div>\n          <img\n            src={imageSrc}\n            alt={imageAlt}\n            className=\"mx-auto h-full max-h-[524px] w-full max-w-5xl rounded-2xl object-cover\"\n          />\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Hero115 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ]
+}

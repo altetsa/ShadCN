@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature73",
+  "title": "Feature73",
+  "description": "Pre-built feature73 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/feature73.tsx",
+      "content": "import { ArrowRight } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\n\ninterface Feature {\n  id: string;\n  heading: string;\n  description: string;\n  image: string;\n  url: string;\n}\n\ninterface Feature73Props {\n  title: string;\n  description?: string;\n  buttonUrl?: string;\n  buttonText?: string;\n  features?: Feature[];\n}\n\nconst Feature73 = ({\n  title = \"Key Features\",\n  description = \"Discover the powerful features that make our platform stand out from the rest. Built with the latest technology and designed for maximum productivity.\",\n  buttonUrl = \"https://shadcnblocks.com\",\n  buttonText = \"Book a demo\",\n  features = [\n    {\n      id: \"feature-1\",\n      heading: \"Modern Design\",\n      description:\n        \"Clean and intuitive interface built with the latest design principles. Optimized for the best user experience.\",\n      image: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg\",\n      url: \"https://shadcnblocks.com\",\n    },\n    {\n      id: \"feature-2\",\n      heading: \"Responsive Layout\",\n      description:\n        \"Fully responsive design that works seamlessly across all devices and screen sizes. Perfect for any platform.\",\n      image: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg\",\n      url: \"https://shadcnblocks.com\",\n    },\n    {\n      id: \"feature-3\",\n      heading: \"Easy Integration\",\n      description:\n        \"Simple integration process with comprehensive documentation and dedicated support team.\",\n      image: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg\",\n      url: \"https://shadcnblocks.com\",\n    },\n  ],\n}: Feature73Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"mb-8 lg:max-w-sm\">\n          <h2 className=\"mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6\">\n            {title}\n          </h2>\n          {description && (\n            <p className=\"text-muted-foreground mb-8 lg:text-lg\">\n              {description}\n            </p>\n          )}\n          {buttonUrl && (\n            <Button variant=\"link\" asChild>\n              <a\n                href={buttonUrl}\n                className=\"group flex items-center font-medium md:text-base lg:text-lg\"\n              >\n                {buttonText}\n                <ArrowRight />\n              </a>\n            </Button>\n          )}\n        </div>\n        <div className=\"grid gap-6 md:grid-cols-3 lg:gap-8\">\n          {features.map((feature) => (\n            <div\n              key={feature.id}\n              className=\"border-border flex flex-col overflow-clip rounded-xl border\"\n            >\n              <a href={feature.url}>\n                <img\n                  src={feature.image}\n                  alt={feature.heading}\n                  className=\"aspect-16/9 h-full w-full object-cover object-center transition-opacity hover:opacity-80\"\n                />\n              </a>\n              <div className=\"px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12\">\n                <h3 className=\"mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6\">\n                  {feature.heading}\n                </h3>\n                <p className=\"text-muted-foreground lg:text-lg\">\n                  {feature.description}\n                </p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Feature73 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ]
+}

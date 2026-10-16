@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta10",
+  "title": "Cta10",
+  "description": "Pre-built cta10 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/cta10.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\n\ninterface Cta10Props {\n  heading: string;\n  description: string;\n  buttons?: {\n    primary?: {\n      text: string;\n      url: string;\n    };\n    secondary?: {\n      text: string;\n      url: string;\n    };\n  };\n}\n\nconst Cta10 = ({\n  heading = \"Call to Action\",\n  description = \"Build faster with our collection of pre-built blocks. Speed up your development and ship features in record time.\",\n  buttons = {\n    primary: {\n      text: \"Buy Now\",\n      url: \"https://www.shadcnblocks.com\",\n    },\n  },\n}: Cta10Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"bg-accent flex w-full flex-col gap-16 overflow-hidden rounded-lg p-8 md:rounded-xl lg:flex-row lg:items-center lg:p-12\">\n          <div className=\"flex-1\">\n            <h3 className=\"mb-3 text-2xl font-semibold md:mb-4 md:text-4xl lg:mb-6\">\n              {heading}\n            </h3>\n            <p className=\"text-muted-foreground max-w-xl lg:text-lg\">\n              {description}\n            </p>\n          </div>\n          <div className=\"flex shrink-0 flex-col gap-2 sm:flex-row\">\n            {buttons.secondary && (\n              <Button variant=\"outline\" asChild>\n                <a href={buttons.secondary.url}>{buttons.secondary.text}</a>\n              </Button>\n            )}\n            {buttons.primary && (\n              <Button asChild variant=\"default\" size=\"lg\">\n                <a href={buttons.primary.url}>{buttons.primary.text}</a>\n              </Button>\n            )}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Cta10 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "button"
+  ]
+}

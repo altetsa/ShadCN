@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero45",
+  "title": "Hero45",
+  "description": "Pre-built hero45 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/hero45.tsx",
+      "content": "import { HandHelping, Users, Zap } from \"lucide-react\";\nimport React from \"react\";\n\nimport { Badge } from \"@/components/ui/badge\";\nimport { Separator } from \"@/components/ui/separator\";\n\ninterface Feature {\n  icon: React.ReactNode;\n  title: string;\n  description: string;\n}\n\ninterface Hero45Props {\n  badge?: string;\n  heading: string;\n  imageSrc?: string;\n  imageAlt?: string;\n  features?: Feature[];\n}\n\nconst Hero45 = ({\n  badge = \"shadcnblocks.com\",\n  heading = \"Blocks built with Shadcn & Tailwind\",\n  imageSrc = \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg\",\n  imageAlt = \"placeholder\",\n  features = [\n    {\n      icon: <HandHelping className=\"h-auto w-5\" />,\n      title: \"Flexible Support\",\n      description:\n        \"Benefit from around-the-clock assistance to keep your business running smoothly.\",\n    },\n    {\n      icon: <Users className=\"h-auto w-5\" />,\n      title: \"Collaborative Tools\",\n      description:\n        \"Enhance teamwork with tools designed to simplify project management and communication.\",\n    },\n    {\n      icon: <Zap className=\"h-auto w-5\" />,\n      title: \"Lightning Fast Speed\",\n      description:\n        \"Experience the fastest load times with our high performance servers.\",\n    },\n  ],\n}: Hero45Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container overflow-hidden\">\n        <div className=\"mb-20 flex flex-col items-center gap-6 text-center\">\n          <Badge variant=\"outline\">{badge}</Badge>\n          <h1 className=\"text-4xl font-semibold lg:text-5xl\">{heading}</h1>\n        </div>\n        <div className=\"relative mx-auto max-w-5xl\">\n          <img\n            src={imageSrc}\n            alt={imageAlt}\n            className=\"aspect-video max-h-[500px] w-full rounded-xl object-cover\"\n          />\n          <div className=\"bg-linear-to-t from-background absolute inset-0 via-transparent to-transparent\"></div>\n          <div className=\"absolute -right-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 [background-size:12px_12px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]\"></div>\n          <div className=\"absolute -left-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 [background-size:12px_12px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]\"></div>\n        </div>\n        <div className=\"mx-auto mt-10 flex max-w-5xl flex-col md:flex-row\">\n          {features.map((feature, index) => (\n            <React.Fragment key={feature.title}>\n              {index > 0 && (\n                <Separator\n                  orientation=\"vertical\"\n                  className=\"bg-linear-to-b from-muted to-muted mx-6 hidden h-auto w-[2px] via-transparent md:block\"\n                />\n              )}\n              <div\n                key={index}\n                className=\"bg-background flex grow basis-0 flex-col rounded-md p-4\"\n              >\n                <div className=\"bg-background mb-6 flex size-10 items-center justify-center rounded-full drop-shadow-lg\">\n                  {feature.icon}\n                </div>\n                <h3 className=\"mb-2 font-semibold\">{feature.title}</h3>\n                <p className=\"text-muted-foreground text-sm\">\n                  {feature.description}\n                </p>\n              </div>\n            </React.Fragment>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Hero45 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "separator"
+  ]
+}

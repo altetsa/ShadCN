@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats8",
+  "title": "Stats8",
+  "description": "Pre-built stats8 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/stats8.tsx",
+      "content": "import { ArrowRight } from \"lucide-react\";\n\ninterface Stats8Props {\n  heading?: string;\n  description?: string;\n  link?: {\n    text: string;\n    url: string;\n  };\n  stats?: Array<{\n    id: string;\n    value: string;\n    label: string;\n  }>;\n}\n\nconst Stats8 = ({\n  heading = \"Platform performance insights\",\n  description = \"Ensuring stability and scalability for all users\",\n  link = {\n    text: \"Read the full impact report\",\n    url: \"https://www.shadcnblocks.com\",\n  },\n  stats = [\n    {\n      id: \"stat-1\",\n      value: \"250%+\",\n      label: \"average growth in user engagement\",\n    },\n    {\n      id: \"stat-2\",\n      value: \"$2.5m\",\n      label: \"annual savings per enterprise partner\",\n    },\n    {\n      id: \"stat-3\",\n      value: \"200+\",\n      label: \"integrations with top industry platforms\",\n    },\n    {\n      id: \"stat-4\",\n      value: \"99.9%\",\n      label: \"customer satisfaction over the last year\",\n    },\n  ],\n}: Stats8Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"flex flex-col gap-4\">\n          <h2 className=\"text-2xl font-bold md:text-4xl\">{heading}</h2>\n          <p>{description}</p>\n          <a\n            href={link.url}\n            className=\"flex items-center gap-1 font-bold hover:underline\"\n          >\n            {link.text}\n            <ArrowRight className=\"h-auto w-4\" />\n          </a>\n        </div>\n        <div className=\"mt-14 grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-4\">\n          {stats.map((stat) => (\n            <div key={stat.id} className=\"flex flex-col gap-5\">\n              <div className=\"text-6xl font-bold\">{stat.value}</div>\n              <p>{stat.label}</p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Stats8 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ]
+}

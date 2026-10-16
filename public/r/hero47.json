@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero47",
+  "title": "Hero47",
+  "description": "Pre-built hero47 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/hero47.tsx",
+      "content": "import { ArrowUpRight } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\n\ninterface Hero47Props {\n  heading?: string;\n  subheading?: string;\n  description?: string;\n  image?: {\n    src: string;\n    alt: string;\n  };\n  buttons?: {\n    primary?: {\n      text: string;\n      url: string;\n    };\n    secondary?: {\n      text: string;\n      url: string;\n    };\n  };\n}\n\nconst Hero47 = ({\n  heading = \"Epic Blocks\",\n  subheading = \" built with shadcn/ui & Tailwind\",\n  description = \"Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.\",\n  buttons = {\n    primary: {\n      text: \"Get Started\",\n      url: \"#\",\n    },\n    secondary: {\n      text: \"Read the docs\",\n      url: \"#\",\n    },\n  },\n  image = {\n    src: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-7-tall.svg\",\n    alt: \"Placeholder\",\n  },\n}: Hero47Props) => {\n  return (\n    <section className=\"bg-background py-20 lg:py-32\">\n      <div className=\"container flex flex-col items-center gap-10 lg:my-0 lg:flex-row\">\n        <div className=\"flex flex-col gap-7 lg:w-2/3\">\n          <h2 className=\"text-foreground text-5xl font-semibold md:text-5xl lg:text-8xl\">\n            <span>{heading}</span>\n            <span className=\"text-muted-foreground\">{subheading}</span>\n          </h2>\n          <p className=\"text-muted-foreground text-base md:text-lg lg:text-xl\">\n            {description}\n          </p>\n          <div className=\"flex flex-wrap items-start gap-5 lg:gap-7\">\n            <Button asChild>\n              <a href={buttons.primary?.url}>\n                <div className=\"flex items-center gap-2\">\n                  <ArrowUpRight className=\"size-4\" />\n                </div>\n                <span className=\"whitespace-nowrap pl-4 pr-6 text-sm lg:pl-6 lg:pr-8 lg:text-base\">\n                  {buttons.primary?.text}\n                </span>\n              </a>\n            </Button>\n            <Button asChild variant=\"link\" className=\"underline\">\n              <a href={buttons.secondary?.url}>{buttons.secondary?.text}</a>\n            </Button>\n          </div>\n        </div>\n        <div className=\"relative z-10\">\n          <div className=\"left-1/2! h-[92%]! w-[69%]! absolute top-2.5 -translate-x-[52%] overflow-hidden rounded-[35px]\">\n            <img\n              src={image.src}\n              alt={image.alt}\n              className=\"size-full object-cover object-[50%_0%]\"\n            />\n          </div>\n          <img\n            className=\"relative z-10\"\n            src=\"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/mockups/phone-2.png\"\n            width={450}\n            height={889}\n            alt=\"iphone\"\n          />\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Hero47 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ]
+}

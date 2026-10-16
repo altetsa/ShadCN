@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signup1",
+  "title": "Signup1",
+  "description": "Pre-built signup1 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/signup1.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\n\ninterface Signup1Props {\n  heading?: string;\n  logo: {\n    url: string;\n    src: string;\n    alt: string;\n    title?: string;\n  };\n  buttonText?: string;\n  googleText?: string;\n  signupText?: string;\n  signupUrl?: string;\n}\n\nconst Signup1 = ({\n  heading = \"Signup\",\n  logo = {\n    url: \"https://www.shadcnblocks.com\",\n    src: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-wordmark.svg\",\n    alt: \"logo\",\n    title: \"shadcnblocks.com\",\n  },\n  buttonText = \"Create Account\",\n  signupText = \"Already a user?\",\n  signupUrl = \"https://shadcnblocks.com\",\n}: Signup1Props) => {\n  return (\n    <section className=\"bg-muted h-screen\">\n      <div className=\"flex h-full items-center justify-center\">\n        {/* Logo */}\n        <div className=\"flex flex-col items-center gap-6 lg:justify-start\">\n          <a href={logo.url}>\n            <img\n              src={logo.src}\n              alt={logo.alt}\n              title={logo.title}\n              className=\"h-10 dark:invert\"\n            />\n          </a>\n          <div className=\"min-w-sm border-muted bg-background flex w-full max-w-sm flex-col items-center gap-y-4 rounded-md border px-6 py-8 shadow-md\">\n            {heading && <h1 className=\"text-xl font-semibold\">{heading}</h1>}\n            <Input\n              type=\"email\"\n              placeholder=\"Email\"\n              className=\"text-sm\"\n              required\n            />\n            <Input\n              type=\"password\"\n              placeholder=\"Password\"\n              className=\"text-sm\"\n              required\n            />\n            <Input\n              type=\"password\"\n              placeholder=\"Confirm Password\"\n              className=\"text-sm\"\n              required\n            />\n            <Button type=\"submit\" className=\"w-full\">\n              {buttonText}\n            </Button>\n          </div>\n          <div className=\"text-muted-foreground flex justify-center gap-1 text-sm\">\n            <p>{signupText}</p>\n            <a\n              href={signupUrl}\n              className=\"text-primary font-medium hover:underline\"\n            >\n              Login\n            </a>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Signup1 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "button",
+    "input"
+  ]
+}

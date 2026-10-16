@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq1",
+  "title": "Faq1",
+  "description": "Pre-built faq1 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/faq1.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\n\ninterface FaqItem {\n  id: string;\n  question: string;\n  answer: string;\n}\n\ninterface Faq1Props {\n  heading?: string;\n  items?: FaqItem[];\n}\n\nconst Faq1 = ({\n  heading = \"Frequently asked questions\",\n  items = [\n    {\n      id: \"faq-1\",\n      question: \"What is a FAQ?\",\n      answer:\n        \"A FAQ is a list of frequently asked questions and answers on a particular topic.\",\n    },\n    {\n      id: \"faq-2\",\n      question: \"What is the purpose of a FAQ?\",\n      answer:\n        \"The purpose of a FAQ is to provide answers to common questions and help users find the information they need quickly and easily.\",\n    },\n    {\n      id: \"faq-3\",\n      question: \"How do I create a FAQ?\",\n      answer:\n        \"To create a FAQ, you need to compile a list of common questions and answers on a particular topic and organize them in a clear and easy-to-navigate format.\",\n    },\n    {\n      id: \"faq-4\",\n      question: \"What are the benefits of a FAQ?\",\n      answer:\n        \"The benefits of a FAQ include providing quick and easy access to information, reducing the number of support requests, and improving the overall user experience.\",\n    },\n    {\n      id: \"faq-5\",\n      question: \"How should I organize my FAQ?\",\n      answer:\n        \"You should organize your FAQ in a logical manner, grouping related questions together and ordering them from most basic to more advanced topics.\",\n    },\n    {\n      id: \"faq-6\",\n      question: \"How long should FAQ answers be?\",\n      answer:\n        \"FAQ answers should be concise and to the point, typically a few sentences or a short paragraph is sufficient for most questions.\",\n    },\n    {\n      id: \"faq-7\",\n      question: \"Should I include links in my FAQ?\",\n      answer:\n        \"Yes, including links to more detailed information or related resources can be very helpful for users who want to learn more about a particular topic.\",\n    },\n  ],\n}: Faq1Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container max-w-3xl\">\n        <h1 className=\"mb-4 text-3xl font-semibold md:mb-11 md:text-4xl\">\n          {heading}\n        </h1>\n        <Accordion type=\"single\" collapsible>\n          {items.map((item, index) => (\n            <AccordionItem key={index} value={`item-${index}`}>\n              <AccordionTrigger className=\"font-semibold hover:no-underline\">\n                {item.question}\n              </AccordionTrigger>\n              <AccordionContent className=\"text-muted-foreground\">\n                {item.answer}\n              </AccordionContent>\n            </AccordionItem>\n          ))}\n        </Accordion>\n      </div>\n    </section>\n  );\n};\n\nexport { Faq1 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "accordion"
+  ]
+}

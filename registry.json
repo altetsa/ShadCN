@@ -7,7 +7,7 @@
       "name": "utils",
       "type": "registry:lib",
       "title": "Utils",
-      "description": "Utility function for conditionally joining Tailwind CSS class names.",
+      "description": "Utility functions for class name merging (cn) in Tailwind CSS.",
       "dependencies": [
         "clsx",
         "tailwind-merge"
@@ -20,41 +20,10 @@
       ]
     },
     {
-      "name": "button",
-      "type": "registry:ui",
-      "title": "Button",
-      "description": "Customizable button component with multiple variants and sizes.",
-      "dependencies": [
-        "@radix-ui/react-slot",
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "components/ui/button.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "use-media-query",
-      "type": "registry:hook",
-      "title": "useMediaQuery",
-      "description": "React hook for responsive media query matching.",
-      "files": [
-        {
-          "path": "hooks/use-media-query.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
       "name": "use-copy-to-clipboard",
       "type": "registry:hook",
-      "title": "useCopyToClipboard",
-      "description": "React hook for copying text to the clipboard with auto-resetting status.",
+      "title": "Use Copy To Clipboard",
+      "description": "React hook: use-copy-to-clipboard.",
       "files": [
         {
           "path": "hooks/use-copy-to-clipboard.ts",
@@ -63,18 +32,1845 @@
       ]
     },
     {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "Use Media Query",
+      "description": "React hook: use-media-query.",
+      "files": [
+        {
+          "path": "hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "Use Mobile",
+      "description": "React hook: use-mobile.",
+      "files": [
+        {
+          "path": "hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Customizable accordion component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Customizable alert-dialog component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-alert-dialog"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Customizable alert component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Customizable aspect-ratio component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-aspect-ratio"
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Customizable avatar component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-avatar"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Customizable badge component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Customizable breadcrumb component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Customizable button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Customizable calendar component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Customizable card component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Customizable carousel component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Customizable chart component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Customizable checkbox component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Customizable collapsible component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-collapsible"
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Customizable command component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "utils"
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Customizable context-menu component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-context-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Customizable dialog component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Customizable drawer component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Customizable dropdown-menu component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "file-tree",
+      "type": "registry:ui",
+      "title": "File Tree",
+      "description": "Customizable file-tree component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/file-tree.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "scroll-area",
+        "utils"
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "Customizable form component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "label",
+        "utils"
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Customizable hover-card component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-hover-card"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input Otp",
+      "description": "Customizable input-otp component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Customizable input component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Customizable label component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-label"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "magic-card",
+      "type": "registry:ui",
+      "title": "Magic Card",
+      "description": "Customizable magic-card component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/magic-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Customizable menubar component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-menubar",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "Customizable navigation-menu component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-navigation-menu",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Customizable pagination component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Customizable popover component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Customizable progress component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-progress"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Customizable radio-group component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Customizable resizable component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Customizable scroll-area component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-scroll-area"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Customizable select component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Customizable separator component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Customizable sheet component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Customizable sidebar component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip",
+        "use-mobile",
+        "utils"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Customizable skeleton component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Customizable slider component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Customizable sonner component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "next-themes",
+        "sonner"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Customizable switch component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Customizable table component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Customizable tabs component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Customizable textarea component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Customizable toast component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toast",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "toaster",
+      "type": "registry:ui",
+      "title": "Toaster",
+      "description": "Customizable toaster component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/toaster.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "toast",
+        "use-toast"
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Customizable toggle-group component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toggle-group",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "toggle",
+        "utils"
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Customizable toggle component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-toggle",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Customizable tooltip component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tooltip"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "about3",
+      "type": "registry:block",
+      "title": "About3",
+      "description": "Pre-built about3 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/about3.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "banner1",
+      "type": "registry:block",
+      "title": "Banner1",
+      "description": "Pre-built banner1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/banner1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "blog7",
+      "type": "registry:block",
+      "title": "Blog7",
+      "description": "Pre-built blog7 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/blog7.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card"
+      ]
+    },
+    {
+      "name": "blogpost1",
+      "type": "registry:block",
+      "title": "Blogpost1",
+      "description": "Pre-built blogpost1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/blogpost1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "alert",
+        "avatar"
+      ]
+    },
+    {
+      "name": "careers4",
+      "type": "registry:block",
+      "title": "Careers4",
+      "description": "Pre-built careers4 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/careers4.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "casestudies2",
+      "type": "registry:block",
+      "title": "Casestudies2",
+      "description": "Pre-built casestudies2 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/casestudies2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "separator"
+      ]
+    },
+    {
+      "name": "casestudy8",
+      "type": "registry:block",
+      "title": "Casestudy8",
+      "description": "Pre-built casestudy8 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/casestudy8.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "changelog1",
+      "type": "registry:block",
+      "title": "Changelog1",
+      "description": "Pre-built changelog1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/changelog1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button"
+      ]
+    },
+    {
+      "name": "codeexample1",
+      "type": "registry:block",
+      "title": "Codeexample1",
+      "description": "Pre-built codeexample1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/codeexample1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "scroll-area",
+        "tabs"
+      ]
+    },
+    {
+      "name": "community1",
+      "type": "registry:block",
+      "title": "Community1",
+      "description": "Pre-built community1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/community1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "compare7",
+      "type": "registry:block",
+      "title": "Compare7",
+      "description": "Pre-built compare7 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/compare7.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "table",
+        "tooltip"
+      ]
+    },
+    {
+      "name": "compliance1",
+      "type": "registry:block",
+      "title": "Compliance1",
+      "description": "Pre-built compliance1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/compliance1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "badge"
+      ]
+    },
+    {
+      "name": "contact7",
+      "type": "registry:block",
+      "title": "Contact7",
+      "description": "Pre-built contact7 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/contact7.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "content1",
+      "type": "registry:block",
+      "title": "Content1",
+      "description": "Pre-built content1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/content1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "utils"
+      ]
+    },
+    {
+      "name": "cta10",
+      "type": "registry:block",
+      "title": "Cta10",
+      "description": "Pre-built cta10 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/cta10.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "cta11",
+      "type": "registry:block",
+      "title": "Cta11",
+      "description": "Pre-built cta11 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/cta11.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "download2",
+      "type": "registry:block",
+      "title": "Download2",
+      "description": "Pre-built download2 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/download2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "experience5",
+      "type": "registry:block",
+      "title": "Experience5",
+      "description": "Pre-built experience5 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/experience5.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "faq1",
+      "type": "registry:block",
+      "title": "Faq1",
+      "description": "Pre-built faq1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/faq1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "accordion"
+      ]
+    },
+    {
+      "name": "feature1",
+      "type": "registry:block",
+      "title": "Feature1",
+      "description": "Pre-built feature1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "feature13",
+      "type": "registry:block",
+      "title": "Feature13",
+      "description": "Pre-built feature13 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature13.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "feature166",
+      "type": "registry:block",
+      "title": "Feature166",
+      "description": "Pre-built feature166 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature166.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "feature17",
+      "type": "registry:block",
+      "title": "Feature17",
+      "description": "Pre-built feature17 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature17.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button"
+      ]
+    },
+    {
+      "name": "feature197",
+      "type": "registry:block",
+      "title": "Feature197",
+      "description": "Pre-built feature197 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature197.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "accordion"
+      ]
+    },
+    {
+      "name": "feature2",
+      "type": "registry:block",
+      "title": "Feature2",
+      "description": "Pre-built feature2 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "feature43",
+      "type": "registry:block",
+      "title": "Feature43",
+      "description": "Pre-built feature43 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature43.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "feature51",
+      "type": "registry:block",
+      "title": "Feature51",
+      "description": "Pre-built feature51 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature51.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tabs"
+      ]
+    },
+    {
+      "name": "feature72",
+      "type": "registry:block",
+      "title": "Feature72",
+      "description": "Pre-built feature72 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature72.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "feature73",
+      "type": "registry:block",
+      "title": "Feature73",
+      "description": "Pre-built feature73 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/feature73.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "footer2",
+      "type": "registry:block",
+      "title": "Footer2",
+      "description": "Pre-built footer2 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/footer2.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "gallery6",
+      "type": "registry:block",
+      "title": "Gallery6",
+      "description": "Pre-built gallery6 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/gallery6.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "carousel"
+      ]
+    },
+    {
       "name": "hero-section",
       "type": "registry:block",
       "title": "Hero Section",
-      "description": "Landing page hero section with headline, subtitle, and primary/secondary CTA buttons.",
-      "registryDependencies": [
-        "button"
-      ],
+      "description": "Pre-built hero-section block section for marketing and product interfaces.",
       "files": [
         {
           "path": "blocks/hero-section.tsx",
           "type": "registry:block"
         }
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "hero1",
+      "type": "registry:block",
+      "title": "Hero1",
+      "description": "Pre-built hero1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button"
+      ]
+    },
+    {
+      "name": "hero115",
+      "type": "registry:block",
+      "title": "Hero115",
+      "description": "Pre-built hero115 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero115.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "hero3",
+      "type": "registry:block",
+      "title": "Hero3",
+      "description": "Pre-built hero3 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero3.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button"
+      ]
+    },
+    {
+      "name": "hero45",
+      "type": "registry:block",
+      "title": "Hero45",
+      "description": "Pre-built hero45 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero45.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "separator"
+      ]
+    },
+    {
+      "name": "hero47",
+      "type": "registry:block",
+      "title": "Hero47",
+      "description": "Pre-built hero47 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero47.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "hero7",
+      "type": "registry:block",
+      "title": "Hero7",
+      "description": "Pre-built hero7 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero7.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button"
+      ]
+    },
+    {
+      "name": "integration3",
+      "type": "registry:block",
+      "title": "Integration3",
+      "description": "Pre-built integration3 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/integration3.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "list2",
+      "type": "registry:block",
+      "title": "List2",
+      "description": "Pre-built list2 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/list2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "separator"
+      ]
+    },
+    {
+      "name": "login1",
+      "type": "registry:block",
+      "title": "Login1",
+      "description": "Pre-built login1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/login1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ]
+    },
+    {
+      "name": "logos8",
+      "type": "registry:block",
+      "title": "Logos8",
+      "description": "Pre-built logos8 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/logos8.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "navbar1",
+      "type": "registry:block",
+      "title": "Navbar1",
+      "description": "Pre-built navbar1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/navbar1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "accordion",
+        "button",
+        "navigation-menu",
+        "sheet"
+      ]
+    },
+    {
+      "name": "pricing2",
+      "type": "registry:block",
+      "title": "Pricing2",
+      "description": "Pre-built pricing2 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/pricing2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "separator",
+        "switch"
+      ]
+    },
+    {
+      "name": "pricing4",
+      "type": "registry:block",
+      "title": "Pricing4",
+      "description": "Pre-built pricing4 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/pricing4.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "label",
+        "radio-group",
+        "separator"
+      ]
+    },
+    {
+      "name": "pricing6",
+      "type": "registry:block",
+      "title": "Pricing6",
+      "description": "Pre-built pricing6 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/pricing6.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "separator"
+      ]
+    },
+    {
+      "name": "resource1",
+      "type": "registry:block",
+      "title": "Resource1",
+      "description": "Pre-built resource1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/resource1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "service1",
+      "type": "registry:block",
+      "title": "Service1",
+      "description": "Pre-built service1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/service1.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "services4",
+      "type": "registry:block",
+      "title": "Services4",
+      "description": "Pre-built services4 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/services4.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "signup1",
+      "type": "registry:block",
+      "title": "Signup1",
+      "description": "Pre-built signup1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/signup1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ]
+    },
+    {
+      "name": "stats8",
+      "type": "registry:block",
+      "title": "Stats8",
+      "description": "Pre-built stats8 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/stats8.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "team1",
+      "type": "registry:block",
+      "title": "Team1",
+      "description": "Pre-built team1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/team1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "avatar"
+      ]
+    },
+    {
+      "name": "testimonial10",
+      "type": "registry:block",
+      "title": "Testimonial10",
+      "description": "Pre-built testimonial10 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/testimonial10.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "avatar"
+      ]
+    },
+    {
+      "name": "timeline9",
+      "type": "registry:block",
+      "title": "Timeline9",
+      "description": "Pre-built timeline9 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/timeline9.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "card",
+        "separator"
+      ]
+    },
+    {
+      "name": "waitlist1",
+      "type": "registry:block",
+      "title": "Waitlist1",
+      "description": "Pre-built waitlist1 block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/waitlist1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "input"
       ]
     },
     {

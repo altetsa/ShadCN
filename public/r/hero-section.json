@@ -2,10 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-section",
   "title": "Hero Section",
-  "description": "Landing page hero section with headline, subtitle, and primary/secondary CTA buttons.",
-  "registryDependencies": [
-    "button"
-  ],
+  "description": "Pre-built hero-section block section for marketing and product interfaces.",
   "files": [
     {
       "path": "blocks/hero-section.tsx",
@@ -13,5 +10,8 @@
       "type": "registry:block"
     }
   ],
-  "type": "registry:block"
+  "type": "registry:block",
+  "registryDependencies": [
+    "button"
+  ]
 }

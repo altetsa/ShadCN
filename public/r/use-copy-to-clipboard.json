@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-copy-to-clipboard",
-  "title": "useCopyToClipboard",
-  "description": "React hook for copying text to the clipboard with auto-resetting status.",
+  "title": "Use Copy To Clipboard",
+  "description": "React hook: use-copy-to-clipboard.",
   "files": [
     {
       "path": "hooks/use-copy-to-clipboard.ts",

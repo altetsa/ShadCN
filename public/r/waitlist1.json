@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "waitlist1",
+  "title": "Waitlist1",
+  "description": "Pre-built waitlist1 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/waitlist1.tsx",
+      "content": "import React from \"react\";\n\nimport { BackgroundLines } from \"@/components/aceternity/background-lines\";\nimport { Avatar, AvatarImage } from \"@/components/ui/avatar\";\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\n\nconst Waitlist1 = () => {\n  return (\n    <section className=\"flex h-full min-h-screen w-screen items-center justify-center overflow-hidden py-32\">\n      <BackgroundLines className=\"container flex w-full flex-col items-center justify-center px-4 md:h-full\">\n        <h2 className=\"relative z-20 py-2 text-center font-sans text-5xl font-semibold tracking-tighter md:py-10 lg:text-8xl\">\n          Join the Waitlist\n        </h2>\n        <p className=\"text-md text-muted-foreground mx-auto max-w-xl text-center lg:text-lg\">\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n          eiusmod tempor incididunt ut labore et dolore magna aliqua.\n        </p>\n        <div className=\"relative z-20 mt-10 flex w-full max-w-md items-center gap-3 rounded-full p-1\">\n          <Input\n            className=\"bg-muted h-10 w-full rounded-xl border-none shadow-none ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-0 active:ring-0\"\n            placeholder=\"Enter your email\"\n          />\n          <Button className=\"h-10 rounded-xl\">Join the Waitlist</Button>\n        </div>\n        <div className=\"mt-10 flex items-center gap-2\">\n          <span className=\"inline-flex items-center -space-x-2.5\">\n            {Array.from({ length: 6 }).map((_, index) => (\n              <Avatar key={index} className=\"size-8\">\n                <AvatarImage\n                  src={`https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/avatar${index + 1}.png`}\n                  alt=\"placeholder\"\n                />\n              </Avatar>\n            ))}\n          </span>\n          <p className=\"text-muted-foreground/80 tracking-tight\">\n            +1000 people already joined\n          </p>\n        </div>\n      </BackgroundLines>\n    </section>\n  );\n};\n\nexport { Waitlist1 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "input"
+  ]
+}

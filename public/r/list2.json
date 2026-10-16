@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "list2",
+  "title": "List2",
+  "description": "Pre-built list2 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/list2.tsx",
+      "content": "import {\n  ArrowRight,\n  Award,\n  Building2,\n  HeartHandshake,\n  Leaf,\n  Lightbulb,\n  Trophy,\n} from \"lucide-react\";\nimport React from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Separator } from \"@/components/ui/separator\";\n\ninterface ListItem {\n  icon: React.ReactNode;\n  title: string;\n  category: string;\n  description: string;\n  link: string;\n}\n\ninterface List2Props {\n  heading?: string;\n  items?: ListItem[];\n}\n\nconst List2 = ({\n  heading = \"Our Achievements & Recognition\",\n  items = [\n    {\n      icon: <Trophy />,\n      title: \"Industry Recognition\",\n      category: \"Achievement\",\n      description: \"Outstanding Performance Award.\",\n      link: \"#\",\n    },\n    {\n      icon: <Award />,\n      title: \"Excellence Award\",\n      category: \"Recognition\",\n      description: \"Best in Category Winner.\",\n      link: \"#\",\n    },\n    {\n      icon: <Lightbulb />,\n      title: \"Innovation Prize\",\n      category: \"Technology\",\n      description: \"Breakthrough Solution of the Year.\",\n      link: \"#\",\n    },\n    {\n      icon: <HeartHandshake />,\n      title: \"Customer Success\",\n      category: \"Service\",\n      description: \"Top-Rated Solution Provider.\",\n      link: \"#\",\n    },\n    {\n      icon: <Building2 />,\n      title: \"Global Leadership\",\n      category: \"Management\",\n      description: \"Executive Team of the Year.\",\n      link: \"#\",\n    },\n    {\n      icon: <Leaf />,\n      title: \"Sustainability Impact\",\n      category: \"Environmental\",\n      description: \"Green Initiative Excellence.\",\n      link: \"#\",\n    },\n  ],\n}: List2Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container px-0 md:px-8\">\n        <h1 className=\"mb-10 px-4 text-3xl font-semibold md:mb-14 md:text-4xl\">\n          {heading}\n        </h1>\n        <div className=\"flex flex-col\">\n          <Separator />\n          {items.map((item, index) => (\n            <React.Fragment key={index}>\n              <div className=\"grid items-center gap-4 px-4 py-5 md:grid-cols-4\">\n                <div className=\"order-2 flex items-center gap-2 md:order-none\">\n                  <span className=\"bg-muted flex h-14 w-16 shrink-0 items-center justify-center rounded-md\">\n                    {item.icon}\n                  </span>\n                  <div className=\"flex flex-col gap-1\">\n                    <h3 className=\"font-semibold\">{item.title}</h3>\n                    <p className=\"text-muted-foreground text-sm\">\n                      {item.category}\n                    </p>\n                  </div>\n                </div>\n                <p className=\"order-1 text-2xl font-semibold md:order-none md:col-span-2\">\n                  {item.description}\n                </p>\n                <Button variant=\"outline\" asChild>\n                  <a\n                    className=\"order-3 ml-auto w-fit gap-2 md:order-none\"\n                    href={item.link}\n                  >\n                    <span>View project</span>\n                    <ArrowRight className=\"h-4 w-4\" />\n                  </a>\n                </Button>\n              </div>\n              <Separator />\n            </React.Fragment>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { List2 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "separator"
+  ]
+}

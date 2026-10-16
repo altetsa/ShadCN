@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "community1",
+  "title": "Community1",
+  "description": "Pre-built community1 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/community1.tsx",
+      "content": "import { FaDiscord, FaGithub, FaXTwitter } from \"react-icons/fa6\";\n\nimport { Button } from \"@/components/ui/button\";\n\nconst Community1 = () => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"flex flex-col items-center gap-5\">\n          <img src=\"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg\" alt=\"logo\" className=\"size-10\" />\n          <h2 className=\"text-center text-3xl font-semibold\">\n            Join our community\n            <br />\n            <span className=\"text-muted-foreground/80\">\n              of designers & developers\n            </span>\n          </h2>\n          <div className=\"flex items-center gap-4\">\n            <Button size=\"lg\" variant=\"outline\" asChild>\n              <a\n                href=\"https://x.com/shadcnblocks\"\n                target=\"_blank\"\n                className=\"size-10\"\n              >\n                <FaXTwitter />\n              </a>\n            </Button>\n            <Button size=\"lg\" variant=\"outline\" asChild>\n              <a\n                href=\"https://github.com/shadcnblocks\"\n                target=\"_blank\"\n                className=\"size-10\"\n              >\n                <FaGithub />\n              </a>\n            </Button>\n            <Button size=\"lg\" variant=\"outline\" asChild>\n              <a\n                href=\"https://shadcnblocks.com\"\n                target=\"_blank\"\n                className=\"size-10\"\n              >\n                <FaDiscord />\n              </a>\n            </Button>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Community1 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "button"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "team1",
+  "title": "Team1",
+  "description": "Pre-built team1 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/team1.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\n\ninterface TeamMember {\n  id: string;\n  name: string;\n  role: string;\n  avatar: string;\n}\n\ninterface Team1Props {\n  heading?: string;\n  subheading?: string;\n  description?: string;\n  members?: TeamMember[];\n}\n\nconst Team1 = ({\n  heading = \"Team\",\n  description = \"Our diverse team of experts brings together decades of experience in design, engineering, and product development.\",\n  members = [\n    {\n      id: \"member-1\",\n      name: \"Sarah Chen\",\n      role: \"CEO & Founder\",\n      avatar: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp\",\n    },\n    {\n      id: \"member-2\",\n      name: \"Marcus Rodriguez\",\n      role: \"CTO\",\n      avatar: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp\",\n    },\n    {\n      id: \"member-3\",\n      name: \"Emily Watson\",\n      role: \"Head of Design\",\n      avatar: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp\",\n    },\n    {\n      id: \"member-4\",\n      name: \"David Kim\",\n      role: \"Lead Engineer\",\n      avatar: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp\",\n    },\n    {\n      id: \"member-5\",\n      name: \"Lisa Thompson\",\n      role: \"Product Manager\",\n      avatar: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp\",\n    },\n    {\n      id: \"member-6\",\n      name: \"Alex Johnson\",\n      role: \"UX Designer\",\n      avatar: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-6.webp\",\n    },\n  ],\n}: Team1Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container flex flex-col items-center text-center\">\n        <h2 className=\"my-6 text-pretty text-2xl font-bold lg:text-4xl\">\n          {heading}\n        </h2>\n        <p className=\"text-muted-foreground mb-8 max-w-3xl lg:text-xl\">\n          {description}\n        </p>\n      </div>\n      <div className=\"container mt-16 grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3\">\n        {members.map((member) => (\n          <div key={member.id} className=\"flex flex-col items-center\">\n            <Avatar className=\"mb-4 size-20 border md:mb-5 lg:size-24\">\n              <AvatarImage src={member.avatar} />\n              <AvatarFallback>{member.name}</AvatarFallback>\n            </Avatar>\n            <p className=\"text-center font-medium\">{member.name}</p>\n            <p className=\"text-muted-foreground text-center\">{member.role}</p>\n          </div>\n        ))}\n      </div>\n    </section>\n  );\n};\n\nexport { Team1 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "avatar"
+  ]
+}

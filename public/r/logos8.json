@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logos8",
+  "title": "Logos8",
+  "description": "Pre-built logos8 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/logos8.tsx",
+      "content": "interface Logo {\n  name: string;\n  logo: string;\n  className: string;\n}\n\ninterface Logos8Props {\n  title?: string;\n  subtitle?: string;\n  logos?: Logo[];\n}\n\nconst Logos8 = ({\n  title = \"Trusted by these companies\",\n  subtitle = \"Used by the world's leading companies\",\n  logos = [\n    {\n      name: \"Vercel\",\n      logo: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/vercel-wordmark.svg\",\n      className: \"h-7 w-auto\",\n    },\n    {\n      name: \"Astro\",\n      logo: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/tailwind-wordmark.svg\",\n      className: \"h-5 w-auto\",\n    },\n    {\n      name: \"Supabase\",\n      logo: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/supabase-wordmark.svg\",\n      className: \"h-6 w-auto\",\n    },\n    {\n      name: \"Figma\",\n      logo: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/figma-wordmark.svg\",\n      className: \"h-5 w-auto\",\n    },\n    {\n      name: \"Astro\",\n      logo: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg\",\n      className: \"h-6 w-auto\",\n    },\n  ],\n}: Logos8Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"flex flex-col items-center text-center\">\n          <h2 className=\"text-3xl font-bold\">{title}</h2>\n          <p className=\"text-muted-foreground mt-1\">{subtitle}</p>\n          <div className=\"mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 lg:gap-12\">\n            {logos.map((logo, index) => (\n              <img\n                key={index}\n                src={logo.logo}\n                alt={`${logo.name} logo`}\n                width={109}\n                height={48}\n                className={logo.className}\n              />\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Logos8 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block"
+}

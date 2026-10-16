@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magic-card",
+  "title": "Magic Card",
+  "description": "Customizable magic-card component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/magic-card.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n  gradientSize?: number;\n  gradientColor?: string;\n  gradientOpacity?: number;\n  gradientFrom?: string;\n  gradientTo?: string;\n}\n\nexport const MagicCard = ({\n  children,\n  className,\n  gradientSize = 200,\n  gradientColor = \"#262626\",\n  gradientOpacity = 0.8,\n  gradientFrom = \"#9E7AFF\",\n  gradientTo = \"#FE8BBB\",\n  ...props\n}: MagicCardProps) => {\n  const divRef = React.useRef<HTMLDivElement>(null);\n  const [position, setPosition] = React.useState<{ x: number; y: number }>({ x: 0, y: 0 });\n  const [opacity, setOpacity] = React.useState<number>(0);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!divRef.current) return;\n\n    const rect = divRef.current.getBoundingClientRect();\n    const x = e.clientX - rect.left;\n    const y = e.clientY - rect.top;\n\n    setPosition({ x, y });\n    setOpacity(1);\n  };\n\n  const handleMouseLeave = () => {\n    setOpacity(0);\n  };\n\n  return (\n    <div\n      ref={divRef}\n      className={cn(\n        \"relative overflow-hidden rounded-xl border bg-card\",\n        className\n      )}\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n      {...props}\n    >\n      <div\n        className=\"pointer-events-none absolute -inset-px opacity-0 transition duration-300\"\n        style={{\n          opacity,\n          background: `radial-gradient(${gradientSize}px circle at ${position.x}px ${position.y}px, ${gradientColor}, transparent ${gradientOpacity})`\n        }}\n      />\n      <div\n        className=\"pointer-events-none absolute -inset-px opacity-0 transition duration-300\"\n        style={{\n          opacity,\n          background: `radial-gradient(${gradientSize}px circle at ${position.x}px ${position.y}px, ${gradientFrom}, ${gradientTo})`,\n          backgroundClip: 'padding-box',\n          WebkitBackgroundClip: 'padding-box',\n        }}\n      />\n      {children}\n    </div>\n  );\n}; ",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

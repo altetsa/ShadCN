@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing6",
+  "title": "Pricing6",
+  "description": "Pre-built pricing6 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/pricing6.tsx",
+      "content": "import { Check } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Separator } from \"@/components/ui/separator\";\n\ninterface Pricing6Props {\n  heading: string;\n  description?: string;\n  price?: string | number;\n  priceSuffix?: string;\n  features?: string[][];\n  buttonText?: string;\n}\n\nconst defaultFeatures = [\n  [\"Unlimited\", \"Integrations\", \"24/7 support\"],\n  [\"Live collaborations\", \"Unlimited storage\", \"30-day money back\"],\n  [\"Unlimited members\", \"Customization\", \"Unlimited users\"],\n];\n\nconst Pricing6 = ({\n  heading = \"Pricing\",\n  description = \"Simple pricing with a free 7 day trial.\",\n  price = 29,\n  priceSuffix = \"/mo\",\n  features = defaultFeatures,\n  buttonText = \"Start free trial\",\n}: Pricing6Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"mx-auto flex max-w-5xl flex-col items-center gap-6 text-center\">\n          <h2 className=\"text-pretty text-4xl font-semibold lg:text-6xl\">\n            {heading}\n          </h2>\n          <p className=\"text-muted-foreground max-w-md lg:text-xl\">\n            {description}\n          </p>\n          <div className=\"mx-auto flex w-full flex-col rounded-lg border p-6 sm:w-fit sm:min-w-80\">\n            <div className=\"flex justify-center\">\n              <span className=\"text-lg font-semibold\">$</span>\n              <span className=\"text-6xl font-semibold\">{price}</span>\n              <span className=\"text-muted-foreground self-end\">\n                {priceSuffix}\n              </span>\n            </div>\n            <div className=\"my-6\">\n              {features.map((featureGroup, idx) => (\n                <div key={idx}>\n                  <ul className=\"flex flex-col gap-3\">\n                    {featureGroup.map((feature, i) => (\n                      <li\n                        key={i}\n                        className=\"flex items-center justify-between gap-2 text-sm font-medium\"\n                      >\n                        {feature} <Check className=\"inline size-4 shrink-0\" />\n                      </li>\n                    ))}\n                  </ul>\n                  {idx < features.length - 1 && <Separator className=\"my-6\" />}\n                </div>\n              ))}\n            </div>\n            <Button>{buttonText}</Button>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Pricing6 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "separator"
+  ]
+}

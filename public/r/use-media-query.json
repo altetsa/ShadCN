@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-media-query",
-  "title": "useMediaQuery",
-  "description": "React hook for responsive media query matching.",
+  "title": "Use Media Query",
+  "description": "React hook: use-media-query.",
   "files": [
     {
       "path": "hooks/use-media-query.ts",

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "careers4",
+  "title": "Careers4",
+  "description": "Pre-built careers4 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/careers4.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\n\ninterface JobOpening {\n  title: string;\n  location: string;\n  url: string;\n}\n\ninterface JobCategory {\n  category: string;\n  openings: JobOpening[];\n}\n\ninterface Careers4Props {\n  heading?: string;\n  jobs?: JobCategory[];\n}\n\nconst Careers4 = ({\n  heading = \"Job Openings\",\n  jobs = [\n    {\n      category: \"Engineering\",\n      openings: [\n        {\n          title: \"Senior Frontend Developer\",\n          location: \"Remote\",\n          url: \"#\",\n        },\n        {\n          title: \"UI/UX Designer\",\n          location: \"San Francisco\",\n          url: \"#\",\n        },\n        {\n          title: \"React Developer\",\n          location: \"Remote\",\n          url: \"#\",\n        },\n        {\n          title: \"Technical Lead\",\n          location: \"London\",\n          url: \"#\",\n        },\n      ],\n    },\n    {\n      category: \"Design\",\n      openings: [\n        {\n          title: \"Product Designer\",\n          location: \"Remote\",\n          url: \"#\",\n        },\n        {\n          title: \"Visual Designer\",\n          location: \"Berlin\",\n          url: \"#\",\n        },\n      ],\n    },\n  ],\n}: Careers4Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"mx-auto max-w-xl\">\n          <div className=\"text-center lg:text-left\">\n            <h1 className=\"text-left text-3xl font-medium md:text-4xl\">\n              {heading}\n            </h1>\n          </div>\n          <div className=\"mx-auto mt-6 flex flex-col gap-16 md:mt-14\">\n            {jobs.map((jobCategory) => (\n              <div key={jobCategory.category} className=\"grid\">\n                <h2 className=\"border-b pb-4 text-xl font-bold\">\n                  {jobCategory.category}\n                </h2>\n                {jobCategory.openings.map((job) => (\n                  <div\n                    key={job.title}\n                    className=\"flex items-center justify-between border-b py-4\"\n                  >\n                    <a href={job.url} className=\"font-semibold hover:underline\">\n                      {job.title}\n                    </a>\n                    <Button\n                      variant=\"outline\"\n                      size=\"sm\"\n                      className=\"pointer-events-none rounded-full\"\n                    >\n                      {job.location}\n                    </Button>\n                  </div>\n                ))}\n              </div>\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Careers4 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "button"
+  ]
+}

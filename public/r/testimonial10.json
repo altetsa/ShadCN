@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "testimonial10",
+  "title": "Testimonial10",
+  "description": "Pre-built testimonial10 block section for marketing and product interfaces.",
+  "files": [
+    {
+      "path": "blocks/testimonial10.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\n\ninterface Testimonial10Props {\n  quote?: string;\n  author?: {\n    name: string;\n    role: string;\n    avatar: {\n      src: string;\n      alt: string;\n    };\n  };\n}\n\nconst Testimonial10 = ({\n  quote = \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.\",\n  author = {\n    name: \"Customer Name\",\n    role: \"Role\",\n    avatar: {\n      src: \"https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp\",\n      alt: \"Customer Name\",\n    },\n  },\n}: Testimonial10Props) => {\n  return (\n    <section className=\"py-32\">\n      <div className=\"container\">\n        <div className=\"flex flex-col items-center text-center\">\n          <p className=\"mb-16 max-w-4xl px-8 font-medium lg:text-3xl\">\n            &ldquo;{quote}&rdquo;\n          </p>\n          <div className=\"flex items-center gap-2 md:gap-4\">\n            <Avatar className=\"size-12 md:size-16\">\n              <AvatarImage src={author.avatar.src} alt={author.avatar.alt} />\n              <AvatarFallback>{author.name}</AvatarFallback>\n            </Avatar>\n            <div className=\"text-left\">\n              <p className=\"text-sm font-medium md:text-base\">{author.name}</p>\n              <p className=\"text-muted-foreground text-sm md:text-base\">\n                {author.role}\n              </p>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Testimonial10 };\n",
+      "type": "registry:block"
+    }
+  ],
+  "type": "registry:block",
+  "registryDependencies": [
+    "avatar"
+  ]
+}
