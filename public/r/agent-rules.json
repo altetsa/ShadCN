@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "rules/AGENTS.md",
-      "content": "# Engineering & UI Conventions\n\n## Code Quality & Stack Guidelines\n- Use React 19 / 18 with modern TypeScript and Tailwind CSS v4 / v3.\n- All components must provide clean accessibility (ARIA compliance, keyboard navigation).\n- Use `cn()` helper from `@/lib/utils` for composing dynamic CSS classes.\n- Prefer Radix UI primitives (`@radix-ui/*`) for headless logic and accessibility.\n- Keep components modular, composable, and tree-shakeable.\n",
+      "content": "# Engineering & UI Conventions\n\n## Code Quality & Stack Guidelines\n- Use React 19 / 18 with modern TypeScript and Tailwind CSS v4 / v3.\n- All components must provide clean accessibility (ARIA compliance, keyboard navigation).\n- Use `cn()` helper (`export { cn } from \"cn\"` / `@/lib/utils`) for high-performance class merging, replacing legacy `clsx` + `tailwind-merge`.\n- Prefer Radix UI primitives (`@radix-ui/*`) for headless logic and accessibility.\n- Keep components modular, composable, and tree-shakeable.\n",
       "type": "registry:file",
       "target": "~/AGENTS.md"
     }
