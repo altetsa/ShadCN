@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-button",
+  "title": "Icon Button",
+  "description": "Customizable icon-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/icon-button.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button, ButtonProps } from \"@/components/ui/button\"\n\nexport interface IconButtonProps extends ButtonProps {\n  glow?: boolean\n}\n\nexport function IconButton({ glow = false, className, children, ...props }: IconButtonProps) {\n  return (\n    <Button\n      variant=\"outline\"\n      size=\"icon\"\n      className={cn(\n        \"relative rounded-full transition-transform active:scale-95\",\n        glow && \"hover:shadow-[0_0_15px_rgba(var(--primary),0.5)]\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

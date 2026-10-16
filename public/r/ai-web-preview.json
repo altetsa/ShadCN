@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-web-preview",
+  "title": "AI Web Preview",
+  "description": "React AI component: web-preview for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/web-preview.tsx",
+      "content": "import * as React from \"react\"\nimport { ExternalLink, Laptop, RefreshCw, Smartphone, Tablet } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface WebPreviewProps extends React.HTMLAttributes<HTMLDivElement> {\n  url: string\n  title?: string\n}\n\nexport function WebPreview({ url, title, className, ...props }: WebPreviewProps) {\n  const [viewport, setViewport] = React.useState<\"desktop\" | \"tablet\" | \"mobile\">(\"desktop\")\n  const [key, setKey] = React.useState(0)\n\n  const reload = () => setKey((k) => k + 1)\n\n  return (\n    <div className={cn(\"flex flex-col overflow-hidden rounded-xl border bg-background shadow-md\", className)} {...props}>\n      <div className=\"flex h-11 items-center justify-between border-b bg-muted/40 px-3\">\n        <div className=\"flex items-center gap-1.5 text-xs text-muted-foreground\">\n          <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={reload}>\n            <RefreshCw className=\"h-3.5 w-3.5\" />\n          </Button>\n          <span className=\"font-medium text-foreground\">{title || url}</span>\n        </div>\n\n        <div className=\"flex items-center gap-1\">\n          <Button\n            variant={viewport === \"desktop\" ? \"secondary\" : \"ghost\"}\n            size=\"icon\"\n            className=\"h-7 w-7\"\n            onClick={() => setViewport(\"desktop\")}\n          >\n            <Laptop className=\"h-3.5 w-3.5\" />\n          </Button>\n          <Button\n            variant={viewport === \"tablet\" ? \"secondary\" : \"ghost\"}\n            size=\"icon\"\n            className=\"h-7 w-7\"\n            onClick={() => setViewport(\"tablet\")}\n          >\n            <Tablet className=\"h-3.5 w-3.5\" />\n          </Button>\n          <Button\n            variant={viewport === \"mobile\" ? \"secondary\" : \"ghost\"}\n            size=\"icon\"\n            className=\"h-7 w-7\"\n            onClick={() => setViewport(\"mobile\")}\n          >\n            <Smartphone className=\"h-3.5 w-3.5\" />\n          </Button>\n          <Button\n            variant=\"ghost\"\n            size=\"icon\"\n            className=\"h-7 w-7\"\n            onClick={() => window.open(url, \"_blank\")}\n          >\n            <ExternalLink className=\"h-3.5 w-3.5\" />\n          </Button>\n        </div>\n      </div>\n\n      <div className=\"flex flex-1 items-center justify-center bg-muted/20 p-4\">\n        <div\n          className={cn(\n            \"transition-all duration-300 overflow-hidden rounded-lg border bg-white shadow-sm\",\n            viewport === \"desktop\" && \"w-full h-[500px]\",\n            viewport === \"tablet\" && \"w-[768px] h-[500px]\",\n            viewport === \"mobile\" && \"w-[375px] h-[500px]\"\n          )}\n        >\n          <iframe key={key} src={url} className=\"h-full w-full border-0\" title=\"Preview\" />\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-message",
+  "title": "AI Message",
+  "description": "React AI component: message for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/message.tsx",
+      "content": "import * as React from \"react\"\nimport { Bot, User } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Avatar, AvatarFallback } from \"@/components/ui/avatar\"\n\nexport interface MessageProps extends React.HTMLAttributes<HTMLDivElement> {\n  role: \"user\" | \"assistant\" | \"system\"\n  avatar?: React.ReactNode\n  timestamp?: string\n  children: React.ReactNode\n  actions?: React.ReactNode\n}\n\nexport function Message({\n  role,\n  avatar,\n  timestamp,\n  children,\n  actions,\n  className,\n  ...props\n}: MessageProps) {\n  const isUser = role === \"user\"\n\n  return (\n    <div\n      className={cn(\n        \"group flex w-full gap-3\",\n        isUser ? \"flex-row-reverse\" : \"flex-row\",\n        className\n      )}\n      {...props}\n    >\n      <Avatar className={cn(\"h-8 w-8 shrink-0\", isUser ? \"bg-primary text-primary-foreground\" : \"bg-muted\")}>\n        {avatar ? (\n          avatar\n        ) : (\n          <AvatarFallback className={isUser ? \"bg-primary text-primary-foreground\" : \"bg-muted\"}>\n            {isUser ? <User className=\"h-4 w-4\" /> : <Bot className=\"h-4 w-4\" />}\n          </AvatarFallback>\n        )}\n      </Avatar>\n\n      <div className={cn(\"flex max-w-[85%] flex-col gap-1.5\", isUser ? \"items-end\" : \"items-start\")}>\n        <div\n          className={cn(\n            \"rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-xs\",\n            isUser\n              ? \"bg-primary text-primary-foreground\"\n              : \"border bg-muted/30 text-foreground\"\n          )}\n        >\n          {children}\n        </div>\n\n        {(actions || timestamp) && (\n          <div className=\"flex items-center gap-2 px-1 text-[11px] text-muted-foreground\">\n            {timestamp && <span>{timestamp}</span>}\n            {actions}\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "utils"
+  ]
+}

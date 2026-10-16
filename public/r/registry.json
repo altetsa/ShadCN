@@ -20,6 +20,30 @@
       ]
     },
     {
+      "name": "use-boolean",
+      "type": "registry:hook",
+      "title": "Use Boolean",
+      "description": "React hook: use-boolean.",
+      "files": [
+        {
+          "path": "hooks/use-boolean.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-click-anywhere",
+      "type": "registry:hook",
+      "title": "Use Click Anywhere",
+      "description": "React hook: use-click-anywhere.",
+      "files": [
+        {
+          "path": "hooks/use-click-anywhere.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
       "name": "use-copy-to-clipboard",
       "type": "registry:hook",
       "title": "Use Copy To Clipboard",
@@ -27,6 +51,198 @@
       "files": [
         {
           "path": "hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-countdown",
+      "type": "registry:hook",
+      "title": "Use Countdown",
+      "description": "React hook: use-countdown.",
+      "files": [
+        {
+          "path": "hooks/use-countdown.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-counter",
+      "type": "registry:hook",
+      "title": "Use Counter",
+      "description": "React hook: use-counter.",
+      "files": [
+        {
+          "path": "hooks/use-counter.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-dark-mode",
+      "type": "registry:hook",
+      "title": "Use Dark Mode",
+      "description": "React hook: use-dark-mode.",
+      "files": [
+        {
+          "path": "hooks/use-dark-mode.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-debounce-callback",
+      "type": "registry:hook",
+      "title": "Use Debounce Callback",
+      "description": "React hook: use-debounce-callback.",
+      "files": [
+        {
+          "path": "hooks/use-debounce-callback.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-debounce-value",
+      "type": "registry:hook",
+      "title": "Use Debounce Value",
+      "description": "React hook: use-debounce-value.",
+      "files": [
+        {
+          "path": "hooks/use-debounce-value.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-document-title",
+      "type": "registry:hook",
+      "title": "Use Document Title",
+      "description": "React hook: use-document-title.",
+      "files": [
+        {
+          "path": "hooks/use-document-title.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-event-callback",
+      "type": "registry:hook",
+      "title": "Use Event Callback",
+      "description": "React hook: use-event-callback.",
+      "files": [
+        {
+          "path": "hooks/use-event-callback.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-event-listener",
+      "type": "registry:hook",
+      "title": "Use Event Listener",
+      "description": "React hook: use-event-listener.",
+      "files": [
+        {
+          "path": "hooks/use-event-listener.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-hover",
+      "type": "registry:hook",
+      "title": "Use Hover",
+      "description": "React hook: use-hover.",
+      "files": [
+        {
+          "path": "hooks/use-hover.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-intersection-observer",
+      "type": "registry:hook",
+      "title": "Use Intersection Observer",
+      "description": "React hook: use-intersection-observer.",
+      "files": [
+        {
+          "path": "hooks/use-intersection-observer.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-interval",
+      "type": "registry:hook",
+      "title": "Use Interval",
+      "description": "React hook: use-interval.",
+      "files": [
+        {
+          "path": "hooks/use-interval.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-is-client",
+      "type": "registry:hook",
+      "title": "Use Is Client",
+      "description": "React hook: use-is-client.",
+      "files": [
+        {
+          "path": "hooks/use-is-client.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-is-mounted",
+      "type": "registry:hook",
+      "title": "Use Is Mounted",
+      "description": "React hook: use-is-mounted.",
+      "files": [
+        {
+          "path": "hooks/use-is-mounted.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-isomorphic-layout-effect",
+      "type": "registry:hook",
+      "title": "Use Isomorphic Layout Effect",
+      "description": "React hook: use-isomorphic-layout-effect.",
+      "files": [
+        {
+          "path": "hooks/use-isomorphic-layout-effect.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-local-storage",
+      "type": "registry:hook",
+      "title": "Use Local Storage",
+      "description": "React hook: use-local-storage.",
+      "files": [
+        {
+          "path": "hooks/use-local-storage.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-map",
+      "type": "registry:hook",
+      "title": "Use Map",
+      "description": "React hook: use-map.",
+      "files": [
+        {
+          "path": "hooks/use-map.ts",
           "type": "registry:hook"
         }
       ]
@@ -51,6 +267,174 @@
       "files": [
         {
           "path": "hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-mouse-position",
+      "type": "registry:hook",
+      "title": "Use Mouse Position",
+      "description": "React hook: use-mouse-position.",
+      "files": [
+        {
+          "path": "hooks/use-mouse-position.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-on-click-outside",
+      "type": "registry:hook",
+      "title": "Use On Click Outside",
+      "description": "React hook: use-on-click-outside.",
+      "files": [
+        {
+          "path": "hooks/use-on-click-outside.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-read-local-storage",
+      "type": "registry:hook",
+      "title": "Use Read Local Storage",
+      "description": "React hook: use-read-local-storage.",
+      "files": [
+        {
+          "path": "hooks/use-read-local-storage.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-resize-observer",
+      "type": "registry:hook",
+      "title": "Use Resize Observer",
+      "description": "React hook: use-resize-observer.",
+      "files": [
+        {
+          "path": "hooks/use-resize-observer.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-screen",
+      "type": "registry:hook",
+      "title": "Use Screen",
+      "description": "React hook: use-screen.",
+      "files": [
+        {
+          "path": "hooks/use-screen.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-script",
+      "type": "registry:hook",
+      "title": "Use Script",
+      "description": "React hook: use-script.",
+      "files": [
+        {
+          "path": "hooks/use-script.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-scroll-lock",
+      "type": "registry:hook",
+      "title": "Use Scroll Lock",
+      "description": "React hook: use-scroll-lock.",
+      "files": [
+        {
+          "path": "hooks/use-scroll-lock.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-session-storage",
+      "type": "registry:hook",
+      "title": "Use Session Storage",
+      "description": "React hook: use-session-storage.",
+      "files": [
+        {
+          "path": "hooks/use-session-storage.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-step",
+      "type": "registry:hook",
+      "title": "Use Step",
+      "description": "React hook: use-step.",
+      "files": [
+        {
+          "path": "hooks/use-step.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-ternary-dark-mode",
+      "type": "registry:hook",
+      "title": "Use Ternary Dark Mode",
+      "description": "React hook: use-ternary-dark-mode.",
+      "files": [
+        {
+          "path": "hooks/use-ternary-dark-mode.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-timeout",
+      "type": "registry:hook",
+      "title": "Use Timeout",
+      "description": "React hook: use-timeout.",
+      "files": [
+        {
+          "path": "hooks/use-timeout.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-toggle",
+      "type": "registry:hook",
+      "title": "Use Toggle",
+      "description": "React hook: use-toggle.",
+      "files": [
+        {
+          "path": "hooks/use-toggle.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-unmount",
+      "type": "registry:hook",
+      "title": "Use Unmount",
+      "description": "React hook: use-unmount.",
+      "files": [
+        {
+          "path": "hooks/use-unmount.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-window-size",
+      "type": "registry:hook",
+      "title": "Use Window Size",
+      "description": "React hook: use-window-size.",
+      "files": [
+        {
+          "path": "hooks/use-window-size.ts",
           "type": "registry:hook"
         }
       ]
@@ -108,6 +492,25 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "animated-modal-button",
+      "type": "registry:ui",
+      "title": "Animated Modal Button",
+      "description": "Customizable animated-modal-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/animated-modal-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
         "utils"
       ]
     },
@@ -346,6 +749,59 @@
       ]
     },
     {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Customizable copy-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "corner-accent-button",
+      "type": "registry:ui",
+      "title": "Corner Accent Button",
+      "description": "Customizable corner-accent-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/corner-accent-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "counter-button",
+      "type": "registry:ui",
+      "title": "Counter Button",
+      "description": "Customizable counter-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/counter-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
       "name": "dialog",
       "type": "registry:ui",
       "title": "Dialog",
@@ -423,6 +879,21 @@
       ]
     },
     {
+      "name": "flip-button",
+      "type": "registry:ui",
+      "title": "Flip Button",
+      "description": "Customizable flip-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/flip-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "title": "Form",
@@ -443,6 +914,24 @@
       ]
     },
     {
+      "name": "github-stars-button",
+      "type": "registry:ui",
+      "title": "Github Stars Button",
+      "description": "Customizable github-stars-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/github-stars-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "title": "Hover Card",
@@ -455,6 +944,40 @@
       ],
       "dependencies": [
         "@radix-ui/react-hover-card"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon Button",
+      "description": "Customizable icon-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/icon-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "input-button",
+      "type": "registry:ui",
+      "title": "Input Button",
+      "description": "Customizable input-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/input-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
       ],
       "registryDependencies": [
         "utils"
@@ -513,6 +1036,21 @@
       ]
     },
     {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button",
+      "description": "Customizable liquid-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/liquid-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
       "name": "magic-card",
       "type": "registry:ui",
       "title": "Magic Card",
@@ -520,6 +1058,21 @@
       "files": [
         {
           "path": "components/ui/magic-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "type": "registry:ui",
+      "title": "Magnetic Button",
+      "description": "Customizable magnetic-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/magnetic-button.tsx",
           "type": "registry:ui"
         }
       ],
@@ -641,6 +1194,24 @@
       ]
     },
     {
+      "name": "rating-button",
+      "type": "registry:ui",
+      "title": "Rating Button",
+      "description": "Customizable rating-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/rating-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
       "name": "resizable",
       "type": "registry:ui",
       "title": "Resizable",
@@ -653,6 +1224,21 @@
       ],
       "dependencies": [
         "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "Ripple Button",
+      "description": "Customizable ripple-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/ripple-button.tsx",
+          "type": "registry:ui"
+        }
       ],
       "registryDependencies": [
         "utils"
@@ -860,6 +1446,24 @@
       ]
     },
     {
+      "name": "text-reveal-button",
+      "type": "registry:ui",
+      "title": "Text Reveal Button",
+      "description": "Customizable text-reveal-button component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/text-reveal-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "title": "Textarea",
@@ -871,6 +1475,43 @@
         }
       ],
       "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "theme-switcher",
+      "type": "registry:ui",
+      "title": "Theme Switcher",
+      "description": "Customizable theme-switcher component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/theme-switcher.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "Customizable theme-toggle component with variants and accessibility.",
+      "files": [
+        {
+          "path": "components/ui/theme-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
         "utils"
       ]
     },
@@ -962,6 +1603,455 @@
       ],
       "dependencies": [
         "@radix-ui/react-tooltip"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-actions",
+      "type": "registry:ui",
+      "title": "AI Actions",
+      "description": "React AI component: actions for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/actions.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-branch",
+      "type": "registry:ui",
+      "title": "AI Branch",
+      "description": "React AI component: branch for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/branch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-code-block",
+      "type": "registry:ui",
+      "title": "AI Code Block",
+      "description": "React AI component: code-block for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-conversation",
+      "type": "registry:ui",
+      "title": "AI Conversation",
+      "description": "React AI component: conversation for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/conversation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-image",
+      "type": "registry:ui",
+      "title": "AI Image",
+      "description": "React AI component: image for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/image.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "skeleton",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-inline-citation",
+      "type": "registry:ui",
+      "title": "AI Inline Citation",
+      "description": "React AI component: inline-citation for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/inline-citation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hover-card",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-loader",
+      "type": "registry:ui",
+      "title": "AI Loader",
+      "description": "React AI component: loader for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/loader.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-message",
+      "type": "registry:ui",
+      "title": "AI Message",
+      "description": "React AI component: message for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-prompt-input",
+      "type": "registry:ui",
+      "title": "AI Prompt Input",
+      "description": "React AI component: prompt-input for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/prompt-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-reasoning",
+      "type": "registry:ui",
+      "title": "AI Reasoning",
+      "description": "React AI component: reasoning for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/reasoning.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-response",
+      "type": "registry:ui",
+      "title": "AI Response",
+      "description": "React AI component: response for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/response.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-sources",
+      "type": "registry:ui",
+      "title": "AI Sources",
+      "description": "React AI component: sources for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/sources.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-suggestion",
+      "type": "registry:ui",
+      "title": "AI Suggestion",
+      "description": "React AI component: suggestion for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/suggestion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-task",
+      "type": "registry:ui",
+      "title": "AI Task",
+      "description": "React AI component: task for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/task.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-tool",
+      "type": "registry:ui",
+      "title": "AI Tool",
+      "description": "React AI component: tool for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/tool.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "utils"
+      ]
+    },
+    {
+      "name": "ai-web-preview",
+      "type": "registry:ui",
+      "title": "AI Web Preview",
+      "description": "React AI component: web-preview for conversational and agentic UIs.",
+      "files": [
+        {
+          "path": "components/ai/web-preview.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "text-counting-number",
+      "type": "registry:ui",
+      "title": "Text Counting Number",
+      "description": "Text animation component: counting-number.",
+      "files": [
+        {
+          "path": "components/text/counting-number.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-gradient-text",
+      "type": "registry:ui",
+      "title": "Text Gradient Text",
+      "description": "Text animation component: gradient-text.",
+      "files": [
+        {
+          "path": "components/text/gradient-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-highlight-text",
+      "type": "registry:ui",
+      "title": "Text Highlight Text",
+      "description": "Text animation component: highlight-text.",
+      "files": [
+        {
+          "path": "components/text/highlight-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-rolling-text",
+      "type": "registry:ui",
+      "title": "Text Rolling Text",
+      "description": "Text animation component: rolling-text.",
+      "files": [
+        {
+          "path": "components/text/rolling-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-rotating-text",
+      "type": "registry:ui",
+      "title": "Text Rotating Text",
+      "description": "Text animation component: rotating-text.",
+      "files": [
+        {
+          "path": "components/text/rotating-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-shimmering-text",
+      "type": "registry:ui",
+      "title": "Text Shimmering Text",
+      "description": "Text animation component: shimmering-text.",
+      "files": [
+        {
+          "path": "components/text/shimmering-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-sliding-number",
+      "type": "registry:ui",
+      "title": "Text Sliding Number",
+      "description": "Text animation component: sliding-number.",
+      "files": [
+        {
+          "path": "components/text/sliding-number.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-splitting-text",
+      "type": "registry:ui",
+      "title": "Text Splitting Text",
+      "description": "Text animation component: splitting-text.",
+      "files": [
+        {
+          "path": "components/text/splitting-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-typing-text",
+      "type": "registry:ui",
+      "title": "Text Typing Text",
+      "description": "Text animation component: typing-text.",
+      "files": [
+        {
+          "path": "components/text/typing-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "text-writing-text",
+      "type": "registry:ui",
+      "title": "Text Writing Text",
+      "description": "Text animation component: writing-text.",
+      "files": [
+        {
+          "path": "components/text/writing-text.tsx",
+          "type": "registry:ui"
+        }
       ],
       "registryDependencies": [
         "utils"
@@ -1463,6 +2553,26 @@
       "registryDependencies": [
         "button",
         "carousel"
+      ]
+    },
+    {
+      "name": "hero-announcement",
+      "type": "registry:block",
+      "title": "Hero Announcement",
+      "description": "Pre-built hero-announcement block section for marketing and product interfaces.",
+      "files": [
+        {
+          "path": "blocks/hero/hero-announcement.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "utils"
       ]
     },
     {

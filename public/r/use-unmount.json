@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-unmount",
+  "title": "Use Unmount",
+  "description": "React hook: use-unmount.",
+  "files": [
+    {
+      "path": "hooks/use-unmount.ts",
+      "content": "import * as React from \"react\"\n\nexport function useUnmount(func: () => void) {\n  const funcRef = React.useRef(func)\n  funcRef.current = func\n\n  React.useEffect(() => () => funcRef.current(), [])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

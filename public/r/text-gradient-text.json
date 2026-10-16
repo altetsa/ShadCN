@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-gradient-text",
+  "title": "Text Gradient Text",
+  "description": "Text animation component: gradient-text.",
+  "files": [
+    {
+      "path": "components/text/gradient-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface GradientTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  children: React.ReactNode\n  from?: string\n  to?: string\n}\n\nexport function GradientText({\n  children,\n  from = \"from-primary\",\n  to = \"to-indigo-500\",\n  className,\n  ...props\n}: GradientTextProps) {\n  return (\n    <span\n      className={cn(\n        \"bg-gradient-to-r bg-clip-text text-transparent font-extrabold tracking-tight\",\n        from,\n        to,\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

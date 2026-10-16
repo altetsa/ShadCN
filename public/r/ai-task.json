@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-task",
+  "title": "AI Task",
+  "description": "React AI component: task for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/task.tsx",
+      "content": "import * as React from \"react\"\nimport { CheckCircle2, Circle, Loader2, XCircle } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport type TaskStatus = \"pending\" | \"running\" | \"completed\" | \"error\"\n\nexport interface TaskItem {\n  id: string\n  title: string\n  status: TaskStatus\n  detail?: string\n}\n\nexport interface TaskListProps extends React.HTMLAttributes<HTMLDivElement> {\n  tasks: TaskItem[]\n}\n\nexport function TaskList({ tasks, className, ...props }: TaskListProps) {\n  return (\n    <div className={cn(\"space-y-2 rounded-xl border bg-muted/20 p-3\", className)} {...props}>\n      {tasks.map((task) => (\n        <div key={task.id} className=\"flex items-start gap-2.5 text-xs\">\n          {task.status === \"pending\" && <Circle className=\"mt-0.5 h-3.5 w-3.5 text-muted-foreground\" />}\n          {task.status === \"running\" && <Loader2 className=\"mt-0.5 h-3.5 w-3.5 animate-spin text-primary\" />}\n          {task.status === \"completed\" && <CheckCircle2 className=\"mt-0.5 h-3.5 w-3.5 text-emerald-500\" />}\n          {task.status === \"error\" && <XCircle className=\"mt-0.5 h-3.5 w-3.5 text-destructive\" />}\n\n          <div className=\"flex-1\">\n            <p className={cn(\"font-medium\", task.status === \"completed\" && \"text-muted-foreground line-through\")}>\n              {task.title}\n            </p>\n            {task.detail && <p className=\"text-[11px] text-muted-foreground\">{task.detail}</p>}\n          </div>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

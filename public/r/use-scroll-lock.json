@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-scroll-lock",
+  "title": "Use Scroll Lock",
+  "description": "React hook: use-scroll-lock.",
+  "files": [
+    {
+      "path": "hooks/use-scroll-lock.ts",
+      "content": "import * as React from \"react\"\n\nexport function useScrollLock(lock = false) {\n  React.useEffect(() => {\n    if (!lock) return\n    const originalStyle = window.getComputedStyle(document.body).overflow\n    document.body.style.overflow = \"hidden\"\n    return () => {\n      document.body.style.overflow = originalStyle\n    }\n  }, [lock])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

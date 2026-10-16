@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rating-button",
+  "title": "Rating Button",
+  "description": "Customizable rating-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/rating-button.tsx",
+      "content": "import * as React from \"react\"\nimport { Star } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface RatingButtonProps extends React.HTMLAttributes<HTMLDivElement> {\n  maxRating?: number\n  value?: number\n  onChange?: (val: number) => void\n}\n\nexport function RatingButton({\n  maxRating = 5,\n  value = 0,\n  onChange,\n  className,\n  ...props\n}: RatingButtonProps) {\n  const [hoverRating, setHoverRating] = React.useState<number | null>(null)\n\n  return (\n    <div className={cn(\"inline-flex items-center gap-1\", className)} {...props}>\n      {Array.from({ length: maxRating }).map((_, i) => {\n        const ratingValue = i + 1\n        const isFilled = (hoverRating !== null ? hoverRating : value) >= ratingValue\n\n        return (\n          <button\n            key={i}\n            type=\"button\"\n            onMouseEnter={() => setHoverRating(ratingValue)}\n            onMouseLeave={() => setHoverRating(null)}\n            onClick={() => onChange?.(ratingValue)}\n            className=\"p-1 text-muted-foreground transition-transform hover:scale-125 focus:outline-none\"\n          >\n            <Star\n              className={cn(\n                \"h-5 w-5 transition-colors\",\n                isFilled ? \"fill-amber-400 text-amber-400\" : \"text-muted\"\n              )}\n            />\n            <span className=\"sr-only\">{ratingValue} stars</span>\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

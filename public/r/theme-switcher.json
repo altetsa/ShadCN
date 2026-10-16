@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-switcher",
+  "title": "Theme Switcher",
+  "description": "Customizable theme-switcher component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/theme-switcher.tsx",
+      "content": "import * as React from \"react\"\nimport { Laptop, Moon, Sun } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport type Theme = \"light\" | \"dark\" | \"system\"\n\nexport function ThemeSwitcher({ className }: { className?: string }) {\n  const [theme, setTheme] = React.useState<Theme>(\"system\")\n\n  const handleSelect = (t: Theme) => {\n    setTheme(t)\n    const root = document.documentElement\n    if (t === \"dark\") {\n      root.classList.add(\"dark\")\n    } else if (t === \"light\") {\n      root.classList.remove(\"dark\")\n    } else {\n      const isDark = window.matchMedia(\"(prefers-color-scheme: dark)\").matches\n      root.classList.toggle(\"dark\", isDark)\n    }\n  }\n\n  return (\n    <div className={cn(\"inline-flex items-center rounded-full border bg-muted/40 p-0.5\", className)}>\n      <button\n        onClick={() => handleSelect(\"light\")}\n        className={cn(\"rounded-full p-1.5 text-muted-foreground transition-colors hover:text-foreground\", theme === \"light\" && \"bg-background text-foreground shadow-xs\")}\n      >\n        <Sun className=\"h-3.5 w-3.5\" />\n        <span className=\"sr-only\">Light</span>\n      </button>\n      <button\n        onClick={() => handleSelect(\"dark\")}\n        className={cn(\"rounded-full p-1.5 text-muted-foreground transition-colors hover:text-foreground\", theme === \"dark\" && \"bg-background text-foreground shadow-xs\")}\n      >\n        <Moon className=\"h-3.5 w-3.5\" />\n        <span className=\"sr-only\">Dark</span>\n      </button>\n      <button\n        onClick={() => handleSelect(\"system\")}\n        className={cn(\"rounded-full p-1.5 text-muted-foreground transition-colors hover:text-foreground\", theme === \"system\" && \"bg-background text-foreground shadow-xs\")}\n      >\n        <Laptop className=\"h-3.5 w-3.5\" />\n        <span className=\"sr-only\">System</span>\n      </button>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

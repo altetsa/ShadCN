@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-branch",
+  "title": "AI Branch",
+  "description": "React AI component: branch for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/branch.tsx",
+      "content": "import * as React from \"react\"\nimport { ChevronLeft, ChevronRight, GitBranch } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface BranchProps extends React.HTMLAttributes<HTMLDivElement> {\n  currentBranch: number\n  totalBranches: number\n  onPrevious: () => void\n  onNext: () => void\n}\n\nexport function Branch({\n  currentBranch,\n  totalBranches,\n  onPrevious,\n  onNext,\n  className,\n  ...props\n}: BranchProps) {\n  if (totalBranches <= 1) return null\n\n  return (\n    <div className={cn(\"inline-flex items-center gap-1.5 rounded-full border bg-muted/40 px-2 py-0.5 text-xs text-muted-foreground\", className)} {...props}>\n      <GitBranch className=\"h-3 w-3\" />\n      <span>{currentBranch} / {totalBranches}</span>\n      <div className=\"flex items-center\">\n        <Button\n          variant=\"ghost\"\n          size=\"icon\"\n          className=\"h-5 w-5 rounded-full\"\n          disabled={currentBranch <= 1}\n          onClick={onPrevious}\n        >\n          <ChevronLeft className=\"h-3 w-3\" />\n          <span className=\"sr-only\">Previous variation</span>\n        </Button>\n        <Button\n          variant=\"ghost\"\n          size=\"icon\"\n          className=\"h-5 w-5 rounded-full\"\n          disabled={currentBranch >= totalBranches}\n          onClick={onNext}\n        >\n          <ChevronRight className=\"h-3 w-3\" />\n          <span className=\"sr-only\">Next variation</span>\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

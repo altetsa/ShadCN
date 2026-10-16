@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-shimmering-text",
+  "title": "Text Shimmering Text",
+  "description": "Text animation component: shimmering-text.",
+  "files": [
+    {
+      "path": "components/text/shimmering-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface ShimmeringTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string\n}\n\nexport function ShimmeringText({ text, className, ...props }: ShimmeringTextProps) {\n  return (\n    <span\n      className={cn(\n        \"inline-block bg-[linear-gradient(110deg,#939393,45%,#1e2631,55%,#939393)] dark:bg-[linear-gradient(110deg,#666,45%,#fff,55%,#666)] bg-[length:200%_100%] bg-clip-text font-bold text-transparent animate-shimmer\",\n        className\n      )}\n      {...props}\n    >\n      {text}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

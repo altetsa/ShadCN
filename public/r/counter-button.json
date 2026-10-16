@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "counter-button",
+  "title": "Counter Button",
+  "description": "Customizable counter-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/counter-button.tsx",
+      "content": "import * as React from \"react\"\nimport { Minus, Plus } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface CounterButtonProps extends React.HTMLAttributes<HTMLDivElement> {\n  value?: number\n  min?: number\n  max?: number\n  onChange?: (val: number) => void\n}\n\nexport function CounterButton({\n  value: controlledValue,\n  min = 0,\n  max = 99,\n  onChange,\n  className,\n  ...props\n}: CounterButtonProps) {\n  const [internalValue, setInternalValue] = React.useState(controlledValue ?? 0)\n  const count = controlledValue !== undefined ? controlledValue : internalValue\n\n  const update = (newVal: number) => {\n    if (newVal >= min && newVal <= max) {\n      setInternalValue(newVal)\n      onChange?.(newVal)\n    }\n  }\n\n  return (\n    <div className={cn(\"inline-flex items-center rounded-lg border bg-background p-1 shadow-xs\", className)} {...props}>\n      <Button\n        variant=\"ghost\"\n        size=\"icon\"\n        className=\"h-7 w-7 rounded-md\"\n        disabled={count <= min}\n        onClick={() => update(count - 1)}\n      >\n        <Minus className=\"h-3.5 w-3.5\" />\n      </Button>\n      <span className=\"w-9 text-center text-sm font-semibold tabular-nums\">{count}</span>\n      <Button\n        variant=\"ghost\"\n        size=\"icon\"\n        className=\"h-7 w-7 rounded-md\"\n        disabled={count >= max}\n        onClick={() => update(count + 1)}\n      >\n        <Plus className=\"h-3.5 w-3.5\" />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

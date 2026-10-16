@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-tool",
+  "title": "AI Tool",
+  "description": "React AI component: tool for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/tool.tsx",
+      "content": "import * as React from \"react\"\nimport { ChevronDown, Wrench } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Collapsible, CollapsibleContent, CollapsibleTrigger } from \"@/components/ui/collapsible\"\n\nexport interface ToolCallProps extends React.HTMLAttributes<HTMLDivElement> {\n  toolName: string\n  parameters: Record<string, any>\n  result?: any\n  status?: \"running\" | \"success\" | \"error\"\n}\n\nexport function ToolCall({\n  toolName,\n  parameters,\n  result,\n  status = \"success\",\n  className,\n  ...props\n}: ToolCallProps) {\n  const [isOpen, setIsOpen] = React.useState(false)\n\n  return (\n    <Collapsible\n      open={isOpen}\n      onOpenChange={setIsOpen}\n      className={cn(\"my-2 overflow-hidden rounded-lg border bg-muted/30 text-xs font-mono\", className)}\n      {...props}\n    >\n      <CollapsibleTrigger asChild>\n        <button className=\"flex w-full items-center justify-between p-2.5 text-left transition-colors hover:bg-muted/50\">\n          <div className=\"flex items-center gap-2\">\n            <Wrench className=\"h-3.5 w-3.5 text-muted-foreground\" />\n            <span className=\"font-semibold text-foreground\">{toolName}</span>\n            <span className={cn(\"rounded-full px-2 py-0.5 text-[10px] font-sans\", \n              status === \"running\" && \"bg-amber-500/10 text-amber-500\",\n              status === \"success\" && \"bg-emerald-500/10 text-emerald-500\",\n              status === \"error\" && \"bg-destructive/10 text-destructive\"\n            )}>\n              {status}\n            </span>\n          </div>\n          <ChevronDown className={cn(\"h-3.5 w-3.5 text-muted-foreground transition-transform\", isOpen && \"rotate-180\")} />\n        </button>\n      </CollapsibleTrigger>\n      <CollapsibleContent className=\"border-t bg-zinc-950 p-3 text-zinc-300\">\n        <div className=\"space-y-2\">\n          <div>\n            <span className=\"text-[10px] uppercase text-zinc-500\">Parameters</span>\n            <pre className=\"mt-1 overflow-x-auto text-[11px]\">{JSON.stringify(parameters, null, 2)}</pre>\n          </div>\n          {result !== undefined && (\n            <div>\n              <span className=\"text-[10px] uppercase text-zinc-500\">Result</span>\n              <pre className=\"mt-1 overflow-x-auto text-[11px]\">{JSON.stringify(result, null, 2)}</pre>\n            </div>\n          )}\n        </div>\n      </CollapsibleContent>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "collapsible",
+    "utils"
+  ]
+}

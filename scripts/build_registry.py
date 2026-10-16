@@ -30,23 +30,27 @@ def extract_dependencies(content: str):
     npm_deps = set()
     registry_deps = set()
 
-    # Match npm imports
     for pattern in NPM_DEP_PATTERNS:
         matches = re.findall(rf'from\s+["\']({pattern})["\']', content)
         for m in matches:
             npm_deps.add(m)
 
-    # Match internal UI component imports: @/components/ui/<component>
     ui_matches = re.findall(r'from\s+["\']@/components/ui/([a-z0-9-]+)["\']', content)
     for m in ui_matches:
         registry_deps.add(m)
 
-    # Match hooks imports: @/hooks/<hook>
+    ai_matches = re.findall(r'from\s+["\']@/components/ai/([a-z0-9-]+)["\']', content)
+    for m in ai_matches:
+        registry_deps.add(f"ai-{m}")
+
+    text_matches = re.findall(r'from\s+["\']@/components/text/([a-z0-9-]+)["\']', content)
+    for m in text_matches:
+        registry_deps.add(f"text-{m}")
+
     hook_matches = re.findall(r'from\s+["\']@/hooks/([a-z0-9-]+)["\']', content)
     for m in hook_matches:
         registry_deps.add(m)
 
-    # Match utils import
     if '@/lib/utils' in content or '@/lib/cn' in content:
         registry_deps.add("utils")
 
@@ -76,7 +80,6 @@ if utils_path.exists():
         ]
     }
     items.append(item)
-    # Generate standalone json with content
     item_standalone = {
         "$schema": "https://ui.shadcn.com/schema/registry-item.json",
         "name": item["name"],
@@ -97,7 +100,7 @@ if utils_path.exists():
 # 2. Process hooks
 hooks_dir = REPO_ROOT / "hooks"
 if hooks_dir.exists():
-    for f in sorted(hooks_dir.glob("*.ts")):
+    for f in sorted(hooks_dir.glob("*.ts*")):
         name = f.stem
         content = f.read_text(encoding="utf-8")
         npm_deps, reg_deps = extract_dependencies(content)
@@ -146,7 +149,6 @@ if ui_dir.exists():
         name = f.stem
         content = f.read_text(encoding="utf-8")
         npm_deps, reg_deps = extract_dependencies(content)
-        # Avoid self-dependency in registryDependencies
         reg_deps = [d for d in reg_deps if d != name]
 
         item = {
@@ -187,11 +189,108 @@ if ui_dir.exists():
             item_standalone["registryDependencies"] = reg_deps
         (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
 
-# 4. Process blocks
+# 4. Process components/ai
+ai_dir = REPO_ROOT / "components" / "ai"
+if ai_dir.exists():
+    for f in sorted(ai_dir.glob("*.tsx")):
+        name = f"ai-{f.stem}"
+        raw_name = f.stem
+        content = f.read_text(encoding="utf-8")
+        npm_deps, reg_deps = extract_dependencies(content)
+        reg_deps = [d for d in reg_deps if d != name and d != raw_name]
+
+        item = {
+            "name": name,
+            "type": "registry:ui",
+            "title": f"AI {format_title(raw_name)}",
+            "description": f"React AI component: {raw_name} for conversational and agentic UIs.",
+            "files": [
+                {
+                    "path": f"components/ai/{f.name}",
+                    "type": "registry:ui"
+                }
+            ]
+        }
+        if npm_deps:
+            item["dependencies"] = npm_deps
+        if reg_deps:
+            item["registryDependencies"] = reg_deps
+        items.append(item)
+
+        item_standalone = {
+            "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+            "name": name,
+            "title": item["title"],
+            "description": item["description"],
+            "files": [
+                {
+                    "path": f"components/ai/{f.name}",
+                    "content": content,
+                    "type": "registry:ui"
+                }
+            ],
+            "type": "registry:ui"
+        }
+        if npm_deps:
+            item_standalone["dependencies"] = npm_deps
+        if reg_deps:
+            item_standalone["registryDependencies"] = reg_deps
+        (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
+
+# 5. Process components/text
+text_dir = REPO_ROOT / "components" / "text"
+if text_dir.exists():
+    for f in sorted(text_dir.glob("*.tsx")):
+        name = f"text-{f.stem}"
+        raw_name = f.stem
+        content = f.read_text(encoding="utf-8")
+        npm_deps, reg_deps = extract_dependencies(content)
+        reg_deps = [d for d in reg_deps if d != name and d != raw_name]
+
+        item = {
+            "name": name,
+            "type": "registry:ui",
+            "title": f"Text {format_title(raw_name)}",
+            "description": f"Text animation component: {raw_name}.",
+            "files": [
+                {
+                    "path": f"components/text/{f.name}",
+                    "type": "registry:ui"
+                }
+            ]
+        }
+        if npm_deps:
+            item["dependencies"] = npm_deps
+        if reg_deps:
+            item["registryDependencies"] = reg_deps
+        items.append(item)
+
+        item_standalone = {
+            "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+            "name": name,
+            "title": item["title"],
+            "description": item["description"],
+            "files": [
+                {
+                    "path": f"components/text/{f.name}",
+                    "content": content,
+                    "type": "registry:ui"
+                }
+            ],
+            "type": "registry:ui"
+        }
+        if npm_deps:
+            item_standalone["dependencies"] = npm_deps
+        if reg_deps:
+            item_standalone["registryDependencies"] = reg_deps
+        (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
+
+# 6. Process blocks (both flat and subdirectories)
 blocks_dir = REPO_ROOT / "blocks"
 if blocks_dir.exists():
-    for f in sorted(blocks_dir.glob("*.tsx")):
+    for f in sorted(blocks_dir.rglob("*.tsx")):
         name = f.stem
+        rel_path = f.relative_to(REPO_ROOT).as_posix()
         content = f.read_text(encoding="utf-8")
         npm_deps, reg_deps = extract_dependencies(content)
         item = {
@@ -201,7 +300,7 @@ if blocks_dir.exists():
             "description": f"Pre-built {name} block section for marketing and product interfaces.",
             "files": [
                 {
-                    "path": f"blocks/{f.name}",
+                    "path": rel_path,
                     "type": "registry:block"
                 }
             ]
@@ -219,7 +318,7 @@ if blocks_dir.exists():
             "description": item["description"],
             "files": [
                 {
-                    "path": f"blocks/{f.name}",
+                    "path": rel_path,
                     "content": content,
                     "type": "registry:block"
                 }
@@ -232,7 +331,7 @@ if blocks_dir.exists():
             item_standalone["registryDependencies"] = reg_deps
         (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
 
-# 5. Process rules/AGENTS.md
+# 7. Process rules/AGENTS.md
 rules_file = REPO_ROOT / "rules" / "AGENTS.md"
 if rules_file.exists():
     content = rules_file.read_text(encoding="utf-8")

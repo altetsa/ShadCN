@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-image",
+  "title": "AI Image",
+  "description": "React AI component: image for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/image.tsx",
+      "content": "import * as React from \"react\"\nimport { Download, Sparkles, ZoomIn } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Dialog, DialogContent, DialogTrigger } from \"@/components/ui/dialog\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\nexport interface AIImageProps extends React.HTMLAttributes<HTMLDivElement> {\n  src: string\n  alt: string\n  prompt?: string\n  model?: string\n  loading?: boolean\n}\n\nexport function AIImage({\n  src,\n  alt,\n  prompt,\n  model = \"DALL-E 3\",\n  loading = false,\n  className,\n  ...props\n}: AIImageProps) {\n  const [isLoaded, setIsLoaded] = React.useState(false)\n\n  return (\n    <div className={cn(\"group relative overflow-hidden rounded-xl border bg-muted/30 shadow-sm\", className)} {...props}>\n      {loading || !isLoaded ? (\n        <Skeleton className=\"aspect-square w-full min-w-[280px]\" />\n      ) : null}\n\n      <img\n        src={src}\n        alt={alt}\n        onLoad={() => setIsLoaded(true)}\n        className={cn(\"aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105\", !isLoaded && \"hidden\")}\n      />\n\n      <div className=\"absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/70 via-transparent to-transparent p-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100\">\n        <div className=\"flex items-center justify-between\">\n          <span className=\"inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium text-white backdrop-blur-sm\">\n            <Sparkles className=\"h-3 w-3 text-amber-400\" />\n            {model}\n          </span>\n          <div className=\"flex gap-1\">\n            <Dialog>\n              <DialogTrigger asChild>\n                <Button size=\"icon\" variant=\"ghost\" className=\"h-7 w-7 text-white hover:bg-white/20\">\n                  <ZoomIn className=\"h-4 w-4\" />\n                </Button>\n              </DialogTrigger>\n              <DialogContent className=\"max-w-3xl overflow-hidden p-0\">\n                <img src={src} alt={alt} className=\"w-full object-contain\" />\n              </DialogContent>\n            </Dialog>\n            <Button\n              size=\"icon\"\n              variant=\"ghost\"\n              className=\"h-7 w-7 text-white hover:bg-white/20\"\n              onClick={() => window.open(src, \"_blank\")}\n            >\n              <Download className=\"h-4 w-4\" />\n            </Button>\n          </div>\n        </div>\n\n        {prompt && (\n          <p className=\"line-clamp-2 text-xs text-zinc-200\">\n            {prompt}\n          </p>\n        )}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "dialog",
+    "skeleton",
+    "utils"
+  ]
+}

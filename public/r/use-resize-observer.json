@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-resize-observer",
+  "title": "Use Resize Observer",
+  "description": "React hook: use-resize-observer.",
+  "files": [
+    {
+      "path": "hooks/use-resize-observer.ts",
+      "content": "import * as React from \"react\"\n\nexport interface Size {\n  width: number | undefined\n  height: number | undefined\n}\n\nexport function useResizeObserver<T extends HTMLElement = HTMLElement>(\n  ref: React.RefObject<T | null>\n): Size {\n  const [size, setSize] = React.useState<Size>({ width: undefined, height: undefined })\n\n  React.useEffect(() => {\n    const el = ref.current\n    if (!el || typeof ResizeObserver === \"undefined\") return\n\n    const observer = new ResizeObserver((entries) => {\n      const entry = entries[0]\n      if (entry) {\n        setSize({\n          width: entry.contentRect.width,\n          height: entry.contentRect.height,\n        })\n      }\n    })\n\n    observer.observe(el)\n    return () => observer.disconnect()\n  }, [ref])\n\n  return size\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

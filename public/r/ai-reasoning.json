@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-reasoning",
+  "title": "AI Reasoning",
+  "description": "React AI component: reasoning for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/reasoning.tsx",
+      "content": "import * as React from \"react\"\nimport { ChevronDown, Lightbulb } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Collapsible, CollapsibleContent, CollapsibleTrigger } from \"@/components/ui/collapsible\"\n\nexport interface ReasoningProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode\n  durationSeconds?: number\n  defaultOpen?: boolean\n}\n\nexport function Reasoning({\n  children,\n  durationSeconds,\n  defaultOpen = false,\n  className,\n  ...props\n}: ReasoningProps) {\n  const [isOpen, setIsOpen] = React.useState(defaultOpen)\n\n  return (\n    <Collapsible\n      open={isOpen}\n      onOpenChange={setIsOpen}\n      className={cn(\"my-2 rounded-lg border border-dashed bg-muted/20 text-xs\", className)}\n      {...props}\n    >\n      <CollapsibleTrigger asChild>\n        <button className=\"flex w-full items-center justify-between p-3 font-medium text-muted-foreground transition-colors hover:text-foreground\">\n          <div className=\"flex items-center gap-2\">\n            <Lightbulb className=\"h-3.5 w-3.5 text-amber-500\" />\n            <span>Thought Process {durationSeconds ? `(${durationSeconds}s)` : \"\"}</span>\n          </div>\n          <ChevronDown className={cn(\"h-3.5 w-3.5 transition-transform duration-200\", isOpen && \"rotate-180\")} />\n        </button>\n      </CollapsibleTrigger>\n      <CollapsibleContent className=\"border-t border-dashed px-3 py-2.5 leading-relaxed text-muted-foreground\">\n        {children}\n      </CollapsibleContent>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "collapsible",
+    "utils"
+  ]
+}

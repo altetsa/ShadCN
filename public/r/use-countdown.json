@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-countdown",
+  "title": "Use Countdown",
+  "description": "React hook: use-countdown.",
+  "files": [
+    {
+      "path": "hooks/use-countdown.ts",
+      "content": "import * as React from \"react\"\n\nexport interface CountdownOptions {\n  countStart: number\n  intervalMs?: number\n  isIncrement?: boolean\n  countStop?: number\n}\n\nexport function useCountdown({\n  countStart,\n  intervalMs = 1000,\n  isIncrement = false,\n  countStop = 0,\n}: CountdownOptions) {\n  const [count, setCount] = React.useState(countStart)\n  const [isCounting, setIsCounting] = React.useState(false)\n\n  const startCountdown = React.useCallback(() => setIsCounting(true), [])\n  const stopCountdown = React.useCallback(() => setIsCounting(false), [])\n  const resetCountdown = React.useCallback(() => {\n    setIsCounting(false)\n    setCount(countStart)\n  }, [countStart])\n\n  React.useEffect(() => {\n    if (!isCounting) return\n\n    const interval = setInterval(() => {\n      setCount((prev) => {\n        if (isIncrement) {\n          if (countStop !== undefined && prev >= countStop) {\n            setIsCounting(false)\n            return prev\n          }\n          return prev + 1\n        } else {\n          if (countStop !== undefined && prev <= countStop) {\n            setIsCounting(false)\n            return prev\n          }\n          return prev - 1\n        }\n      })\n    }, intervalMs)\n\n    return () => clearInterval(interval)\n  }, [isCounting, intervalMs, isIncrement, countStop])\n\n  return [count, { startCountdown, stopCountdown, resetCountdown }] as const\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

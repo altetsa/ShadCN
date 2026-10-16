@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-button",
+  "title": "Flip Button",
+  "description": "Customizable flip-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/flip-button.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface FlipButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  frontText: string\n  backText: string\n}\n\nexport function FlipButton({ frontText, backText, className, ...props }: FlipButtonProps) {\n  return (\n    <button\n      className={cn(\n        \"group relative h-10 w-36 overflow-hidden rounded-lg font-medium [perspective:1000px]\",\n        className\n      )}\n      {...props}\n    >\n      <div className=\"relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateX(180deg)]\">\n        <div className=\"absolute inset-0 flex items-center justify-center rounded-lg bg-primary text-primary-foreground [backface-visibility:hidden]\">\n          {frontText}\n        </div>\n        <div className=\"absolute inset-0 flex items-center justify-center rounded-lg bg-secondary text-secondary-foreground [backface-visibility:hidden] [transform:rotateX(180deg)]\">\n          {backText}\n        </div>\n      </div>\n    </button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

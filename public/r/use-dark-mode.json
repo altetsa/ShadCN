@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-dark-mode",
+  "title": "Use Dark Mode",
+  "description": "React hook: use-dark-mode.",
+  "files": [
+    {
+      "path": "hooks/use-dark-mode.ts",
+      "content": "import * as React from \"react\"\n\nexport function useDarkMode(defaultValue?: boolean) {\n  const isDarkOS = typeof window !== \"undefined\" && window.matchMedia(\"(prefers-color-scheme: dark)\").matches\n  const [isDarkMode, setDarkMode] = React.useState<boolean>(defaultValue ?? isDarkOS)\n\n  React.useEffect(() => {\n    const root = window.document.documentElement\n    if (isDarkMode) {\n      root.classList.add(\"dark\")\n    } else {\n      root.classList.remove(\"dark\")\n    }\n  }, [isDarkMode])\n\n  const toggle = React.useCallback(() => setDarkMode((prev) => !prev), [])\n  const enable = React.useCallback(() => setDarkMode(true), [])\n  const disable = React.useCallback(() => setDarkMode(false), [])\n\n  return { isDarkMode, toggle, enable, disable, setDarkMode }\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

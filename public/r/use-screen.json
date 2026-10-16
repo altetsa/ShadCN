@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-screen",
+  "title": "Use Screen",
+  "description": "React hook: use-screen.",
+  "files": [
+    {
+      "path": "hooks/use-screen.ts",
+      "content": "import * as React from \"react\"\n\nexport function useScreen() {\n  const getScreen = () => {\n    if (typeof window === \"undefined\") return { width: 0, height: 0, availWidth: 0, availHeight: 0 }\n    return {\n      width: window.screen.width,\n      height: window.screen.height,\n      availWidth: window.screen.availWidth,\n      availHeight: window.screen.availHeight,\n    }\n  }\n\n  const [screen, setScreen] = React.useState(getScreen)\n\n  React.useEffect(() => {\n    const handleResize = () => setScreen(getScreen())\n    window.addEventListener(\"resize\", handleResize)\n    return () => window.removeEventListener(\"resize\", handleResize)\n  }, [])\n\n  return screen\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

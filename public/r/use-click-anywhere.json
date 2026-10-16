@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-click-anywhere",
+  "title": "Use Click Anywhere",
+  "description": "React hook: use-click-anywhere.",
+  "files": [
+    {
+      "path": "hooks/use-click-anywhere.ts",
+      "content": "import * as React from \"react\"\n\nexport function useClickAnyWhere(handler: (event: MouseEvent) => void) {\n  React.useEffect(() => {\n    const listener = (event: MouseEvent) => {\n      handler(event)\n    }\n    document.addEventListener(\"mousedown\", listener)\n    return () => {\n      document.removeEventListener(\"mousedown\", listener)\n    }\n  }, [handler])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

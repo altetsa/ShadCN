@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-read-local-storage",
+  "title": "Use Read Local Storage",
+  "description": "React hook: use-read-local-storage.",
+  "files": [
+    {
+      "path": "hooks/use-read-local-storage.ts",
+      "content": "import * as React from \"react\"\n\nexport function useReadLocalStorage<T>(key: string): T | null {\n  const [storedValue, setStoredValue] = React.useState<T | null>(null)\n\n  React.useEffect(() => {\n    if (typeof window === \"undefined\") return\n    try {\n      const item = window.localStorage.getItem(key)\n      setStoredValue(item ? JSON.parse(item) : null)\n    } catch (e) {\n      console.warn(`Error reading localStorage key \"${key}\":`, e)\n    }\n  }, [key])\n\n  return storedValue\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

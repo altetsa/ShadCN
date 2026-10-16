@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggle",
+  "title": "Theme Toggle",
+  "description": "Customizable theme-toggle component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/theme-toggle.tsx",
+      "content": "import * as React from \"react\"\nimport { Moon, Sun } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport function ThemeToggle({ className }: { className?: string }) {\n  const [isDark, setIsDark] = React.useState(false)\n\n  React.useEffect(() => {\n    setIsDark(document.documentElement.classList.contains(\"dark\"))\n  }, [])\n\n  const toggle = () => {\n    const next = !isDark\n    setIsDark(next)\n    document.documentElement.classList.toggle(\"dark\", next)\n  }\n\n  return (\n    <Button\n      variant=\"ghost\"\n      size=\"icon\"\n      className={cn(\"h-9 w-9 rounded-full\", className)}\n      onClick={toggle}\n    >\n      {isDark ? (\n        <Sun className=\"h-4 w-4 transition-transform rotate-0 scale-100\" />\n      ) : (\n        <Moon className=\"h-4 w-4 transition-transform rotate-0 scale-100\" />\n      )}\n      <span className=\"sr-only\">Toggle theme</span>\n    </Button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

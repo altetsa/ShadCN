@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-intersection-observer",
+  "title": "Use Intersection Observer",
+  "description": "React hook: use-intersection-observer.",
+  "files": [
+    {
+      "path": "hooks/use-intersection-observer.ts",
+      "content": "import * as React from \"react\"\n\nexport function useIntersectionObserver(\n  elementRef: React.RefObject<Element | null>,\n  { threshold = 0, root = null, rootMargin = \"0%\" }: IntersectionObserverInit = {}\n): IntersectionObserverEntry | undefined {\n  const [entry, setEntry] = React.useState<IntersectionObserverEntry>()\n\n  React.useEffect(() => {\n    const node = elementRef?.current\n    if (!node || typeof IntersectionObserver !== \"function\") return\n\n    const observer = new IntersectionObserver(([entry]) => setEntry(entry), {\n      threshold,\n      root,\n      rootMargin,\n    })\n\n    observer.observe(node)\n    return () => observer.disconnect()\n  }, [elementRef, threshold, root, rootMargin])\n\n  return entry\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

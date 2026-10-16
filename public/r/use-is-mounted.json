@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-is-mounted",
+  "title": "Use Is Mounted",
+  "description": "React hook: use-is-mounted.",
+  "files": [
+    {
+      "path": "hooks/use-is-mounted.ts",
+      "content": "import * as React from \"react\"\n\nexport function useIsMounted(): () => boolean {\n  const isMounted = React.useRef(false)\n\n  React.useEffect(() => {\n    isMounted.current = true\n    return () => {\n      isMounted.current = false\n    }\n  }, [])\n\n  return React.useCallback(() => isMounted.current, [])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

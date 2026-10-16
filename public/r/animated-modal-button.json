@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-modal-button",
+  "title": "Animated Modal Button",
+  "description": "Customizable animated-modal-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/animated-modal-button.tsx",
+      "content": "import * as React from \"react\"\nimport { Sparkles, X } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface AnimatedModalButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  buttonText?: string\n  modalTitle?: string\n  modalDescription?: string\n  children?: React.ReactNode\n}\n\nexport function AnimatedModalButton({\n  buttonText = \"Open Modal\",\n  modalTitle = \"Animated Modal\",\n  modalDescription = \"Smooth 3D perspective transition.\",\n  children,\n  className,\n  ...props\n}: AnimatedModalButtonProps) {\n  const [isOpen, setIsOpen] = React.useState(false)\n\n  return (\n    <>\n      <Button\n        onClick={() => setIsOpen(true)}\n        className={cn(\"relative overflow-hidden font-medium transition-all hover:scale-105 active:scale-95\", className)}\n        {...props}\n      >\n        <Sparkles className=\"mr-2 h-4 w-4\" />\n        {buttonText}\n      </Button>\n\n      {isOpen && (\n        <div className=\"fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-md bg-black/60 transition-all\">\n          <div className=\"relative w-full max-w-md rounded-2xl border bg-background p-6 shadow-2xl transition-all duration-300 animate-in fade-in zoom-in-95\">\n            <button\n              onClick={() => setIsOpen(false)}\n              className=\"absolute right-4 top-4 rounded-full p-1 text-muted-foreground hover:bg-muted hover:text-foreground\"\n            >\n              <X className=\"h-4 w-4\" />\n              <span className=\"sr-only\">Close</span>\n            </button>\n            <h3 className=\"text-lg font-semibold tracking-tight\">{modalTitle}</h3>\n            <p className=\"mt-1 text-sm text-muted-foreground\">{modalDescription}</p>\n            <div className=\"mt-4\">{children}</div>\n            <div className=\"mt-6 flex justify-end gap-2\">\n              <Button variant=\"outline\" onClick={() => setIsOpen(false)}>Close</Button>\n              <Button onClick={() => setIsOpen(false)}>Confirm</Button>\n            </div>\n          </div>\n        </div>\n      )}\n    </>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

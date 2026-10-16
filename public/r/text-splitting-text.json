@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-splitting-text",
+  "title": "Text Splitting Text",
+  "description": "Text animation component: splitting-text.",
+  "files": [
+    {
+      "path": "components/text/splitting-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface SplittingTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string\n}\n\nexport function SplittingText({ text, className, ...props }: SplittingTextProps) {\n  return (\n    <span className={cn(\"inline-flex flex-wrap gap-x-1\", className)} {...props}>\n      {text.split(\" \").map((word, wIdx) => (\n        <span key={wIdx} className=\"inline-block\">\n          {word.split(\"\").map((char, cIdx) => (\n            <span\n              key={cIdx}\n              style={{ transitionDelay: `${(wIdx * 5 + cIdx) * 30}ms` }}\n              className=\"inline-block transition-transform hover:-translate-y-1\"\n            >\n              {char}\n            </span>\n          ))}\n        </span>\n      ))}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

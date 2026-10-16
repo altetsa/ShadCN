@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-mouse-position",
+  "title": "Use Mouse Position",
+  "description": "React hook: use-mouse-position.",
+  "files": [
+    {
+      "path": "hooks/use-mouse-position.ts",
+      "content": "import * as React from \"react\"\n\nexport interface MousePosition {\n  x: number | null\n  y: number | null\n}\n\nexport function useMousePosition(): MousePosition {\n  const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: null, y: null })\n\n  React.useEffect(() => {\n    const handleMouseMove = (event: MouseEvent) => {\n      setMousePosition({ x: event.clientX, y: event.clientY })\n    }\n    window.addEventListener(\"mousemove\", handleMouseMove)\n    return () => window.removeEventListener(\"mousemove\", handleMouseMove)\n  }, [])\n\n  return mousePosition\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-actions",
+  "title": "AI Actions",
+  "description": "React AI component: actions for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/actions.tsx",
+      "content": "import * as React from \"react\"\nimport { Copy, Check, RotateCw, ThumbsUp, ThumbsDown, Share2, Edit2 } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from \"@/components/ui/tooltip\"\n\nexport interface ActionsProps extends React.HTMLAttributes<HTMLDivElement> {\n  onCopy?: () => void\n  onRetry?: () => void\n  onFeedback?: (type: \"up\" | \"down\") => void\n  onShare?: () => void\n  onEdit?: () => void\n  copyContent?: string\n}\n\nexport function Actions({\n  onCopy,\n  onRetry,\n  onFeedback,\n  onShare,\n  onEdit,\n  copyContent,\n  className,\n  ...props\n}: ActionsProps) {\n  const [copied, setCopied] = React.useState(false)\n\n  const handleCopy = () => {\n    if (copyContent) {\n      navigator.clipboard.writeText(copyContent)\n      setCopied(true)\n      setTimeout(() => setCopied(false), 2000)\n    }\n    onCopy?.()\n  }\n\n  return (\n    <TooltipProvider delayDuration={200}>\n      <div className={cn(\"flex items-center gap-1 text-muted-foreground\", className)} {...props}>\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={handleCopy}>\n              {copied ? <Check className=\"h-3.5 w-3.5 text-green-500\" /> : <Copy className=\"h-3.5 w-3.5\" />}\n              <span className=\"sr-only\">Copy</span>\n            </Button>\n          </TooltipTrigger>\n          <TooltipContent side=\"top\">Copy to clipboard</TooltipContent>\n        </Tooltip>\n\n        {onRetry && (\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={onRetry}>\n                <RotateCw className=\"h-3.5 w-3.5\" />\n                <span className=\"sr-only\">Retry</span>\n              </Button>\n            </TooltipTrigger>\n            <TooltipContent side=\"top\">Regenerate response</TooltipContent>\n          </Tooltip>\n        )}\n\n        {onFeedback && (\n          <>\n            <Tooltip>\n              <TooltipTrigger asChild>\n                <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={() => onFeedback(\"up\")}>\n                  <ThumbsUp className=\"h-3.5 w-3.5\" />\n                  <span className=\"sr-only\">Thumbs up</span>\n                </Button>\n              </TooltipTrigger>\n              <TooltipContent side=\"top\">Helpful</TooltipContent>\n            </Tooltip>\n            <Tooltip>\n              <TooltipTrigger asChild>\n                <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={() => onFeedback(\"down\")}>\n                  <ThumbsDown className=\"h-3.5 w-3.5\" />\n                  <span className=\"sr-only\">Thumbs down</span>\n                </Button>\n              </TooltipTrigger>\n              <TooltipContent side=\"top\">Unhelpful</TooltipContent>\n            </Tooltip>\n          </>\n        )}\n\n        {onShare && (\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={onShare}>\n                <Share2 className=\"h-3.5 w-3.5\" />\n                <span className=\"sr-only\">Share</span>\n              </Button>\n            </TooltipTrigger>\n            <TooltipContent side=\"top\">Share message</TooltipContent>\n          </Tooltip>\n        )}\n\n        {onEdit && (\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <Button variant=\"ghost\" size=\"icon\" className=\"h-7 w-7\" onClick={onEdit}>\n                <Edit2 className=\"h-3.5 w-3.5\" />\n                <span className=\"sr-only\">Edit message</span>\n              </Button>\n            </TooltipTrigger>\n            <TooltipContent side=\"top\">Edit prompt</TooltipContent>\n          </Tooltip>\n        )}\n      </div>\n    </TooltipProvider>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "tooltip",
+    "utils"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-button",
+  "title": "Ripple Button",
+  "description": "Customizable ripple-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/ripple-button.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children: React.ReactNode\n}\n\nexport function RippleButton({ children, className, onClick, ...props }: RippleButtonProps) {\n  const [ripples, setRipples] = React.useState<{ x: number; y: number; id: number }[]>([])\n\n  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect()\n    const x = e.clientX - rect.left\n    const y = e.clientY - rect.top\n    const newRipple = { x, y, id: Date.now() }\n\n    setRipples((prev) => [...prev, newRipple])\n    setTimeout(() => {\n      setRipples((prev) => prev.filter((r) => r.id !== newRipple.id))\n    }, 600)\n\n    onClick?.(e)\n  }\n\n  return (\n    <button\n      onClick={handleClick}\n      className={cn(\n        \"relative overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n      {ripples.map((ripple) => (\n        <span\n          key={ripple.id}\n          style={{ left: ripple.x, top: ripple.y }}\n          className=\"absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-white/40 pointer-events-none\"\n        />\n      ))}\n    </button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

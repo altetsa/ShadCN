@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-timeout",
+  "title": "Use Timeout",
+  "description": "React hook: use-timeout.",
+  "files": [
+    {
+      "path": "hooks/use-timeout.ts",
+      "content": "import * as React from \"react\"\n\nexport function useTimeout(callback: () => void, delay: number | null) {\n  const savedCallback = React.useRef(callback)\n\n  React.useEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (delay === null) return\n    const id = setTimeout(() => savedCallback.current(), delay)\n    return () => clearTimeout(id)\n  }, [delay])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

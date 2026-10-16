@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-step",
+  "title": "Use Step",
+  "description": "React hook: use-step.",
+  "files": [
+    {
+      "path": "hooks/use-step.ts",
+      "content": "import * as React from \"react\"\n\nexport function useStep(maxStep: number) {\n  const [currentStep, setCurrentStep] = React.useState(1)\n\n  const canGoToNextStep = currentStep < maxStep\n  const canGoToPrevStep = currentStep > 1\n\n  const setStep = React.useCallback(\n    (step: number | ((step: number) => number)) => {\n      const newStep = step instanceof Function ? step(currentStep) : step\n      if (newStep >= 1 && newStep <= maxStep) {\n        setCurrentStep(newStep)\n      }\n    },\n    [maxStep, currentStep]\n  )\n\n  const goToNextStep = React.useCallback(() => {\n    if (canGoToNextStep) setCurrentStep((step) => step + 1)\n  }, [canGoToNextStep])\n\n  const goToPrevStep = React.useCallback(() => {\n    if (canGoToPrevStep) setCurrentStep((step) => step - 1)\n  }, [canGoToPrevStep])\n\n  const reset = React.useCallback(() => setCurrentStep(1), [])\n\n  return [\n    currentStep,\n    { goToNextStep, goToPrevStep, canGoToNextStep, canGoToPrevStep, setStep, reset },\n  ] as const\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

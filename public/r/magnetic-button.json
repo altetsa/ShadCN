@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-button",
+  "title": "Magnetic Button",
+  "description": "Customizable magnetic-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/magnetic-button.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children: React.ReactNode\n}\n\nexport function MagneticButton({ children, className, ...props }: MagneticButtonProps) {\n  const buttonRef = React.useRef<HTMLButtonElement>(null)\n  const [position, setPosition] = React.useState({ x: 0, y: 0 })\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!buttonRef.current) return\n    const { clientX, clientY } = e\n    const { left, top, width, height } = buttonRef.current.getBoundingClientRect()\n    const x = (clientX - (left + width / 2)) * 0.35\n    const y = (clientY - (top + height / 2)) * 0.35\n    setPosition({ x, y })\n  }\n\n  const handleMouseLeave = () => {\n    setPosition({ x: 0, y: 0 })\n  }\n\n  return (\n    <button\n      ref={buttonRef}\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n      style={{\n        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,\n        transition: position.x === 0 ? \"transform 0.5s ease-out\" : \"none\",\n      }}\n      className={cn(\n        \"inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-md transition-shadow hover:shadow-lg\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

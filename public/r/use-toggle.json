@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-toggle",
+  "title": "Use Toggle",
+  "description": "React hook: use-toggle.",
+  "files": [
+    {
+      "path": "hooks/use-toggle.ts",
+      "content": "import * as React from \"react\"\n\nexport function useToggle(initialValue = false): [boolean, (value?: boolean) => void] {\n  const [value, setValue] = React.useState(initialValue)\n\n  const toggle = React.useCallback((nextValue?: boolean) => {\n    if (typeof nextValue === \"boolean\") {\n      setValue(nextValue)\n    } else {\n      setValue((current) => !current)\n    }\n  }, [])\n\n  return [value, toggle]\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

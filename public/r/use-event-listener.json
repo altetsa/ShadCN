@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-event-listener",
+  "title": "Use Event Listener",
+  "description": "React hook: use-event-listener.",
+  "files": [
+    {
+      "path": "hooks/use-event-listener.ts",
+      "content": "import * as React from \"react\"\n\nexport function useEventListener<K extends keyof WindowEventMap>(\n  eventName: K,\n  handler: (event: WindowEventMap[K]) => void,\n  element: HTMLElement | Window | Document | null = typeof window !== \"undefined\" ? window : null\n) {\n  const savedHandler = React.useRef(handler)\n\n  React.useEffect(() => {\n    savedHandler.current = handler\n  }, [handler])\n\n  React.useEffect(() => {\n    if (!element?.addEventListener) return\n    const eventListener = (event: any) => savedHandler.current(event)\n    element.addEventListener(eventName, eventListener)\n    return () => {\n      element.removeEventListener(eventName, eventListener)\n    }\n  }, [eventName, element])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

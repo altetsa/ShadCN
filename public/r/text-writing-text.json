@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-writing-text",
+  "title": "Text Writing Text",
+  "description": "Text animation component: writing-text.",
+  "files": [
+    {
+      "path": "components/text/writing-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface WritingTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string\n}\n\nexport function WritingText({ text, className, ...props }: WritingTextProps) {\n  const words = text.split(\" \")\n\n  return (\n    <span className={cn(\"inline-flex flex-wrap gap-x-1.5\", className)} {...props}>\n      {words.map((word, i) => (\n        <span\n          key={i}\n          style={{ animationDelay: `${i * 120}ms` }}\n          className=\"inline-block animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-both\"\n        >\n          {word}\n        </span>\n      ))}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

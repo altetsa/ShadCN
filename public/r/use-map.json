@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-map",
+  "title": "Use Map",
+  "description": "React hook: use-map.",
+  "files": [
+    {
+      "path": "hooks/use-map.ts",
+      "content": "import * as React from \"react\"\n\nexport function useMap<K, V>(initialEntries?: readonly (readonly [K, V])[] | null) {\n  const [map, setMap] = React.useState<Map<K, V>>(() => new Map(initialEntries))\n\n  const set = React.useCallback((key: K, value: V) => {\n    setMap((prev) => {\n      const copy = new Map(prev)\n      copy.set(key, value)\n      return copy\n    })\n  }, [])\n\n  const remove = React.useCallback((key: K) => {\n    setMap((prev) => {\n      const copy = new Map(prev)\n      copy.delete(key)\n      return copy\n    })\n  }, [])\n\n  const clear = React.useCallback(() => setMap(new Map()), [])\n\n  return [map, { set, remove, clear }] as const\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

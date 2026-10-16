@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-suggestion",
+  "title": "AI Suggestion",
+  "description": "React AI component: suggestion for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/suggestion.tsx",
+      "content": "import * as React from \"react\"\nimport { ArrowUpRight } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface SuggestionProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  prompt: string\n  onSelectPrompt?: (prompt: string) => void\n}\n\nexport function Suggestion({\n  prompt,\n  onSelectPrompt,\n  className,\n  ...props\n}: SuggestionProps) {\n  return (\n    <button\n      onClick={() => onSelectPrompt?.(prompt)}\n      className={cn(\n        \"group inline-flex items-center gap-1.5 rounded-full border bg-background px-3 py-1.5 text-xs text-muted-foreground shadow-xs transition-colors hover:border-primary/50 hover:bg-muted/50 hover:text-foreground\",\n        className\n      )}\n      {...props}\n    >\n      <span>{prompt}</span>\n      <ArrowUpRight className=\"h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5\" />\n    </button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

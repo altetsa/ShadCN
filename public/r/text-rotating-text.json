@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-rotating-text",
+  "title": "Text Rotating Text",
+  "description": "Text animation component: rotating-text.",
+  "files": [
+    {
+      "path": "components/text/rotating-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface RotatingTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  words: string[]\n  intervalMs?: number\n}\n\nexport function RotatingText({ words, intervalMs = 2500, className, ...props }: RotatingTextProps) {\n  const [index, setIndex] = React.useState(0)\n\n  React.useEffect(() => {\n    const timer = setInterval(() => {\n      setIndex((prev) => (prev + 1) % words.length)\n    }, intervalMs)\n    return () => clearInterval(timer)\n  }, [words, intervalMs])\n\n  return (\n    <span className={cn(\"relative inline-block font-extrabold text-primary transition-all duration-300\", className)} {...props}>\n      {words[index]}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

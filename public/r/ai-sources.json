@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-sources",
+  "title": "AI Sources",
+  "description": "React AI component: sources for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/sources.tsx",
+      "content": "import * as React from \"react\"\nimport { BookOpen, ExternalLink } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface SourceItem {\n  title: string\n  url: string\n  snippet?: string\n  siteName?: string\n}\n\nexport interface SourcesProps extends React.HTMLAttributes<HTMLDivElement> {\n  sources: SourceItem[]\n}\n\nexport function Sources({ sources, className, ...props }: SourcesProps) {\n  if (!sources || sources.length === 0) return null\n\n  return (\n    <div className={cn(\"my-3 space-y-2\", className)} {...props}>\n      <div className=\"flex items-center gap-1.5 text-xs font-medium text-muted-foreground\">\n        <BookOpen className=\"h-3.5 w-3.5\" />\n        <span>Used {sources.length} sources</span>\n      </div>\n      <div className=\"grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3\">\n        {sources.map((source, i) => (\n          <a\n            key={i}\n            href={source.url}\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            className=\"group flex flex-col justify-between rounded-lg border bg-card p-2.5 text-xs transition-colors hover:border-primary/50 hover:bg-muted/40\"\n          >\n            <div className=\"space-y-1\">\n              <span className=\"text-[10px] font-medium text-muted-foreground\">\n                {source.siteName || new URL(source.url).hostname}\n              </span>\n              <p className=\"line-clamp-1 font-medium text-card-foreground group-hover:underline\">\n                {source.title}\n              </p>\n            </div>\n            <div className=\"mt-2 flex items-center justify-end text-muted-foreground group-hover:text-foreground\">\n              <ExternalLink className=\"h-3 w-3\" />\n            </div>\n          </a>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-event-callback",
+  "title": "Use Event Callback",
+  "description": "React hook: use-event-callback.",
+  "files": [
+    {
+      "path": "hooks/use-event-callback.ts",
+      "content": "import * as React from \"react\"\n\nexport function useEventCallback<Args extends unknown[], R>(fn: (...args: Args) => R): (...args: Args) => R {\n  const ref = React.useRef<typeof fn>(() => {\n    throw new Error(\"Cannot call an event handler while rendering.\")\n  })\n\n  React.useInsertionEffect(() => {\n    ref.current = fn\n  }, [fn])\n\n  return React.useCallback((...args: Args) => ref.current(...args), [])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

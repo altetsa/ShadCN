@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-local-storage",
+  "title": "Use Local Storage",
+  "description": "React hook: use-local-storage.",
+  "files": [
+    {
+      "path": "hooks/use-local-storage.ts",
+      "content": "import * as React from \"react\"\n\nexport function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T | ((val: T) => T)) => void] {\n  const [storedValue, setStoredValue] = React.useState<T>(() => {\n    if (typeof window === \"undefined\") return initialValue\n    try {\n      const item = window.localStorage.getItem(key)\n      return item ? JSON.parse(item) : initialValue\n    } catch (error) {\n      console.warn(`Error reading localStorage key \"${key}\":`, error)\n      return initialValue\n    }\n  })\n\n  const setValue = (value: T | ((val: T) => T)) => {\n    try {\n      const valueToStore = value instanceof Function ? value(storedValue) : value\n      setStoredValue(valueToStore)\n      if (typeof window !== \"undefined\") {\n        window.localStorage.setItem(key, JSON.stringify(valueToStore))\n      }\n    } catch (error) {\n      console.warn(`Error setting localStorage key \"${key}\":`, error)\n    }\n  }\n\n  return [storedValue, setValue]\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

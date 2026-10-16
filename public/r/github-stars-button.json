@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-stars-button",
+  "title": "Github Stars Button",
+  "description": "Customizable github-stars-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/github-stars-button.tsx",
+      "content": "import * as React from \"react\"\nimport { Star } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface GitHubStarsButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\n  repo: string\n  stars?: number\n}\n\nexport function GitHubStarsButton({\n  repo,\n  stars: initialStars,\n  className,\n  ...props\n}: GitHubStarsButtonProps) {\n  const [stars, setStars] = React.useState<number | null>(initialStars ?? null)\n\n  React.useEffect(() => {\n    if (initialStars !== undefined) return\n    fetch(`https://api.github.com/repos/${repo}`)\n      .then((res) => res.json())\n      .then((data) => {\n        if (data && typeof data.stargazers_count === \"number\") {\n          setStars(data.stargazers_count)\n        }\n      })\n      .catch(() => {})\n  }, [repo, initialStars])\n\n  return (\n    <a\n      href={`https://github.com/${repo}`}\n      target=\"_blank\"\n      rel=\"noopener noreferrer\"\n      className={cn(\n        \"inline-flex items-center gap-2 rounded-full border bg-background px-3 py-1.5 text-xs font-semibold text-foreground shadow-xs transition-colors hover:bg-muted\",\n        className\n      )}\n      {...props}\n    >\n      <Star className=\"h-3.5 w-3.5 fill-amber-400 text-amber-400\" />\n      <span>Star on GitHub</span>\n      {stars !== null && (\n        <span className=\"rounded-full bg-muted px-1.5 py-0.5 text-[11px] font-mono text-muted-foreground\">\n          {stars.toLocaleString()}\n        </span>\n      )}\n    </a>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

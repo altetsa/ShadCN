@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-counting-number",
+  "title": "Text Counting Number",
+  "description": "Text animation component: counting-number.",
+  "files": [
+    {
+      "path": "components/text/counting-number.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface CountingNumberProps extends React.HTMLAttributes<HTMLSpanElement> {\n  value: number\n  duration?: number\n}\n\nexport function CountingNumber({ value, duration = 1000, className, ...props }: CountingNumberProps) {\n  const [current, setCurrent] = React.useState(0)\n\n  React.useEffect(() => {\n    let startTimestamp: number | null = null\n    const startValue = current\n\n    const step = (timestamp: number) => {\n      if (!startTimestamp) startTimestamp = timestamp\n      const progress = Math.min((timestamp - startTimestamp) / duration, 1)\n      setCurrent(Math.floor(progress * (value - startValue) + startValue))\n      if (progress < 1) {\n        window.requestAnimationFrame(step)\n      }\n    }\n\n    window.requestAnimationFrame(step)\n  }, [value, duration])\n\n  return (\n    <span className={cn(\"tabular-nums font-bold tracking-tight\", className)} {...props}>\n      {current.toLocaleString()}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

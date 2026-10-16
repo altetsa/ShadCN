@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-button",
+  "title": "Input Button",
+  "description": "Customizable input-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/input-button.tsx",
+      "content": "import * as React from \"react\"\nimport { ArrowRight, Search } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface InputButtonProps extends React.HTMLAttributes<HTMLDivElement> {\n  placeholder?: string\n  onSubmitValue?: (val: string) => void\n}\n\nexport function InputButton({\n  placeholder = \"Search anything...\",\n  onSubmitValue,\n  className,\n  ...props\n}: InputButtonProps) {\n  const [isExpanded, setIsExpanded] = React.useState(false)\n  const [value, setValue] = React.useState(\"\")\n  const inputRef = React.useRef<HTMLInputElement>(null)\n\n  const handleExpand = () => {\n    setIsExpanded(true)\n    setTimeout(() => inputRef.current?.focus(), 100)\n  }\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault()\n    if (value.trim()) {\n      onSubmitValue?.(value.trim())\n    }\n  }\n\n  return (\n    <div className={cn(\"relative inline-flex items-center\", className)} {...props}>\n      {!isExpanded ? (\n        <button\n          onClick={handleExpand}\n          className=\"inline-flex h-9 items-center gap-2 rounded-full border bg-background px-4 text-xs font-medium text-muted-foreground shadow-xs transition-all hover:border-primary hover:text-foreground\"\n        >\n          <Search className=\"h-3.5 w-3.5\" />\n          <span>{placeholder}</span>\n        </button>\n      ) : (\n        <form onSubmit={handleSubmit} className=\"relative flex items-center\">\n          <input\n            ref={inputRef}\n            type=\"text\"\n            value={value}\n            onChange={(e) => setValue(e.target.value)}\n            onBlur={() => !value && setIsExpanded(false)}\n            placeholder={placeholder}\n            className=\"h-9 w-64 rounded-full border bg-background pl-8 pr-8 text-xs outline-none ring-1 ring-primary transition-all shadow-sm\"\n          />\n          <Search className=\"absolute left-2.5 h-3.5 w-3.5 text-muted-foreground\" />\n          <button type=\"submit\" className=\"absolute right-2 p-1 text-muted-foreground hover:text-foreground\">\n            <ArrowRight className=\"h-3.5 w-3.5\" />\n          </button>\n        </form>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ]
+}

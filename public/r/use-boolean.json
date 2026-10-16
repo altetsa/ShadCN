@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-boolean",
+  "title": "Use Boolean",
+  "description": "React hook: use-boolean.",
+  "files": [
+    {
+      "path": "hooks/use-boolean.ts",
+      "content": "import * as React from \"react\"\n\nexport interface UseBooleanReturn {\n  value: boolean\n  setValue: React.Dispatch<React.SetStateAction<boolean>>\n  setTrue: () => void\n  setFalse: () => void\n  toggle: () => void\n}\n\nexport function useBoolean(defaultValue = false): UseBooleanReturn {\n  const [value, setValue] = React.useState(defaultValue)\n\n  const setTrue = React.useCallback(() => setValue(true), [])\n  const setFalse = React.useCallback(() => setValue(false), [])\n  const toggle = React.useCallback(() => setValue((prev) => !prev), [])\n\n  return { value, setValue, setTrue, setFalse, toggle }\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-debounce-callback",
+  "title": "Use Debounce Callback",
+  "description": "React hook: use-debounce-callback.",
+  "files": [
+    {
+      "path": "hooks/use-debounce-callback.ts",
+      "content": "import * as React from \"react\"\n\nexport function useDebounceCallback<T extends (...args: any[]) => any>(\n  callback: T,\n  delay: number\n): (...args: Parameters<T>) => void {\n  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)\n\n  return React.useCallback(\n    (...args: Parameters<T>) => {\n      if (timeoutRef.current) {\n        clearTimeout(timeoutRef.current)\n      }\n      timeoutRef.current = setTimeout(() => {\n        callback(...args)\n      }, delay)\n    },\n    [callback, delay]\n  )\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "copy-button",
+  "title": "Copy Button",
+  "description": "Customizable copy-button component with variants and accessibility.",
+  "files": [
+    {
+      "path": "components/ui/copy-button.tsx",
+      "content": "import * as React from \"react\"\nimport { Check, Copy } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button, ButtonProps } from \"@/components/ui/button\"\n\nexport interface CopyButtonProps extends ButtonProps {\n  textToCopy: string\n}\n\nexport function CopyButton({ textToCopy, className, variant = \"outline\", size = \"icon\", ...props }: CopyButtonProps) {\n  const [copied, setCopied] = React.useState(false)\n\n  const handleCopy = async () => {\n    try {\n      await navigator.clipboard.writeText(textToCopy)\n      setCopied(true)\n      setTimeout(() => setCopied(false), 2000)\n    } catch (e) {\n      console.error(e)\n    }\n  }\n\n  return (\n    <Button\n      variant={variant}\n      size={size}\n      className={cn(\"relative transition-all\", className)}\n      onClick={handleCopy}\n      {...props}\n    >\n      {copied ? (\n        <Check className=\"h-4 w-4 text-emerald-500 transition-transform scale-110\" />\n      ) : (\n        <Copy className=\"h-4 w-4 transition-transform\" />\n      )}\n      <span className=\"sr-only\">Copy to clipboard</span>\n    </Button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

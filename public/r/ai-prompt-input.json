@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-prompt-input",
+  "title": "AI Prompt Input",
+  "description": "React AI component: prompt-input for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/prompt-input.tsx",
+      "content": "import * as React from \"react\"\nimport { ArrowUp, Paperclip, StopCircle } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface PromptInputProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {\n  onSubmitPrompt?: (prompt: string) => void\n  onStop?: () => void\n  isLoading?: boolean\n  modelSelector?: React.ReactNode\n}\n\nexport function PromptInput({\n  onSubmitPrompt,\n  onStop,\n  isLoading = false,\n  modelSelector,\n  placeholder = \"Message AI...\",\n  className,\n  ...props\n}: PromptInputProps) {\n  const [value, setValue] = React.useState(\"\")\n  const textareaRef = React.useRef<HTMLTextAreaElement>(null)\n\n  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {\n    setValue(e.target.value)\n    if (textareaRef.current) {\n      textareaRef.current.style.height = \"auto\"\n      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`\n    }\n  }\n\n  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {\n    if (e.key === \"Enter\" && !e.shiftKey) {\n      e.preventDefault()\n      handleSubmit()\n    }\n  }\n\n  const handleSubmit = () => {\n    if (!value.trim() || isLoading) return\n    onSubmitPrompt?.(value.trim())\n    setValue(\"\")\n    if (textareaRef.current) {\n      textareaRef.current.style.height = \"auto\"\n    }\n  }\n\n  return (\n    <div className={cn(\"relative flex w-full flex-col rounded-2xl border bg-background p-2.5 shadow-sm focus-within:ring-1 focus-within:ring-ring\", className)}>\n      <textarea\n        ref={textareaRef}\n        rows={1}\n        value={value}\n        onChange={handleInput}\n        onKeyDown={handleKeyDown}\n        placeholder={placeholder}\n        className=\"w-full resize-none bg-transparent px-2 py-1 text-sm outline-none placeholder:text-muted-foreground\"\n        {...props}\n      />\n      <div className=\"flex items-center justify-between pt-2\">\n        <div className=\"flex items-center gap-1.5\">\n          <Button variant=\"ghost\" size=\"icon\" className=\"h-8 w-8 text-muted-foreground hover:text-foreground\">\n            <Paperclip className=\"h-4 w-4\" />\n            <span className=\"sr-only\">Attach file</span>\n          </Button>\n          {modelSelector}\n        </div>\n        <div>\n          {isLoading ? (\n            <Button size=\"icon\" variant=\"destructive\" className=\"h-8 w-8 rounded-full\" onClick={onStop}>\n              <StopCircle className=\"h-4 w-4\" />\n              <span className=\"sr-only\">Stop generating</span>\n            </Button>\n          ) : (\n            <Button\n              size=\"icon\"\n              className=\"h-8 w-8 rounded-full\"\n              disabled={!value.trim()}\n              onClick={handleSubmit}\n            >\n              <ArrowUp className=\"h-4 w-4\" />\n              <span className=\"sr-only\">Send message</span>\n            </Button>\n          )}\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-ternary-dark-mode",
+  "title": "Use Ternary Dark Mode",
+  "description": "React hook: use-ternary-dark-mode.",
+  "files": [
+    {
+      "path": "hooks/use-ternary-dark-mode.ts",
+      "content": "import * as React from \"react\"\n\nexport type TernaryDarkMode = \"system\" | \"dark\" | \"light\"\n\nexport function useTernaryDarkMode() {\n  const [mode, setMode] = React.useState<TernaryDarkMode>(\"system\")\n  const [isDarkMode, setIsDarkMode] = React.useState(false)\n\n  React.useEffect(() => {\n    const isDarkOS = window.matchMedia(\"(prefers-color-scheme: dark)\").matches\n    const isDark = mode === \"dark\" || (mode === \"system\" && isDarkOS)\n    setIsDarkMode(isDark)\n\n    const root = document.documentElement\n    if (isDark) {\n      root.classList.add(\"dark\")\n    } else {\n      root.classList.remove(\"dark\")\n    }\n  }, [mode])\n\n  return { ternaryDarkMode: mode, setTernaryDarkMode: setMode, isDarkMode }\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

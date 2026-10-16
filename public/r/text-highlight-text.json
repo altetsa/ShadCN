@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-highlight-text",
+  "title": "Text Highlight Text",
+  "description": "Text animation component: highlight-text.",
+  "files": [
+    {
+      "path": "components/text/highlight-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface HighlightTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  children: React.ReactNode\n  color?: string\n}\n\nexport function HighlightText({\n  children,\n  color = \"bg-primary/20 text-primary\",\n  className,\n  ...props\n}: HighlightTextProps) {\n  return (\n    <span\n      className={cn(\n        \"relative inline-block rounded-md px-1.5 py-0.5 font-semibold\",\n        color,\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

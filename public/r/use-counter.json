@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-counter",
+  "title": "Use Counter",
+  "description": "React hook: use-counter.",
+  "files": [
+    {
+      "path": "hooks/use-counter.ts",
+      "content": "import * as React from \"react\"\n\nexport interface UseCounterReturn {\n  count: number\n  increment: () => void\n  decrement: () => void\n  reset: () => void\n  setCount: React.Dispatch<React.SetStateAction<number>>\n}\n\nexport function useCounter(initialValue: number = 0): UseCounterReturn {\n  const [count, setCount] = React.useState(initialValue)\n\n  const increment = React.useCallback(() => setCount((x) => x + 1), [])\n  const decrement = React.useCallback(() => setCount((x) => x - 1), [])\n  const reset = React.useCallback(() => setCount(initialValue), [initialValue])\n\n  return { count, increment, decrement, reset, setCount }\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-script",
+  "title": "Use Script",
+  "description": "React hook: use-script.",
+  "files": [
+    {
+      "path": "hooks/use-script.ts",
+      "content": "import * as React from \"react\"\n\nexport function useScript(src: string): \"idle\" | \"loading\" | \"ready\" | \"error\" {\n  const [status, setStatus] = React.useState<\"idle\" | \"loading\" | \"ready\" | \"error\">(src ? \"loading\" : \"idle\")\n\n  React.useEffect(() => {\n    if (!src) {\n      setStatus(\"idle\")\n      return\n    }\n\n    let script = document.querySelector(`script[src=\"${src}\"]`) as HTMLScriptElement\n\n    if (!script) {\n      script = document.createElement(\"script\")\n      script.src = src\n      script.async = true\n      script.setAttribute(\"data-status\", \"loading\")\n      document.body.appendChild(script)\n\n      const setAttributeFromEvent = (event: Event) => {\n        script.setAttribute(\"data-status\", event.type === \"load\" ? \"ready\" : \"error\")\n      }\n      script.addEventListener(\"load\", setAttributeFromEvent)\n      script.addEventListener(\"error\", setAttributeFromEvent)\n    } else {\n      setStatus(script.getAttribute(\"data-status\") as any || \"ready\")\n    }\n\n    const setStateFromEvent = (event: Event) => {\n      setStatus(event.type === \"load\" ? \"ready\" : \"error\")\n    }\n\n    script.addEventListener(\"load\", setStateFromEvent)\n    script.addEventListener(\"error\", setStateFromEvent)\n\n    return () => {\n      if (script) {\n        script.removeEventListener(\"load\", setStateFromEvent)\n        script.removeEventListener(\"error\", setStateFromEvent)\n      }\n    }\n  }, [src])\n\n  return status\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

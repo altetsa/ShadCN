@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-hover",
+  "title": "Use Hover",
+  "description": "React hook: use-hover.",
+  "files": [
+    {
+      "path": "hooks/use-hover.ts",
+      "content": "import * as React from \"react\"\n\nexport function useHover<T extends HTMLElement = HTMLElement>(): [React.RefObject<T | null>, boolean] {\n  const [value, setValue] = React.useState<boolean>(false)\n  const ref = React.useRef<T | null>(null)\n\n  const handleMouseEnter = () => setValue(true)\n  const handleMouseLeave = () => setValue(false)\n\n  React.useEffect(() => {\n    const node = ref.current\n    if (node) {\n      node.addEventListener(\"mouseenter\", handleMouseEnter)\n      node.addEventListener(\"mouseleave\", handleMouseLeave)\n      return () => {\n        node.removeEventListener(\"mouseenter\", handleMouseEnter)\n        node.removeEventListener(\"mouseleave\", handleMouseLeave)\n      }\n    }\n  }, [ref.current])\n\n  return [ref, value]\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

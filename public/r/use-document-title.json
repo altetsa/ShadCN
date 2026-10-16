@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-document-title",
+  "title": "Use Document Title",
+  "description": "React hook: use-document-title.",
+  "files": [
+    {
+      "path": "hooks/use-document-title.ts",
+      "content": "import * as React from \"react\"\n\nexport function useDocumentTitle(title: string): void {\n  React.useEffect(() => {\n    if (typeof document !== \"undefined\") {\n      document.title = title\n    }\n  }, [title])\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

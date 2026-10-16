@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-conversation",
+  "title": "AI Conversation",
+  "description": "React AI component: conversation for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/conversation.tsx",
+      "content": "import * as React from \"react\"\nimport { ArrowDown } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface ConversationProps extends React.HTMLAttributes<HTMLDivElement> {\n  autoScroll?: boolean\n  children: React.ReactNode\n}\n\nexport function Conversation({\n  autoScroll = true,\n  children,\n  className,\n  ...props\n}: ConversationProps) {\n  const containerRef = React.useRef<HTMLDivElement>(null)\n  const [showScrollBottom, setShowScrollBottom] = React.useState(false)\n\n  const scrollToBottom = (behavior: ScrollBehavior = \"smooth\") => {\n    if (containerRef.current) {\n      containerRef.current.scrollTo({\n        top: containerRef.current.scrollHeight,\n        behavior,\n      })\n    }\n  }\n\n  const handleScroll = () => {\n    if (!containerRef.current) return\n    const { scrollTop, scrollHeight, clientHeight } = containerRef.current\n    const isBottom = scrollHeight - scrollTop - clientHeight < 80\n    setShowScrollBottom(!isBottom)\n  }\n\n  React.useEffect(() => {\n    if (autoScroll) {\n      scrollToBottom(\"auto\")\n    }\n  }, [children, autoScroll])\n\n  return (\n    <div className=\"relative h-full w-full\">\n      <div\n        ref={containerRef}\n        onScroll={handleScroll}\n        className={cn(\"h-full w-full overflow-y-auto px-4 py-6 scroll-smooth\", className)}\n        {...props}\n      >\n        <div className=\"mx-auto max-w-3xl space-y-6\">\n          {children}\n        </div>\n      </div>\n      {showScrollBottom && (\n        <Button\n          size=\"icon\"\n          variant=\"outline\"\n          className=\"absolute bottom-4 right-8 h-9 w-9 rounded-full shadow-md backdrop-blur-sm\"\n          onClick={() => scrollToBottom(\"smooth\")}\n        >\n          <ArrowDown className=\"h-4 w-4\" />\n          <span className=\"sr-only\">Scroll to bottom</span>\n        </Button>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ]
+}

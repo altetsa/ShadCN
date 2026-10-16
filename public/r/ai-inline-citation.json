@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-inline-citation",
+  "title": "AI Inline Citation",
+  "description": "React AI component: inline-citation for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/inline-citation.tsx",
+      "content": "import * as React from \"react\"\nimport { ExternalLink } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { HoverCard, HoverCardContent, HoverCardTrigger } from \"@/components/ui/hover-card\"\n\nexport interface InlineCitationProps extends React.HTMLAttributes<HTMLSpanElement> {\n  index: number\n  title: string\n  url: string\n  snippet?: string\n  siteName?: string\n}\n\nexport function InlineCitation({\n  index,\n  title,\n  url,\n  snippet,\n  siteName,\n  className,\n  ...props\n}: InlineCitationProps) {\n  return (\n    <HoverCard openDelay={200} closeDelay={100}>\n      <HoverCardTrigger asChild>\n        <span\n          className={cn(\n            \"mx-0.5 inline-flex h-4 w-4 cursor-pointer select-none items-center justify-center rounded-full bg-muted text-[10px] font-bold text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground\",\n            className\n          )}\n          {...props}\n        >\n          {index}\n        </span>\n      </HoverCardTrigger>\n      <HoverCardContent align=\"start\" className=\"w-72 p-3 text-xs\">\n        <a href={url} target=\"_blank\" rel=\"noopener noreferrer\" className=\"group flex flex-col gap-1.5\">\n          <div className=\"flex items-center justify-between text-muted-foreground\">\n            <span className=\"font-semibold text-foreground group-hover:underline\">{siteName || new URL(url).hostname}</span>\n            <ExternalLink className=\"h-3 w-3\" />\n          </div>\n          <p className=\"font-medium text-foreground\">{title}</p>\n          {snippet && <p className=\"line-clamp-2 text-muted-foreground\">{snippet}</p>}\n        </a>\n      </HoverCardContent>\n    </HoverCard>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "hover-card",
+    "utils"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-window-size",
+  "title": "Use Window Size",
+  "description": "React hook: use-window-size.",
+  "files": [
+    {
+      "path": "hooks/use-window-size.ts",
+      "content": "import * as React from \"react\"\n\nexport interface WindowSize {\n  width: number\n  height: number\n}\n\nexport function useWindowSize(): WindowSize {\n  const [windowSize, setWindowSize] = React.useState<WindowSize>({\n    width: typeof window !== \"undefined\" ? window.innerWidth : 1200,\n    height: typeof window !== \"undefined\" ? window.innerHeight : 800,\n  })\n\n  React.useEffect(() => {\n    function handleResize() {\n      setWindowSize({\n        width: window.innerWidth,\n        height: window.innerHeight,\n      })\n    }\n\n    window.addEventListener(\"resize\", handleResize)\n    handleResize()\n    return () => window.removeEventListener(\"resize\", handleResize)\n  }, [])\n\n  return windowSize\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

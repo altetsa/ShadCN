@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-typing-text",
+  "title": "Text Typing Text",
+  "description": "Text animation component: typing-text.",
+  "files": [
+    {
+      "path": "components/text/typing-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface TypingTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string\n  speedMs?: number\n}\n\nexport function TypingText({ text, speedMs = 50, className, ...props }: TypingTextProps) {\n  const [displayed, setDisplayed] = React.useState(\"\")\n\n  React.useEffect(() => {\n    let index = 0\n    setDisplayed(\"\")\n    const interval = setInterval(() => {\n      setDisplayed((prev) => prev + text.charAt(index))\n      index++\n      if (index >= text.length) {\n        clearInterval(interval)\n      }\n    }, speedMs)\n\n    return () => clearInterval(interval)\n  }, [text, speedMs])\n\n  return (\n    <span className={cn(\"font-medium tracking-tight\", className)} {...props}>\n      {displayed}\n      <span className=\"ml-0.5 inline-block h-4 w-0.5 animate-pulse bg-primary align-middle\" />\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

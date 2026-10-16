@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-rolling-text",
+  "title": "Text Rolling Text",
+  "description": "Text animation component: rolling-text.",
+  "files": [
+    {
+      "path": "components/text/rolling-text.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface RollingTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string\n}\n\nexport function RollingText({ text, className, ...props }: RollingTextProps) {\n  return (\n    <span className={cn(\"inline-flex overflow-hidden font-bold leading-none\", className)} {...props}>\n      {text.split(\"\").map((char, i) => (\n        <span\n          key={i}\n          className=\"inline-block transition-transform duration-300 hover:-translate-y-full\"\n        >\n          <span className=\"block\">{char === \" \" ? \"\\u00A0\" : char}</span>\n          <span className=\"block text-primary\">{char === \" \" ? \"\\u00A0\" : char}</span>\n        </span>\n      ))}\n    </span>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}

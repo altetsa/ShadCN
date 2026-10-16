@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-response",
+  "title": "AI Response",
+  "description": "React AI component: response for conversational and agentic UIs.",
+  "files": [
+    {
+      "path": "components/ai/response.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface AIResponseProps extends React.HTMLAttributes<HTMLDivElement> {\n  content: string\n  isStreaming?: boolean\n}\n\nexport function AIResponse({ content, isStreaming = false, className, ...props }: AIResponseProps) {\n  return (\n    <div className={cn(\"prose prose-sm dark:prose-invert max-w-none leading-relaxed\", className)} {...props}>\n      <div className=\"whitespace-pre-wrap\">{content}</div>\n      {isStreaming && (\n        <span className=\"inline-block h-4 w-1 animate-pulse bg-primary align-middle\" />\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui",
+  "registryDependencies": [
+    "utils"
+  ]
+}
