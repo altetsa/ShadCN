@@ -4,7 +4,7 @@
 [![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-registry-black?logo=shadcnui)](https://ui.shadcn.com/docs/registry)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev)
-[![Total Items](https://img.shields.io/badge/Registry_Items-217-emerald)](#-complete-registry-catalog)
+[![Total Items](https://img.shields.io/badge/Registry_Items-241-emerald)](#-complete-registry-catalog)
 [![Admin Template](https://img.shields.io/badge/Admin_Dashboard-shadcn--admin-blue)](shadcn-admin/)
 
 An enterprise-grade, comprehensive custom registry, admin dashboard suite, and knowledge base for **shadcn/ui**, **Tailwind CSS v4**, and **React 19 / 18**. Contains **50+ core UI components**, **55+ production marketing blocks**, **20+ admin dashboard components**, **Aceternity UI & Kibo UI components**, the complete **shadcn-admin** template, custom React hooks, developer conventions, and complete architectural documentation.
@@ -46,6 +46,11 @@ npx shadcn@latest add @altetsa/hero1
 npx shadcn@latest add @altetsa/pricing4
 npx shadcn@latest add @altetsa/feature166
 npx shadcn@latest add @altetsa/testimonial10
+
+# Add Base UI (base-nova) Components - see docs/Base_UI_Components.md
+npx shadcn@latest add @altetsa/base-field
+npx shadcn@latest add @altetsa/base-combobox
+npx shadcn@latest add @altetsa/base-questionnaire
 
 # Add Hooks & Helpers
 npx shadcn@latest add @altetsa/use-mobile
@@ -181,6 +186,7 @@ To register this catalog under `@altetsa` in any Next.js or Vite project:
 
 All documentation and rules are included in the repository:
 
+- 🧩 **[Base_UI_Components.md](docs/Base_UI_Components.md)**: 24 Base UI (`base-nova`) components merged from ShadCN-UI, installable as `@altetsa/base-*`.
 - 📖 **[00_shadcn_UI_Overview.md](docs/00_shadcn_UI_Overview.md)**: Architecture overview, design system conventions, and project recipes.
 - ⚡ **[Shadcn_cn_Engine.md](docs/Shadcn_cn_Engine.md)**: Deep dive into the `shadcn-ui/cn` engine (30× faster class merging replacing `clsx` and `tailwind-merge`).
 - 🧱 **[Shadcnblocks_MCP_Overview.md](docs/Shadcnblocks_MCP_Overview.md)**: Guide to using the official shadcn MCP server with 2,295+ blocks.

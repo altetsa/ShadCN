@@ -2651,6 +2651,467 @@
       ]
     },
     {
+      "name": "base-attachment",
+      "type": "registry:ui",
+      "title": "Base Attachment",
+      "description": "Base UI (base-nova) attachment component.",
+      "files": [
+        {
+          "path": "components/base-ui/attachment.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/attachment.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "base-button",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-bubble",
+      "type": "registry:ui",
+      "title": "Base Bubble",
+      "description": "Base UI (base-nova) bubble component.",
+      "files": [
+        {
+          "path": "components/base-ui/bubble.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/bubble.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-button-group",
+      "type": "registry:ui",
+      "title": "Base Button Group",
+      "description": "Base UI (base-nova) button-group component.",
+      "files": [
+        {
+          "path": "components/base-ui/button-group.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/button-group.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "base-separator",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-button",
+      "type": "registry:ui",
+      "title": "Base Button",
+      "description": "Base UI (base-nova) button component.",
+      "files": [
+        {
+          "path": "components/base-ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/button.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-code-block",
+      "type": "registry:ui",
+      "title": "Base Code Block",
+      "description": "Base UI (base-nova) code-block component.",
+      "files": [
+        {
+          "path": "components/base-ui/code-block.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/code-block.tsx"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "base-button",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-collapsible",
+      "type": "registry:ui",
+      "title": "Base Collapsible",
+      "description": "Base UI (base-nova) collapsible component.",
+      "files": [
+        {
+          "path": "components/base-ui/collapsible.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/collapsible.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ]
+    },
+    {
+      "name": "base-combobox",
+      "type": "registry:ui",
+      "title": "Base Combobox",
+      "description": "Base UI (base-nova) combobox component.",
+      "files": [
+        {
+          "path": "components/base-ui/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/combobox.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "base-button",
+        "base-input-group",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-direction",
+      "type": "registry:ui",
+      "title": "Base Direction",
+      "description": "Base UI (base-nova) direction component.",
+      "files": [
+        {
+          "path": "components/base-ui/direction.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/direction.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ]
+    },
+    {
+      "name": "base-empty",
+      "type": "registry:ui",
+      "title": "Base Empty",
+      "description": "Base UI (base-nova) empty component.",
+      "files": [
+        {
+          "path": "components/base-ui/empty.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/empty.tsx"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-field",
+      "type": "registry:ui",
+      "title": "Base Field",
+      "description": "Base UI (base-nova) field component.",
+      "files": [
+        {
+          "path": "components/base-ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/field.tsx"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "base-label",
+        "base-separator",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-input-group",
+      "type": "registry:ui",
+      "title": "Base Input Group",
+      "description": "Base UI (base-nova) input-group component.",
+      "files": [
+        {
+          "path": "components/base-ui/input-group.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/input-group.tsx"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "base-button",
+        "base-input",
+        "base-textarea",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-input",
+      "type": "registry:ui",
+      "title": "Base Input",
+      "description": "Base UI (base-nova) input component.",
+      "files": [
+        {
+          "path": "components/base-ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/input.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-item",
+      "type": "registry:ui",
+      "title": "Base Item",
+      "description": "Base UI (base-nova) item component.",
+      "files": [
+        {
+          "path": "components/base-ui/item.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/item.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "base-separator",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-kbd",
+      "type": "registry:ui",
+      "title": "Base Kbd",
+      "description": "Base UI (base-nova) kbd component.",
+      "files": [
+        {
+          "path": "components/base-ui/kbd.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/kbd.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {+      "name": "base-label",
+      "type": "registry:ui",
+      "title": "Base Label",
+      "description": "Base UI (base-nova) label component.",
+      "files": [
+        {
+          "path": "components/base-ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/label.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-marker",
+      "type": "registry:ui",
+      "title": "Base Marker",
+      "description": "Base UI (base-nova) marker component.",
+      "files": [
+        {
+          "path": "components/base-ui/marker.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/marker.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-message-scroller",
+      "type": "registry:ui",
+      "title": "Base Message Scroller",
+      "description": "Base UI (base-nova) message-scroller component.",
+      "files": [
+        {
+          "path": "components/base-ui/message-scroller.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/message-scroller.tsx"
+        }
+      ],
+      "dependencies": [
+        "@shadcn/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "base-button",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-message",
+      "type": "registry:ui",
+      "title": "Base Message",
+      "description": "Base UI (base-nova) message component.",
+      "files": [
+        {
+          "path": "components/base-ui/message.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/message.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-native-select",
+      "type": "registry:ui",
+      "title": "Base Native Select",
+      "description": "Base UI (base-nova) native-select component.",
+      "files": [
+        {
+          "path": "components/base-ui/native-select.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/native-select.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-questionnaire",
+      "type": "registry:ui",
+      "title": "Base Questionnaire",
+      "description": "Base UI (base-nova) questionnaire component.",
+      "files": [
+        {
+          "path": "components/base-ui/questionnaire.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/questionnaire.tsx"
+        }
+      ],
+      "dependencies": [
+        "@shadcn/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "base-button",
+        "utils"
+      ]
+    },
+    {
+      "name": "base-separator",
+      "type": "registry:ui",
+      "title": "Base Separator",
+      "description": "Base UI (base-nova) separator component.",
+      "files": [
+        {
+          "path": "components/base-ui/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/separator.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-spinner",
+      "type": "registry:ui",
+      "title": "Base Spinner",
+      "description": "Base UI (base-nova) spinner component.",
+      "files": [
+        {
+          "path": "components/base-ui/spinner.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/spinner.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-textarea",
+      "type": "registry:ui",
+      "title": "Base Textarea",
+      "description": "Base UI (base-nova) textarea component.",
+      "files": [
+        {
+          "path": "components/base-ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/textarea.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "base-trace",
+      "type": "registry:ui",
+      "title": "Base Trace",
+      "description": "Base UI (base-nova) trace component.",
+      "files": [
+        {
+          "path": "components/base-ui/trace.tsx",
+          "type": "registry:ui",
+          "target": "components/base-ui/trace.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "base-collapsible",
+        "utils"
+      ]
+    },
+    {
       "name": "about3",
       "type": "registry:block",
       "title": "About3",
