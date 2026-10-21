@@ -1,8 +1,12 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import { createRequire } from "node:module";
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const require = createRequire(import.meta.url);
+const { dependencies = {} } = JSON.parse(
+  readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+) as { dependencies?: Record<string, string> };
 
 const config: StorybookConfig = {
   stories: [
@@ -27,16 +31,10 @@ const config: StorybookConfig = {
     viteConfig.resolve.alias = [
       ...aliases,
       { find: "@", replacement: rootDir },
-      {
-        find: /^@radix-ui\/react-slot$/,
-        replacement: require.resolve("@radix-ui/react-slot"),
-      },
-      {
-        find: /^class-variance-authority$/,
-        replacement: require.resolve("class-variance-authority"),
-      },
-      { find: /^clsx$/, replacement: require.resolve("clsx") },
-      { find: /^tailwind-merge$/, replacement: require.resolve("tailwind-merge") },
+      ...Object.keys(dependencies).map((name) => ({
+        find: name,
+        replacement: require.resolve(name),
+      })),
     ];
     viteConfig.plugins = [
       ...(viteConfig.plugins ?? []),
