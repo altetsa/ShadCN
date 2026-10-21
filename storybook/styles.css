@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@source "../components";
+@source "../lib";
+@source "./stories";
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
