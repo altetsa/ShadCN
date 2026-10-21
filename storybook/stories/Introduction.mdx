@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Getting started/Introduction" />
+
+# Altetsa UI — Storybook
+
+Interactive catalog for the **@altetsa** shadcn/ui registry.
+
+Use the sidebar to explore documented components. Each story should show real component code, supported variants, and interactive states.
+
+## Catalog structure
+
+- **UI** — foundational controls such as Button and Input.
+- **Blocks** — marketing sections and composed layouts.
+- **Design system** — color tokens, typography, spacing, and themes.
+
+## Local development
+
+From the repository root:
+
+```bash
+cd storybook
+npm install
+npm run storybook
+```
+
+## Online publication
+
+The GitHub Actions workflow builds this Storybook and publishes it to GitHub Pages after changes reach `main`. Enable **Settings → Pages → GitHub Actions** in the repository once to authorize Pages deployment.
