@@ -13,6 +13,7 @@ const config: StorybookConfig = {
   },
   viteFinal: async (viteConfig) => {
     const rootDir = fileURLToPath(new URL("../../", import.meta.url));
+    viteConfig.base = "./";
     viteConfig.resolve ??= {};
     viteConfig.resolve.alias = {
       ...viteConfig.resolve.alias,
