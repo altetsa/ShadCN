@@ -4,7 +4,7 @@ import json
 import re
 from pathlib import Path
 
-REPO_ROOT = Path("/root/ShadCN")
+REPO_ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_R = REPO_ROOT / "public" / "r"
 PUBLIC_R.mkdir(parents=True, exist_ok=True)
 
@@ -424,6 +424,65 @@ if kibo_dir.exists():
                     "path": rel_path,
                     "content": content,
                     "type": "registry:ui"
+                }
+            ],
+            "type": "registry:ui"
+        }
+        if npm_deps:
+            item_standalone["dependencies"] = npm_deps
+        if reg_deps:
+            item_standalone["registryDependencies"] = reg_deps
+        (PUBLIC_R / f"{name}.json").write_text(json.dumps(item_standalone, indent=2, ensure_ascii=False))
+
+# 5.8. Process components/base-ui (Base UI "base-nova" style, imported from ShadCN-UI)
+base_ui_dir = REPO_ROOT / "components" / "base-ui"
+if base_ui_dir.exists():
+    for f in sorted(base_ui_dir.glob("*.tsx")):
+        name = f"base-{f.stem}"
+        content = f.read_text(encoding="utf-8")
+        npm_deps, reg_deps = extract_dependencies(content)
+        npm_deps = set(npm_deps)
+        if re.search(r'from\s+["\']@base-ui/react', content):
+            npm_deps.add("@base-ui/react")
+        if re.search(r'from\s+["\']@shadcn/react', content):
+            npm_deps.add("@shadcn/react")
+        npm_deps.discard("cn")
+        npm_deps = sorted(npm_deps)
+        reg_deps = set(reg_deps)
+        for m in re.findall(r'from\s+["\']@/components/base-ui/([a-z0-9-]+)["\']', content):
+            reg_deps.add(f"base-{m}")
+        reg_deps = sorted(d for d in reg_deps if d != name)
+
+        item = {
+            "name": name,
+            "type": "registry:ui",
+            "title": format_title(name),
+            "description": f"Base UI (base-nova) {f.stem} component.",
+            "files": [
+                {
+                    "path": f"components/base-ui/{f.name}",
+                    "type": "registry:ui",
+                    "target": f"components/base-ui/{f.name}"
+                }
+            ]
+        }
+        if npm_deps:
+            item["dependencies"] = npm_deps
+        if reg_deps:
+            item["registryDependencies"] = reg_deps
+        items.append(item)
+
+        item_standalone = {
+            "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+            "name": name,
+            "title": item["title"],
+            "description": item["description"],
+            "files": [
+                {
+                    "path": f"components/base-ui/{f.name}",
+                    "content": content,
+                    "type": "registry:ui",
+                    "target": f"components/base-ui/{f.name}"
                 }
             ],
             "type": "registry:ui"
