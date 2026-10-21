@@ -1,8 +1,8 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
-const storybookNodeModules = (packagePath: string) =>
-  fileURLToPath(new URL(`../node_modules/${packagePath}`, import.meta.url));
+const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   stories: [
@@ -16,20 +16,43 @@ const config: StorybookConfig = {
   },
   viteFinal: async (viteConfig) => {
     const rootDir = fileURLToPath(new URL("../../", import.meta.url));
+
     viteConfig.base = "./";
     viteConfig.resolve ??= {};
-    viteConfig.resolve.alias = {
-      ...viteConfig.resolve.alias,
-      "@": rootDir,
-      // Registry source files live outside the Storybook workspace. Resolve
-      // their runtime dependencies from Storybook's own installed packages.
-      "@radix-ui/react-slot": storybookNodeModules("@radix-ui/react-slot/dist/index.mjs"),
-      "class-variance-authority": storybookNodeModules("class-variance-authority/dist/index.mjs"),
-      clsx: storybookNodeModules("clsx/dist/clsx.mjs"),
-      "tailwind-merge": storybookNodeModules("tailwind-merge/dist/bundle-mjs.mjs"),
-      react: storybookNodeModules("react/index.js"),
-      "react-dom": storybookNodeModules("react-dom/index.js"),
-    };
+    viteConfig.resolve.alias = [
+      ...(Array.isArray(viteConfig.resolve.alias)
+        ? viteConfig.resolve.alias
+        : Object.entries(viteConfig.resolve.alias ?? {}).map(([find, replacement]) => ({
+            find,
+            replacement,
+          }))),
+      { find: /^@\//, replacement: `${rootDir}` },
+      // The component source lives outside the Storybook workspace. Resolve
+      // package entry points from Storybook's own node_modules instead of
+      // relying on Vite to discover dependencies from the imported file path.
+      { find: "@radix-ui/react-slot", replacement: require.resolve("@radix-ui/react-slot") },
+      { find: "class-variance-authority", replacement: require.resolve("class-variance-authority") },
+      { find: "clsx", replacement: require.resolve("clsx") },
+      { find: "tailwind-merge", replacement: require.resolve("tailwind-merge") },
+      { find: "react-dom", replacement: require.resolve("react-dom") },
+      { find: "react", replacement: require.resolve("react") },
+    ];
+
+    viteConfig.resolve.dedupe = [
+      ...(viteConfig.resolve.dedupe ?? []),
+      "react",
+      "react-dom",
+    ];
+
+    viteConfig.optimizeDeps ??= {};
+    viteConfig.optimizeDeps.include = [
+      ...(viteConfig.optimizeDeps.include ?? []),
+      "@radix-ui/react-slot",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge",
+    ];
+
     viteConfig.plugins = [
       ...(viteConfig.plugins ?? []),
       (await import("@tailwindcss/vite")).default(),
